@@ -1,11 +1,11 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/xanzy/go-cloudstack/cloudstack"
+	"github.com/dcarbone/cs-zone-cloner/definition"
 	"os"
+	"strings"
 )
 
 var (
@@ -18,21 +18,67 @@ var (
 	zoneName   string
 	zoneID     string
 
-	help bool
-
-	client *cloudstack.CloudStackClient
-
-	zd *ZoneDefinition
+	format string
+	output string
 )
 
-type (
-	Fetcher func(*ZoneDefinition) error
-)
+func validateArgs() {
+	ok := true
+
+	if apiKey == "" {
+		fmt.Println("key cannot be empty")
+		ok = false
+	}
+	if apiSecret == "" {
+		fmt.Println("secret cannot be empty")
+		ok = false
+	}
+	hostScheme = strings.ToLower(hostScheme)
+	if hostScheme != "http" && hostScheme != "https" {
+		fmt.Println("scheme must be \"http\" or \"https\"")
+		ok = false
+	}
+	if hostAddr == "" {
+		fmt.Println("host cannot be empty")
+		ok = false
+	}
+	if hostPath == "" {
+		fmt.Println("path cannot be empty")
+		ok = false
+	}
+	if zoneName == "" && zoneID == "" {
+		fmt.Println("zone-id or zone-name must be set")
+		ok = false
+	}
+	format = strings.ToLower(format)
+	if format != "json" && format != "yaml" {
+		fmt.Println("format must be json or yaml")
+		ok = false
+	}
+
+	if !ok {
+		os.Exit(1)
+	}
+
+	log.Println("Using parameters:")
+	log.Println("  APIKey: " + apiKey)
+	log.Println("  APISecret: " + apiSecret)
+	log.Println("  HostScheme: " + hostScheme)
+	log.Println("  HostAddr: " + hostAddr)
+	log.Println("  HostPath: " + hostPath)
+	if zoneID == "" {
+		log.Println("  ZoneName: " + zoneName)
+	} else {
+		log.Println("  ZoneID: " + zoneID)
+	}
+	log.Println("  Format: " + format)
+	if output != "" {
+		log.Println("  Output: " + output)
+	}
+}
 
 func main() {
 	var err error
-	var zone *cloudstack.Zone
-	var count int
 
 	fs = flag.NewFlagSet("zone-cloner", flag.ContinueOnError)
 	fs.StringVar(&apiKey, "key", "", "API Key")
@@ -42,76 +88,54 @@ func main() {
 	fs.StringVar(&hostPath, "path", "/client/api", "API path")
 	fs.StringVar(&zoneID, "zone-id", "", "ID of Zone to clone (mutually exclusive with zone-name)")
 	fs.StringVar(&zoneName, "zone-name", "", "Name of Zone to clone (mutually exclusive with zone-id)")
-	fs.BoolVar(&help, "help", false, "Show help")
-
-	fmt.Println("Welcome to the CloudStack Zone Cloner")
+	fs.StringVar(&output, "output", "", "File to write to")
 
 	if err = fs.Parse(os.Args[1:]); err != nil {
-		fmt.Printf("Error parsing input: %s\n", err)
+		fmt.Println("Error parsing input: " + err.Error())
 		os.Exit(1)
 	}
 
 	validateArgs()
 
-	client = cloudstack.NewAsyncClient(fmt.Sprintf("%s://%s%s", hostScheme, hostAddr, hostPath), apiKey, apiSecret, false)
+	log.Println("Fetching definition...")
 
-	fmt.Println("Client created")
+	zd, err := definition.FetchDefinition(definition.Config{
+		Key:      apiKey,
+		Secret:   apiSecret,
+		Scheme:   hostScheme,
+		Address:  hostAddr,
+		Path:     hostPath,
+		ZoneName: zoneName,
+		ZoneID:   zoneID,
+	})
 
-	if zoneID == "" {
-		fmt.Println("Attempting to fetch zone " + zoneName)
-		zone, count, err = client.Zone.GetZoneByName(zoneName)
+	log.Println("")
+
+	if err != nil {
+		fmt.Println("Error: " + err.Error())
+		os.Exit(1)
+	}
+
+	log.Println("Definition built")
+
+	if format == "json" {
+		b, err := definition.FormatJSONIndent(zd)
 		if err != nil {
 			fmt.Println("Error: " + err.Error())
 			os.Exit(1)
 		}
-		if count == 0 {
-			fmt.Println("Error: Zone " + zoneName + " not found")
-			os.Exit(1)
-		}
-	} else {
-		fmt.Println("Attempting to fetch zone " + zoneID)
-		zone, count, err = client.Zone.GetZoneByID(zoneID)
-		if err != nil {
-			fmt.Println("Error: " + err.Error())
-			os.Exit(1)
-		}
-		if count == 0 {
-			fmt.Println("Error: Zone " + zoneID + " not found")
-			os.Exit(1)
+		if output == "" {
+			fmt.Println(string(b))
+		} else {
+			f, err := os.Create(output)
+			if err != nil {
+				fmt.Println("Error: " + err.Error())
+				os.Exit(1)
+			}
+			f.Write(b)
+			f.Close()
 		}
 	}
 
-	fmt.Println("Zone found")
-	fmt.Println("  ID: " + zone.Id)
-	fmt.Println("  Name: " + zone.Name)
-	fmt.Println("  Description: " + zone.Description)
-
-	fmt.Println("")
-	fmt.Println("Reading configuration...")
-
-	zd = NewZoneDefinition(*zone)
-
-	fetchers := []Fetcher{
-		fetchPods,
-		fetchClusters,
-		fetchHosts,
-		fetchPrimaryStoragePools,
-		fetchSecondaryStoragePools,
-		fetchPhysicalNetworks,
-		fetchComputeOfferings,
-		fetchDiskOfferings,
-		fetchGlobalConfigs,
-	}
-
-	for _, fetcher := range fetchers {
-		if err = fetcher(zd); err != nil {
-			fmt.Println("Error: " + err.Error())
-			os.Exit(1)
-		}
-	}
-
-	b, err := json.MarshalIndent(zd, "", "\t")
-	fmt.Println(err)
-	fmt.Println(string(b))
-
+	os.Exit(0)
 }
