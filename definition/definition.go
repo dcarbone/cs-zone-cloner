@@ -10,6 +10,9 @@ const (
 	DefaultScheme  = "http"
 	DefaultAddress = "127.0.0.1:8080"
 	DefaultPath    = "/client/api"
+
+	DefaultDBHost = "localhost"
+	DefaultDBPort = 3306
 )
 
 var (
@@ -38,6 +41,14 @@ type (
 		TrafficTypes map[string]TrafficType
 	}
 
+	DatabaseConfig struct {
+		Server   string
+		Port     int
+		Schema   string
+		User     string
+		Password string
+	}
+
 	ZoneDefinition struct {
 		Zone                  cloudstack.Zone
 		Pods                  map[string]cloudstack.Pod
@@ -49,6 +60,8 @@ type (
 		ComputeOfferings      map[string]cloudstack.ServiceOffering
 		DiskOfferings         map[string]cloudstack.DiskOffering
 		GlobalConfigs         map[string]cloudstack.Configuration
+
+		Database DatabaseConfig
 
 		// Custom can be used by whatever custom fetchers you define
 		// it is recommended you define your own formatter to take advantage of these.
@@ -86,11 +99,13 @@ type (
 		ZoneID   string `json:"zoneID"`
 		ZoneName string `json:"zoneName"`
 
+		Database *DatabaseConfig
+
 		Fetchers []Fetcher `json:"-"`
 	}
 )
 
-func FetchDefinition(conf Config) (*ZoneDefinition, error) {
+func FetchDefinition(conf Config, dbConfig *DatabaseConfig) (*ZoneDefinition, error) {
 	var zone *cloudstack.Zone
 	var count int
 	var err error
@@ -150,6 +165,10 @@ func FetchDefinition(conf Config) (*ZoneDefinition, error) {
 		if err = fetcher(zd); err != nil {
 			return nil, err
 		}
+	}
+
+	if dbConfig != nil {
+		zd.Database = *dbConfig
 	}
 
 	return zd, nil

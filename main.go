@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/dcarbone/cs-zone-cloner/definition"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -17,6 +18,12 @@ var (
 	hostPath   string
 	zoneName   string
 	zoneID     string
+
+	dbHost     string
+	dbPort     uint
+	dbSchema   string
+	dbUser     string
+	dbPassword string
 
 	format string
 	output string
@@ -75,6 +82,21 @@ func validateArgs() {
 	if output != "" {
 		log.Println("  Output: " + output)
 	}
+	if dbHost != "" {
+		log.Println("  DB Server: " + dbHost)
+	}
+	if dbPort != 0 {
+		log.Println("  DB Port: " + strconv.FormatUint(uint64(dbPort), 10))
+	}
+	if dbSchema != "" {
+		log.Println("  DB Schema: " + dbSchema)
+	}
+	if dbUser != "" {
+		log.Println("  DB User: " + dbUser)
+	}
+	if dbPassword != "" {
+		log.Println("  DB Password: " + dbPassword)
+	}
 }
 
 func main() {
@@ -83,12 +105,18 @@ func main() {
 	fs = flag.NewFlagSet("zone-cloner", flag.ContinueOnError)
 	fs.StringVar(&apiKey, "key", "", "API Key")
 	fs.StringVar(&apiSecret, "secret", "", "API Secret")
-	fs.StringVar(&hostScheme, "scheme", "http", "HTTP Scheme to use (http or https)")
-	fs.StringVar(&hostAddr, "host", "127.0.0.1:8080", "CloudStack Management host addr including port")
-	fs.StringVar(&hostPath, "path", "/client/api", "API path")
+	fs.StringVar(&hostScheme, "scheme", definition.DefaultScheme, "HTTP Scheme to use (http or https)")
+	fs.StringVar(&hostAddr, "host", definition.DefaultAddress, "CloudStack Management host addr including port")
+	fs.StringVar(&hostPath, "path", definition.DefaultPath, "API path")
 	fs.StringVar(&zoneID, "zone-id", "", "ID of Zone to clone (mutually exclusive with zone-name)")
 	fs.StringVar(&zoneName, "zone-name", "", "Name of Zone to clone (mutually exclusive with zone-id)")
 	fs.StringVar(&output, "output", "", "File to write to")
+
+	fs.StringVar(&dbHost, "db-server", definition.DefaultDBHost, "Database host")
+	fs.UintVar(&dbPort, "db-port", definition.DefaultDBPort, "Database port")
+	fs.StringVar(&dbSchema, "db-schema", "", "Database schema")
+	fs.StringVar(&dbUser, "db-user", "", "Database user")
+	fs.StringVar(&dbPassword, "db-pass", "", "Database password")
 
 	if err = fs.Parse(os.Args[1:]); err != nil {
 		fmt.Println("Error parsing input: " + err.Error())
@@ -107,6 +135,12 @@ func main() {
 		Path:     hostPath,
 		ZoneName: zoneName,
 		ZoneID:   zoneID,
+	}, &definition.DatabaseConfig{
+		Server:   dbHost,
+		Port:     int(dbPort),
+		Schema:   dbSchema,
+		User:     dbUser,
+		Password: dbPassword,
 	})
 
 	log.Println("")
