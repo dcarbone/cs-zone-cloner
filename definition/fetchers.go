@@ -4,7 +4,7 @@ import (
 	"github.com/xanzy/go-cloudstack/cloudstack"
 )
 
-func fetchPods(zd *ZoneDefinition) error {
+func fetchPods(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Pods...")
 	params := client.Pod.NewListPodsParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -20,7 +20,7 @@ func fetchPods(zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchClusters(zd *ZoneDefinition) error {
+func fetchClusters(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Clusters...")
 	params := client.Cluster.NewListClustersParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -36,7 +36,7 @@ func fetchClusters(zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchHosts(zd *ZoneDefinition) error {
+func fetchHosts(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Hosts...")
 	params := client.Host.NewListHostsParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -52,7 +52,7 @@ func fetchHosts(zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchPrimaryStoragePools(zd *ZoneDefinition) error {
+func fetchPrimaryStoragePools(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Primary Storage Pools...")
 	params := client.Pool.NewListStoragePoolsParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -68,7 +68,7 @@ func fetchPrimaryStoragePools(zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchSecondaryStoragePools(zd *ZoneDefinition) error {
+func fetchSecondaryStoragePools(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Secondary (Image) Storage Pools...")
 	params := client.ImageStore.NewListImageStoresParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -84,7 +84,7 @@ func fetchSecondaryStoragePools(zd *ZoneDefinition) error {
 	return nil
 }
 
-func expandTrafficType(zd *ZoneDefinition, csttype *cloudstack.TrafficType) (TrafficType, error) {
+func expandTrafficType(client *cloudstack.CloudStackClient, zd *ZoneDefinition, csttype *cloudstack.TrafficType) (TrafficType, error) {
 	var err error
 	log.Println("    Expanding Traffic Type " + csttype.TrafficType + "...")
 	ttype := &TrafficType{
@@ -110,7 +110,7 @@ done:
 	return *ttype, err
 }
 
-func expandPhysicalNetwork(zd *ZoneDefinition, cspn *cloudstack.PhysicalNetwork) (PhysicalNetwork, error) {
+func expandPhysicalNetwork(client *cloudstack.CloudStackClient, zd *ZoneDefinition, cspn *cloudstack.PhysicalNetwork) (PhysicalNetwork, error) {
 	var err error
 	log.Println("  Expanding Physical Network " + cspn.Name + "...")
 	ps := &PhysicalNetwork{
@@ -125,7 +125,7 @@ func expandPhysicalNetwork(zd *ZoneDefinition, cspn *cloudstack.PhysicalNetwork)
 	}
 	log.Println("  Physical Network " + cspn.Name + " Traffic Types fetched")
 	for _, csttype := range csttypes.TrafficTypes {
-		if ps.TrafficTypes[csttype.TrafficType], err = expandTrafficType(zd, csttype); err != nil {
+		if ps.TrafficTypes[csttype.TrafficType], err = expandTrafficType(client, zd, csttype); err != nil {
 			goto done
 		}
 	}
@@ -134,7 +134,7 @@ done:
 	return *ps, err
 }
 
-func fetchPhysicalNetworks(zd *ZoneDefinition) error {
+func fetchPhysicalNetworks(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	var err error
 	log.Println("Fetching Physical Networks...")
 	params := client.Network.NewListPhysicalNetworksParams()
@@ -145,14 +145,14 @@ func fetchPhysicalNetworks(zd *ZoneDefinition) error {
 	}
 	log.Println("Physical Networks fetched")
 	for _, cspn := range cspns.PhysicalNetworks {
-		if zd.PhysicalNetworks[cspn.Name], err = expandPhysicalNetwork(zd, cspn); err != nil {
+		if zd.PhysicalNetworks[cspn.Name], err = expandPhysicalNetwork(client, zd, cspn); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func fetchComputeOfferings(zd *ZoneDefinition) error {
+func fetchComputeOfferings(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Compute Offerings...")
 	params := client.ServiceOffering.NewListServiceOfferingsParams()
 	params.SetIsrecursive(true)
@@ -170,7 +170,7 @@ func fetchComputeOfferings(zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchDiskOfferings(zd *ZoneDefinition) error {
+func fetchDiskOfferings(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Disk Offerings...")
 	params := client.DiskOffering.NewListDiskOfferingsParams()
 	params.SetIsrecursive(true)
@@ -187,7 +187,7 @@ func fetchDiskOfferings(zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchGlobalConfigs(zd *ZoneDefinition) error {
+func fetchGlobalConfigs(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Global Configuration...")
 	params := client.Configuration.NewListConfigurationsParams()
 	configs, err := client.Configuration.ListConfigurations(params)

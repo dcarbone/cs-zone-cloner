@@ -16,8 +16,6 @@ const (
 )
 
 var (
-	client *cloudstack.CloudStackClient
-
 	defaultFetchers = []Fetcher{
 		fetchPods,
 		fetchClusters,
@@ -88,7 +86,7 @@ func NewZoneDefinition(zone cloudstack.Zone) *ZoneDefinition {
 }
 
 type (
-	Fetcher func(*ZoneDefinition) error
+	Fetcher func(*cloudstack.CloudStackClient, *ZoneDefinition) error
 
 	Config struct {
 		Key      string `json:"key"`
@@ -138,7 +136,7 @@ func FetchDefinition(conf Config, dbConfig *DatabaseConfig) (*ZoneDefinition, er
 		return nil, errors.New("zone name or id must be populated")
 	}
 
-	client = cloudstack.NewAsyncClient(fmt.Sprintf("%s://%s%s", scheme, address, path), key, secret, false)
+	client := cloudstack.NewAsyncClient(fmt.Sprintf("%s://%s%s", scheme, address, path), key, secret, false)
 	if zoneID == "" {
 		log.Println("Attempting to fetch zone " + zoneName)
 		zone, count, err = client.Zone.GetZoneByName(zoneName)
@@ -162,7 +160,7 @@ func FetchDefinition(conf Config, dbConfig *DatabaseConfig) (*ZoneDefinition, er
 	zd := NewZoneDefinition(*zone)
 
 	for _, fetcher := range append(defaultFetchers, conf.Fetchers...) {
-		if err = fetcher(zd); err != nil {
+		if err = fetcher(client, zd); err != nil {
 			return nil, err
 		}
 	}
