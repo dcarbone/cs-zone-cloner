@@ -49,6 +49,10 @@ type (
 		ComputeOfferings      map[string]cloudstack.ServiceOffering
 		DiskOfferings         map[string]cloudstack.DiskOffering
 		GlobalConfigs         map[string]cloudstack.Configuration
+
+		// Custom can be used by whatever custom fetchers you define
+		// it is recommended you define your own formatter to take advantage of these.
+		Custom map[string]interface{} `json:"-"`
 	}
 )
 
@@ -64,6 +68,8 @@ func NewZoneDefinition(zone cloudstack.Zone) *ZoneDefinition {
 		ComputeOfferings:      make(map[string]cloudstack.ServiceOffering),
 		DiskOfferings:         make(map[string]cloudstack.DiskOffering),
 		GlobalConfigs:         make(map[string]cloudstack.Configuration),
+
+		Custom: make(map[string]interface{}),
 	}
 	return zd
 }
