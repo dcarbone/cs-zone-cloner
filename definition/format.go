@@ -37,7 +37,7 @@ func FormatJSONIndent(zd *ZoneDefinition) ([]byte, error) {
 	return json.MarshalIndent(zd, "", "\t")
 }
 
-func AddFormatter(name string, fn Formatter) {
+func SetFormatter(name string, fn Formatter) {
 	formattersMu.Lock()
 	formatters[name] = fn
 	formattersMu.Unlock()
