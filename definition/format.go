@@ -16,6 +16,13 @@ var (
 	formatters   map[string]Formatter
 )
 
+func init() {
+	formatters = map[string]Formatter{
+		"json":        FormatJSON,
+		"json-indent": FormatJSONIndent,
+	}
+}
+
 func FormatJSON(zd *ZoneDefinition) ([]byte, error) {
 	if zd == nil {
 		return nil, errors.New("zone definition cannot be empty")
