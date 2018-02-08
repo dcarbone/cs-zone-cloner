@@ -1,1 +1,4 @@
-A modified version of xanzy's client is included, hence the checked-in vendor dir.
+Example cmd: 
+```bash
+./cs-zone-cloner -host "localhost:8080" -key "key" -secret "secret" -zone-name zone_to_clone
+```

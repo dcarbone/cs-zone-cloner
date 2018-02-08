@@ -110,6 +110,7 @@ func main() {
 	fs.StringVar(&hostPath, "path", definition.DefaultPath, "API path")
 	fs.StringVar(&zoneID, "zone-id", "", "ID of Zone to clone (mutually exclusive with zone-name)")
 	fs.StringVar(&zoneName, "zone-name", "", "Name of Zone to clone (mutually exclusive with zone-id)")
+	fs.StringVar(&format, "format", "json", "Currently supports JSON")
 	fs.StringVar(&output, "output", "", "File to write to")
 
 	fs.StringVar(&dbHost, "db-server", definition.DefaultDBHost, "Database host")
