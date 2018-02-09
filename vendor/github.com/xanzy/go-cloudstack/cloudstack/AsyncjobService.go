@@ -81,17 +81,17 @@ func (s *AsyncjobService) QueryAsyncJobResult(p *QueryAsyncJobResultParams) (*Qu
 }
 
 type QueryAsyncJobResultResponse struct {
-	Accountid       string          `json:"accountid,omitempty"`
-	Cmd             string          `json:"cmd,omitempty"`
-	Created         string          `json:"created,omitempty"`
-	Jobinstanceid   string          `json:"jobinstanceid,omitempty"`
-	Jobinstancetype string          `json:"jobinstancetype,omitempty"`
-	Jobprocstatus   int             `json:"jobprocstatus,omitempty"`
-	Jobresult       json.RawMessage `json:"jobresult,omitempty"`
-	Jobresultcode   int             `json:"jobresultcode,omitempty"`
-	Jobresulttype   string          `json:"jobresulttype,omitempty"`
-	Jobstatus       int             `json:"jobstatus,omitempty"`
-	Userid          string          `json:"userid,omitempty"`
+	Accountid       string          `json:"accountid"`
+	Cmd             string          `json:"cmd"`
+	Created         string          `json:"created"`
+	Jobinstanceid   string          `json:"jobinstanceid"`
+	Jobinstancetype string          `json:"jobinstancetype"`
+	Jobprocstatus   int             `json:"jobprocstatus"`
+	Jobresult       json.RawMessage `json:"jobresult"`
+	Jobresultcode   int             `json:"jobresultcode"`
+	Jobresulttype   string          `json:"jobresulttype"`
+	Jobstatus       int             `json:"jobstatus"`
+	Userid          string          `json:"userid"`
 }
 
 type ListAsyncJobsParams struct {
@@ -227,15 +227,15 @@ type ListAsyncJobsResponse struct {
 }
 
 type AsyncJob struct {
-	Accountid       string          `json:"accountid,omitempty"`
-	Cmd             string          `json:"cmd,omitempty"`
-	Created         string          `json:"created,omitempty"`
-	Jobinstanceid   string          `json:"jobinstanceid,omitempty"`
-	Jobinstancetype string          `json:"jobinstancetype,omitempty"`
-	Jobprocstatus   int             `json:"jobprocstatus,omitempty"`
-	Jobresult       json.RawMessage `json:"jobresult,omitempty"`
-	Jobresultcode   int             `json:"jobresultcode,omitempty"`
-	Jobresulttype   string          `json:"jobresulttype,omitempty"`
-	Jobstatus       int             `json:"jobstatus,omitempty"`
-	Userid          string          `json:"userid,omitempty"`
+	Accountid       string          `json:"accountid"`
+	Cmd             string          `json:"cmd"`
+	Created         string          `json:"created"`
+	Jobinstanceid   string          `json:"jobinstanceid"`
+	Jobinstancetype string          `json:"jobinstancetype"`
+	Jobprocstatus   int             `json:"jobprocstatus"`
+	Jobresult       json.RawMessage `json:"jobresult"`
+	Jobresultcode   int             `json:"jobresultcode"`
+	Jobresulttype   string          `json:"jobresulttype"`
+	Jobstatus       int             `json:"jobstatus"`
+	Userid          string          `json:"userid"`
 }

@@ -125,12 +125,12 @@ func (s *ConfigurationService) UpdateConfiguration(p *UpdateConfigurationParams)
 }
 
 type UpdateConfigurationResponse struct {
-	Category    string `json:"category,omitempty"`
-	Description string `json:"description,omitempty"`
-	Id          int64  `json:"id,omitempty"`
-	Name        string `json:"name,omitempty"`
-	Scope       string `json:"scope,omitempty"`
-	Value       string `json:"value,omitempty"`
+	Category    string `json:"category"`
+	Description string `json:"description"`
+	Id          int64  `json:"id"`
+	Name        string `json:"name"`
+	Scope       string `json:"scope"`
+	Value       string `json:"value"`
 }
 
 type ListConfigurationsParams struct {
@@ -275,12 +275,12 @@ type ListConfigurationsResponse struct {
 }
 
 type Configuration struct {
-	Category    string `json:"category,omitempty"`
-	Description string `json:"description,omitempty"`
-	Id          int64  `json:"id,omitempty"`
-	Name        string `json:"name,omitempty"`
-	Scope       string `json:"scope,omitempty"`
-	Value       string `json:"value,omitempty"`
+	Category    string `json:"category"`
+	Description string `json:"description"`
+	Id          int64  `json:"id"`
+	Name        string `json:"name"`
+	Scope       string `json:"scope"`
+	Value       string `json:"value"`
 }
 
 type ListCapabilitiesParams struct {
@@ -324,20 +324,20 @@ type ListCapabilitiesResponse struct {
 }
 
 type Capability struct {
-	Allowusercreateprojects   bool   `json:"allowusercreateprojects,omitempty"`
-	Allowuserexpungerecovervm bool   `json:"allowuserexpungerecovervm,omitempty"`
-	Allowuserviewdestroyedvm  bool   `json:"allowuserviewdestroyedvm,omitempty"`
-	Apilimitinterval          int    `json:"apilimitinterval,omitempty"`
-	Apilimitmax               int    `json:"apilimitmax,omitempty"`
-	Cloudstackversion         string `json:"cloudstackversion,omitempty"`
-	Customdiskofferingmaxsize int64  `json:"customdiskofferingmaxsize,omitempty"`
-	Customdiskofferingminsize int64  `json:"customdiskofferingminsize,omitempty"`
-	Kvmsnapshotenabled        bool   `json:"kvmsnapshotenabled,omitempty"`
-	Projectinviterequired     bool   `json:"projectinviterequired,omitempty"`
-	Regionsecondaryenabled    bool   `json:"regionsecondaryenabled,omitempty"`
-	Securitygroupsenabled     bool   `json:"securitygroupsenabled,omitempty"`
-	SupportELB                string `json:"supportELB,omitempty"`
-	Userpublictemplateenabled bool   `json:"userpublictemplateenabled,omitempty"`
+	Allowusercreateprojects   bool   `json:"allowusercreateprojects"`
+	Allowuserexpungerecovervm bool   `json:"allowuserexpungerecovervm"`
+	Allowuserviewdestroyedvm  bool   `json:"allowuserviewdestroyedvm"`
+	Apilimitinterval          int    `json:"apilimitinterval"`
+	Apilimitmax               int    `json:"apilimitmax"`
+	Cloudstackversion         string `json:"cloudstackversion"`
+	Customdiskofferingmaxsize int64  `json:"customdiskofferingmaxsize"`
+	Customdiskofferingminsize int64  `json:"customdiskofferingminsize"`
+	Kvmsnapshotenabled        bool   `json:"kvmsnapshotenabled"`
+	Projectinviterequired     bool   `json:"projectinviterequired"`
+	Regionsecondaryenabled    bool   `json:"regionsecondaryenabled"`
+	Securitygroupsenabled     bool   `json:"securitygroupsenabled"`
+	SupportELB                string `json:"supportELB"`
+	Userpublictemplateenabled bool   `json:"userpublictemplateenabled"`
 }
 
 type ListDeploymentPlannersParams struct {
@@ -416,7 +416,7 @@ type ListDeploymentPlannersResponse struct {
 }
 
 type DeploymentPlanner struct {
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 }
 
 type ListLdapConfigurationsParams struct {
@@ -518,8 +518,8 @@ type ListLdapConfigurationsResponse struct {
 }
 
 type LdapConfiguration struct {
-	Hostname string `json:"hostname,omitempty"`
-	Port     int    `json:"port,omitempty"`
+	Hostname string `json:"hostname"`
+	Port     int    `json:"port"`
 }
 
 type AddLdapConfigurationParams struct {
@@ -583,8 +583,8 @@ func (s *ConfigurationService) AddLdapConfiguration(p *AddLdapConfigurationParam
 }
 
 type AddLdapConfigurationResponse struct {
-	Hostname string `json:"hostname,omitempty"`
-	Port     int    `json:"port,omitempty"`
+	Hostname string `json:"hostname"`
+	Port     int    `json:"port"`
 }
 
 type DeleteLdapConfigurationParams struct {
@@ -635,6 +635,6 @@ func (s *ConfigurationService) DeleteLdapConfiguration(p *DeleteLdapConfiguratio
 }
 
 type DeleteLdapConfigurationResponse struct {
-	Hostname string `json:"hostname,omitempty"`
-	Port     int    `json:"port,omitempty"`
+	Hostname string `json:"hostname"`
+	Port     int    `json:"port"`
 }

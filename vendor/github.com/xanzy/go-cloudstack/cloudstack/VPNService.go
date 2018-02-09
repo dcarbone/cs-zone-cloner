@@ -149,19 +149,19 @@ func (s *VPNService) CreateRemoteAccessVpn(p *CreateRemoteAccessVpnParams) (*Cre
 }
 
 type CreateRemoteAccessVpnResponse struct {
-	JobID        string `json:"jobid,omitempty"`
-	Account      string `json:"account,omitempty"`
-	Domain       string `json:"domain,omitempty"`
-	Domainid     string `json:"domainid,omitempty"`
-	Fordisplay   bool   `json:"fordisplay,omitempty"`
-	Id           string `json:"id,omitempty"`
-	Iprange      string `json:"iprange,omitempty"`
-	Presharedkey string `json:"presharedkey,omitempty"`
-	Project      string `json:"project,omitempty"`
-	Projectid    string `json:"projectid,omitempty"`
-	Publicip     string `json:"publicip,omitempty"`
-	Publicipid   string `json:"publicipid,omitempty"`
-	State        string `json:"state,omitempty"`
+	JobID        string `json:"jobid"`
+	Account      string `json:"account"`
+	Domain       string `json:"domain"`
+	Domainid     string `json:"domainid"`
+	Fordisplay   bool   `json:"fordisplay"`
+	Id           string `json:"id"`
+	Iprange      string `json:"iprange"`
+	Presharedkey string `json:"presharedkey"`
+	Project      string `json:"project"`
+	Projectid    string `json:"projectid"`
+	Publicip     string `json:"publicip"`
+	Publicipid   string `json:"publicipid"`
+	State        string `json:"state"`
 }
 
 type DeleteRemoteAccessVpnParams struct {
@@ -227,9 +227,9 @@ func (s *VPNService) DeleteRemoteAccessVpn(p *DeleteRemoteAccessVpnParams) (*Del
 }
 
 type DeleteRemoteAccessVpnResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListRemoteAccessVpnsParams struct {
@@ -443,18 +443,18 @@ type ListRemoteAccessVpnsResponse struct {
 }
 
 type RemoteAccessVpn struct {
-	Account      string `json:"account,omitempty"`
-	Domain       string `json:"domain,omitempty"`
-	Domainid     string `json:"domainid,omitempty"`
-	Fordisplay   bool   `json:"fordisplay,omitempty"`
-	Id           string `json:"id,omitempty"`
-	Iprange      string `json:"iprange,omitempty"`
-	Presharedkey string `json:"presharedkey,omitempty"`
-	Project      string `json:"project,omitempty"`
-	Projectid    string `json:"projectid,omitempty"`
-	Publicip     string `json:"publicip,omitempty"`
-	Publicipid   string `json:"publicipid,omitempty"`
-	State        string `json:"state,omitempty"`
+	Account      string `json:"account"`
+	Domain       string `json:"domain"`
+	Domainid     string `json:"domainid"`
+	Fordisplay   bool   `json:"fordisplay"`
+	Id           string `json:"id"`
+	Iprange      string `json:"iprange"`
+	Presharedkey string `json:"presharedkey"`
+	Project      string `json:"project"`
+	Projectid    string `json:"projectid"`
+	Publicip     string `json:"publicip"`
+	Publicipid   string `json:"publicipid"`
+	State        string `json:"state"`
 }
 
 type UpdateRemoteAccessVpnParams struct {
@@ -548,19 +548,19 @@ func (s *VPNService) UpdateRemoteAccessVpn(p *UpdateRemoteAccessVpnParams) (*Upd
 }
 
 type UpdateRemoteAccessVpnResponse struct {
-	JobID        string `json:"jobid,omitempty"`
-	Account      string `json:"account,omitempty"`
-	Domain       string `json:"domain,omitempty"`
-	Domainid     string `json:"domainid,omitempty"`
-	Fordisplay   bool   `json:"fordisplay,omitempty"`
-	Id           string `json:"id,omitempty"`
-	Iprange      string `json:"iprange,omitempty"`
-	Presharedkey string `json:"presharedkey,omitempty"`
-	Project      string `json:"project,omitempty"`
-	Projectid    string `json:"projectid,omitempty"`
-	Publicip     string `json:"publicip,omitempty"`
-	Publicipid   string `json:"publicipid,omitempty"`
-	State        string `json:"state,omitempty"`
+	JobID        string `json:"jobid"`
+	Account      string `json:"account"`
+	Domain       string `json:"domain"`
+	Domainid     string `json:"domainid"`
+	Fordisplay   bool   `json:"fordisplay"`
+	Id           string `json:"id"`
+	Iprange      string `json:"iprange"`
+	Presharedkey string `json:"presharedkey"`
+	Project      string `json:"project"`
+	Projectid    string `json:"projectid"`
+	Publicip     string `json:"publicip"`
+	Publicipid   string `json:"publicipid"`
+	State        string `json:"state"`
 }
 
 type AddVpnUserParams struct {
@@ -676,15 +676,15 @@ func (s *VPNService) AddVpnUser(p *AddVpnUserParams) (*AddVpnUserResponse, error
 }
 
 type AddVpnUserResponse struct {
-	JobID     string `json:"jobid,omitempty"`
-	Account   string `json:"account,omitempty"`
-	Domain    string `json:"domain,omitempty"`
-	Domainid  string `json:"domainid,omitempty"`
-	Id        string `json:"id,omitempty"`
-	Project   string `json:"project,omitempty"`
-	Projectid string `json:"projectid,omitempty"`
-	State     string `json:"state,omitempty"`
-	Username  string `json:"username,omitempty"`
+	JobID     string `json:"jobid"`
+	Account   string `json:"account"`
+	Domain    string `json:"domain"`
+	Domainid  string `json:"domainid"`
+	Id        string `json:"id"`
+	Project   string `json:"project"`
+	Projectid string `json:"projectid"`
+	State     string `json:"state"`
+	Username  string `json:"username"`
 }
 
 type RemoveVpnUserParams struct {
@@ -783,9 +783,9 @@ func (s *VPNService) RemoveVpnUser(p *RemoveVpnUserParams) (*RemoveVpnUserRespon
 }
 
 type RemoveVpnUserResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListVpnUsersParams struct {
@@ -976,14 +976,14 @@ type ListVpnUsersResponse struct {
 }
 
 type VpnUser struct {
-	Account   string `json:"account,omitempty"`
-	Domain    string `json:"domain,omitempty"`
-	Domainid  string `json:"domainid,omitempty"`
-	Id        string `json:"id,omitempty"`
-	Project   string `json:"project,omitempty"`
-	Projectid string `json:"projectid,omitempty"`
-	State     string `json:"state,omitempty"`
-	Username  string `json:"username,omitempty"`
+	Account   string `json:"account"`
+	Domain    string `json:"domain"`
+	Domainid  string `json:"domainid"`
+	Id        string `json:"id"`
+	Project   string `json:"project"`
+	Projectid string `json:"projectid"`
+	State     string `json:"state"`
+	Username  string `json:"username"`
 }
 
 type CreateVpnCustomerGatewayParams struct {
@@ -1194,25 +1194,25 @@ func (s *VPNService) CreateVpnCustomerGateway(p *CreateVpnCustomerGatewayParams)
 }
 
 type CreateVpnCustomerGatewayResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Account     string `json:"account,omitempty"`
-	Cidrlist    string `json:"cidrlist,omitempty"`
-	Domain      string `json:"domain,omitempty"`
-	Domainid    string `json:"domainid,omitempty"`
-	Dpd         bool   `json:"dpd,omitempty"`
-	Esplifetime int64  `json:"esplifetime,omitempty"`
-	Esppolicy   string `json:"esppolicy,omitempty"`
-	Forceencap  bool   `json:"forceencap,omitempty"`
-	Gateway     string `json:"gateway,omitempty"`
-	Id          string `json:"id,omitempty"`
-	Ikelifetime int64  `json:"ikelifetime,omitempty"`
-	Ikepolicy   string `json:"ikepolicy,omitempty"`
-	Ipaddress   string `json:"ipaddress,omitempty"`
-	Ipsecpsk    string `json:"ipsecpsk,omitempty"`
-	Name        string `json:"name,omitempty"`
-	Project     string `json:"project,omitempty"`
-	Projectid   string `json:"projectid,omitempty"`
-	Removed     string `json:"removed,omitempty"`
+	JobID       string `json:"jobid"`
+	Account     string `json:"account"`
+	Cidrlist    string `json:"cidrlist"`
+	Domain      string `json:"domain"`
+	Domainid    string `json:"domainid"`
+	Dpd         bool   `json:"dpd"`
+	Esplifetime int64  `json:"esplifetime"`
+	Esppolicy   string `json:"esppolicy"`
+	Forceencap  bool   `json:"forceencap"`
+	Gateway     string `json:"gateway"`
+	Id          string `json:"id"`
+	Ikelifetime int64  `json:"ikelifetime"`
+	Ikepolicy   string `json:"ikepolicy"`
+	Ipaddress   string `json:"ipaddress"`
+	Ipsecpsk    string `json:"ipsecpsk"`
+	Name        string `json:"name"`
+	Project     string `json:"project"`
+	Projectid   string `json:"projectid"`
+	Removed     string `json:"removed"`
 }
 
 type CreateVpnGatewayParams struct {
@@ -1295,17 +1295,17 @@ func (s *VPNService) CreateVpnGateway(p *CreateVpnGatewayParams) (*CreateVpnGate
 }
 
 type CreateVpnGatewayResponse struct {
-	JobID      string `json:"jobid,omitempty"`
-	Account    string `json:"account,omitempty"`
-	Domain     string `json:"domain,omitempty"`
-	Domainid   string `json:"domainid,omitempty"`
-	Fordisplay bool   `json:"fordisplay,omitempty"`
-	Id         string `json:"id,omitempty"`
-	Project    string `json:"project,omitempty"`
-	Projectid  string `json:"projectid,omitempty"`
-	Publicip   string `json:"publicip,omitempty"`
-	Removed    string `json:"removed,omitempty"`
-	Vpcid      string `json:"vpcid,omitempty"`
+	JobID      string `json:"jobid"`
+	Account    string `json:"account"`
+	Domain     string `json:"domain"`
+	Domainid   string `json:"domainid"`
+	Fordisplay bool   `json:"fordisplay"`
+	Id         string `json:"id"`
+	Project    string `json:"project"`
+	Projectid  string `json:"projectid"`
+	Publicip   string `json:"publicip"`
+	Removed    string `json:"removed"`
+	Vpcid      string `json:"vpcid"`
 }
 
 type CreateVpnConnectionParams struct {
@@ -1412,30 +1412,30 @@ func (s *VPNService) CreateVpnConnection(p *CreateVpnConnectionParams) (*CreateV
 }
 
 type CreateVpnConnectionResponse struct {
-	JobID                string `json:"jobid,omitempty"`
-	Account              string `json:"account,omitempty"`
-	Cidrlist             string `json:"cidrlist,omitempty"`
-	Created              string `json:"created,omitempty"`
-	Domain               string `json:"domain,omitempty"`
-	Domainid             string `json:"domainid,omitempty"`
-	Dpd                  bool   `json:"dpd,omitempty"`
-	Esplifetime          int64  `json:"esplifetime,omitempty"`
-	Esppolicy            string `json:"esppolicy,omitempty"`
-	Forceencap           bool   `json:"forceencap,omitempty"`
-	Fordisplay           bool   `json:"fordisplay,omitempty"`
-	Gateway              string `json:"gateway,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Ikelifetime          int64  `json:"ikelifetime,omitempty"`
-	Ikepolicy            string `json:"ikepolicy,omitempty"`
-	Ipsecpsk             string `json:"ipsecpsk,omitempty"`
-	Passive              bool   `json:"passive,omitempty"`
-	Project              string `json:"project,omitempty"`
-	Projectid            string `json:"projectid,omitempty"`
-	Publicip             string `json:"publicip,omitempty"`
-	Removed              string `json:"removed,omitempty"`
-	S2scustomergatewayid string `json:"s2scustomergatewayid,omitempty"`
-	S2svpngatewayid      string `json:"s2svpngatewayid,omitempty"`
-	State                string `json:"state,omitempty"`
+	JobID                string `json:"jobid"`
+	Account              string `json:"account"`
+	Cidrlist             string `json:"cidrlist"`
+	Created              string `json:"created"`
+	Domain               string `json:"domain"`
+	Domainid             string `json:"domainid"`
+	Dpd                  bool   `json:"dpd"`
+	Esplifetime          int64  `json:"esplifetime"`
+	Esppolicy            string `json:"esppolicy"`
+	Forceencap           bool   `json:"forceencap"`
+	Fordisplay           bool   `json:"fordisplay"`
+	Gateway              string `json:"gateway"`
+	Id                   string `json:"id"`
+	Ikelifetime          int64  `json:"ikelifetime"`
+	Ikepolicy            string `json:"ikepolicy"`
+	Ipsecpsk             string `json:"ipsecpsk"`
+	Passive              bool   `json:"passive"`
+	Project              string `json:"project"`
+	Projectid            string `json:"projectid"`
+	Publicip             string `json:"publicip"`
+	Removed              string `json:"removed"`
+	S2scustomergatewayid string `json:"s2scustomergatewayid"`
+	S2svpngatewayid      string `json:"s2svpngatewayid"`
+	State                string `json:"state"`
 }
 
 type DeleteVpnCustomerGatewayParams struct {
@@ -1501,9 +1501,9 @@ func (s *VPNService) DeleteVpnCustomerGateway(p *DeleteVpnCustomerGatewayParams)
 }
 
 type DeleteVpnCustomerGatewayResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type DeleteVpnGatewayParams struct {
@@ -1569,9 +1569,9 @@ func (s *VPNService) DeleteVpnGateway(p *DeleteVpnGatewayParams) (*DeleteVpnGate
 }
 
 type DeleteVpnGatewayResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type DeleteVpnConnectionParams struct {
@@ -1637,9 +1637,9 @@ func (s *VPNService) DeleteVpnConnection(p *DeleteVpnConnectionParams) (*DeleteV
 }
 
 type DeleteVpnConnectionResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type UpdateVpnCustomerGatewayParams struct {
@@ -1851,25 +1851,25 @@ func (s *VPNService) UpdateVpnCustomerGateway(p *UpdateVpnCustomerGatewayParams)
 }
 
 type UpdateVpnCustomerGatewayResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Account     string `json:"account,omitempty"`
-	Cidrlist    string `json:"cidrlist,omitempty"`
-	Domain      string `json:"domain,omitempty"`
-	Domainid    string `json:"domainid,omitempty"`
-	Dpd         bool   `json:"dpd,omitempty"`
-	Esplifetime int64  `json:"esplifetime,omitempty"`
-	Esppolicy   string `json:"esppolicy,omitempty"`
-	Forceencap  bool   `json:"forceencap,omitempty"`
-	Gateway     string `json:"gateway,omitempty"`
-	Id          string `json:"id,omitempty"`
-	Ikelifetime int64  `json:"ikelifetime,omitempty"`
-	Ikepolicy   string `json:"ikepolicy,omitempty"`
-	Ipaddress   string `json:"ipaddress,omitempty"`
-	Ipsecpsk    string `json:"ipsecpsk,omitempty"`
-	Name        string `json:"name,omitempty"`
-	Project     string `json:"project,omitempty"`
-	Projectid   string `json:"projectid,omitempty"`
-	Removed     string `json:"removed,omitempty"`
+	JobID       string `json:"jobid"`
+	Account     string `json:"account"`
+	Cidrlist    string `json:"cidrlist"`
+	Domain      string `json:"domain"`
+	Domainid    string `json:"domainid"`
+	Dpd         bool   `json:"dpd"`
+	Esplifetime int64  `json:"esplifetime"`
+	Esppolicy   string `json:"esppolicy"`
+	Forceencap  bool   `json:"forceencap"`
+	Gateway     string `json:"gateway"`
+	Id          string `json:"id"`
+	Ikelifetime int64  `json:"ikelifetime"`
+	Ikepolicy   string `json:"ikepolicy"`
+	Ipaddress   string `json:"ipaddress"`
+	Ipsecpsk    string `json:"ipsecpsk"`
+	Name        string `json:"name"`
+	Project     string `json:"project"`
+	Projectid   string `json:"projectid"`
+	Removed     string `json:"removed"`
 }
 
 type ResetVpnConnectionParams struct {
@@ -1962,30 +1962,30 @@ func (s *VPNService) ResetVpnConnection(p *ResetVpnConnectionParams) (*ResetVpnC
 }
 
 type ResetVpnConnectionResponse struct {
-	JobID                string `json:"jobid,omitempty"`
-	Account              string `json:"account,omitempty"`
-	Cidrlist             string `json:"cidrlist,omitempty"`
-	Created              string `json:"created,omitempty"`
-	Domain               string `json:"domain,omitempty"`
-	Domainid             string `json:"domainid,omitempty"`
-	Dpd                  bool   `json:"dpd,omitempty"`
-	Esplifetime          int64  `json:"esplifetime,omitempty"`
-	Esppolicy            string `json:"esppolicy,omitempty"`
-	Forceencap           bool   `json:"forceencap,omitempty"`
-	Fordisplay           bool   `json:"fordisplay,omitempty"`
-	Gateway              string `json:"gateway,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Ikelifetime          int64  `json:"ikelifetime,omitempty"`
-	Ikepolicy            string `json:"ikepolicy,omitempty"`
-	Ipsecpsk             string `json:"ipsecpsk,omitempty"`
-	Passive              bool   `json:"passive,omitempty"`
-	Project              string `json:"project,omitempty"`
-	Projectid            string `json:"projectid,omitempty"`
-	Publicip             string `json:"publicip,omitempty"`
-	Removed              string `json:"removed,omitempty"`
-	S2scustomergatewayid string `json:"s2scustomergatewayid,omitempty"`
-	S2svpngatewayid      string `json:"s2svpngatewayid,omitempty"`
-	State                string `json:"state,omitempty"`
+	JobID                string `json:"jobid"`
+	Account              string `json:"account"`
+	Cidrlist             string `json:"cidrlist"`
+	Created              string `json:"created"`
+	Domain               string `json:"domain"`
+	Domainid             string `json:"domainid"`
+	Dpd                  bool   `json:"dpd"`
+	Esplifetime          int64  `json:"esplifetime"`
+	Esppolicy            string `json:"esppolicy"`
+	Forceencap           bool   `json:"forceencap"`
+	Fordisplay           bool   `json:"fordisplay"`
+	Gateway              string `json:"gateway"`
+	Id                   string `json:"id"`
+	Ikelifetime          int64  `json:"ikelifetime"`
+	Ikepolicy            string `json:"ikepolicy"`
+	Ipsecpsk             string `json:"ipsecpsk"`
+	Passive              bool   `json:"passive"`
+	Project              string `json:"project"`
+	Projectid            string `json:"projectid"`
+	Publicip             string `json:"publicip"`
+	Removed              string `json:"removed"`
+	S2scustomergatewayid string `json:"s2scustomergatewayid"`
+	S2svpngatewayid      string `json:"s2svpngatewayid"`
+	State                string `json:"state"`
 }
 
 type ListVpnCustomerGatewaysParams struct {
@@ -2215,24 +2215,24 @@ type ListVpnCustomerGatewaysResponse struct {
 }
 
 type VpnCustomerGateway struct {
-	Account     string `json:"account,omitempty"`
-	Cidrlist    string `json:"cidrlist,omitempty"`
-	Domain      string `json:"domain,omitempty"`
-	Domainid    string `json:"domainid,omitempty"`
-	Dpd         bool   `json:"dpd,omitempty"`
-	Esplifetime int64  `json:"esplifetime,omitempty"`
-	Esppolicy   string `json:"esppolicy,omitempty"`
-	Forceencap  bool   `json:"forceencap,omitempty"`
-	Gateway     string `json:"gateway,omitempty"`
-	Id          string `json:"id,omitempty"`
-	Ikelifetime int64  `json:"ikelifetime,omitempty"`
-	Ikepolicy   string `json:"ikepolicy,omitempty"`
-	Ipaddress   string `json:"ipaddress,omitempty"`
-	Ipsecpsk    string `json:"ipsecpsk,omitempty"`
-	Name        string `json:"name,omitempty"`
-	Project     string `json:"project,omitempty"`
-	Projectid   string `json:"projectid,omitempty"`
-	Removed     string `json:"removed,omitempty"`
+	Account     string `json:"account"`
+	Cidrlist    string `json:"cidrlist"`
+	Domain      string `json:"domain"`
+	Domainid    string `json:"domainid"`
+	Dpd         bool   `json:"dpd"`
+	Esplifetime int64  `json:"esplifetime"`
+	Esppolicy   string `json:"esppolicy"`
+	Forceencap  bool   `json:"forceencap"`
+	Gateway     string `json:"gateway"`
+	Id          string `json:"id"`
+	Ikelifetime int64  `json:"ikelifetime"`
+	Ikepolicy   string `json:"ikepolicy"`
+	Ipaddress   string `json:"ipaddress"`
+	Ipsecpsk    string `json:"ipsecpsk"`
+	Name        string `json:"name"`
+	Project     string `json:"project"`
+	Projectid   string `json:"projectid"`
+	Removed     string `json:"removed"`
 }
 
 type ListVpnGatewaysParams struct {
@@ -2435,16 +2435,16 @@ type ListVpnGatewaysResponse struct {
 }
 
 type VpnGateway struct {
-	Account    string `json:"account,omitempty"`
-	Domain     string `json:"domain,omitempty"`
-	Domainid   string `json:"domainid,omitempty"`
-	Fordisplay bool   `json:"fordisplay,omitempty"`
-	Id         string `json:"id,omitempty"`
-	Project    string `json:"project,omitempty"`
-	Projectid  string `json:"projectid,omitempty"`
-	Publicip   string `json:"publicip,omitempty"`
-	Removed    string `json:"removed,omitempty"`
-	Vpcid      string `json:"vpcid,omitempty"`
+	Account    string `json:"account"`
+	Domain     string `json:"domain"`
+	Domainid   string `json:"domainid"`
+	Fordisplay bool   `json:"fordisplay"`
+	Id         string `json:"id"`
+	Project    string `json:"project"`
+	Projectid  string `json:"projectid"`
+	Publicip   string `json:"publicip"`
+	Removed    string `json:"removed"`
+	Vpcid      string `json:"vpcid"`
 }
 
 type ListVpnConnectionsParams struct {
@@ -2647,29 +2647,29 @@ type ListVpnConnectionsResponse struct {
 }
 
 type VpnConnection struct {
-	Account              string `json:"account,omitempty"`
-	Cidrlist             string `json:"cidrlist,omitempty"`
-	Created              string `json:"created,omitempty"`
-	Domain               string `json:"domain,omitempty"`
-	Domainid             string `json:"domainid,omitempty"`
-	Dpd                  bool   `json:"dpd,omitempty"`
-	Esplifetime          int64  `json:"esplifetime,omitempty"`
-	Esppolicy            string `json:"esppolicy,omitempty"`
-	Forceencap           bool   `json:"forceencap,omitempty"`
-	Fordisplay           bool   `json:"fordisplay,omitempty"`
-	Gateway              string `json:"gateway,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Ikelifetime          int64  `json:"ikelifetime,omitempty"`
-	Ikepolicy            string `json:"ikepolicy,omitempty"`
-	Ipsecpsk             string `json:"ipsecpsk,omitempty"`
-	Passive              bool   `json:"passive,omitempty"`
-	Project              string `json:"project,omitempty"`
-	Projectid            string `json:"projectid,omitempty"`
-	Publicip             string `json:"publicip,omitempty"`
-	Removed              string `json:"removed,omitempty"`
-	S2scustomergatewayid string `json:"s2scustomergatewayid,omitempty"`
-	S2svpngatewayid      string `json:"s2svpngatewayid,omitempty"`
-	State                string `json:"state,omitempty"`
+	Account              string `json:"account"`
+	Cidrlist             string `json:"cidrlist"`
+	Created              string `json:"created"`
+	Domain               string `json:"domain"`
+	Domainid             string `json:"domainid"`
+	Dpd                  bool   `json:"dpd"`
+	Esplifetime          int64  `json:"esplifetime"`
+	Esppolicy            string `json:"esppolicy"`
+	Forceencap           bool   `json:"forceencap"`
+	Fordisplay           bool   `json:"fordisplay"`
+	Gateway              string `json:"gateway"`
+	Id                   string `json:"id"`
+	Ikelifetime          int64  `json:"ikelifetime"`
+	Ikepolicy            string `json:"ikepolicy"`
+	Ipsecpsk             string `json:"ipsecpsk"`
+	Passive              bool   `json:"passive"`
+	Project              string `json:"project"`
+	Projectid            string `json:"projectid"`
+	Publicip             string `json:"publicip"`
+	Removed              string `json:"removed"`
+	S2scustomergatewayid string `json:"s2scustomergatewayid"`
+	S2svpngatewayid      string `json:"s2svpngatewayid"`
+	State                string `json:"state"`
 }
 
 type UpdateVpnConnectionParams struct {
@@ -2763,30 +2763,30 @@ func (s *VPNService) UpdateVpnConnection(p *UpdateVpnConnectionParams) (*UpdateV
 }
 
 type UpdateVpnConnectionResponse struct {
-	JobID                string `json:"jobid,omitempty"`
-	Account              string `json:"account,omitempty"`
-	Cidrlist             string `json:"cidrlist,omitempty"`
-	Created              string `json:"created,omitempty"`
-	Domain               string `json:"domain,omitempty"`
-	Domainid             string `json:"domainid,omitempty"`
-	Dpd                  bool   `json:"dpd,omitempty"`
-	Esplifetime          int64  `json:"esplifetime,omitempty"`
-	Esppolicy            string `json:"esppolicy,omitempty"`
-	Forceencap           bool   `json:"forceencap,omitempty"`
-	Fordisplay           bool   `json:"fordisplay,omitempty"`
-	Gateway              string `json:"gateway,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Ikelifetime          int64  `json:"ikelifetime,omitempty"`
-	Ikepolicy            string `json:"ikepolicy,omitempty"`
-	Ipsecpsk             string `json:"ipsecpsk,omitempty"`
-	Passive              bool   `json:"passive,omitempty"`
-	Project              string `json:"project,omitempty"`
-	Projectid            string `json:"projectid,omitempty"`
-	Publicip             string `json:"publicip,omitempty"`
-	Removed              string `json:"removed,omitempty"`
-	S2scustomergatewayid string `json:"s2scustomergatewayid,omitempty"`
-	S2svpngatewayid      string `json:"s2svpngatewayid,omitempty"`
-	State                string `json:"state,omitempty"`
+	JobID                string `json:"jobid"`
+	Account              string `json:"account"`
+	Cidrlist             string `json:"cidrlist"`
+	Created              string `json:"created"`
+	Domain               string `json:"domain"`
+	Domainid             string `json:"domainid"`
+	Dpd                  bool   `json:"dpd"`
+	Esplifetime          int64  `json:"esplifetime"`
+	Esppolicy            string `json:"esppolicy"`
+	Forceencap           bool   `json:"forceencap"`
+	Fordisplay           bool   `json:"fordisplay"`
+	Gateway              string `json:"gateway"`
+	Id                   string `json:"id"`
+	Ikelifetime          int64  `json:"ikelifetime"`
+	Ikepolicy            string `json:"ikepolicy"`
+	Ipsecpsk             string `json:"ipsecpsk"`
+	Passive              bool   `json:"passive"`
+	Project              string `json:"project"`
+	Projectid            string `json:"projectid"`
+	Publicip             string `json:"publicip"`
+	Removed              string `json:"removed"`
+	S2scustomergatewayid string `json:"s2scustomergatewayid"`
+	S2svpngatewayid      string `json:"s2svpngatewayid"`
+	State                string `json:"state"`
 }
 
 type UpdateVpnGatewayParams struct {
@@ -2880,15 +2880,15 @@ func (s *VPNService) UpdateVpnGateway(p *UpdateVpnGatewayParams) (*UpdateVpnGate
 }
 
 type UpdateVpnGatewayResponse struct {
-	JobID      string `json:"jobid,omitempty"`
-	Account    string `json:"account,omitempty"`
-	Domain     string `json:"domain,omitempty"`
-	Domainid   string `json:"domainid,omitempty"`
-	Fordisplay bool   `json:"fordisplay,omitempty"`
-	Id         string `json:"id,omitempty"`
-	Project    string `json:"project,omitempty"`
-	Projectid  string `json:"projectid,omitempty"`
-	Publicip   string `json:"publicip,omitempty"`
-	Removed    string `json:"removed,omitempty"`
-	Vpcid      string `json:"vpcid,omitempty"`
+	JobID      string `json:"jobid"`
+	Account    string `json:"account"`
+	Domain     string `json:"domain"`
+	Domainid   string `json:"domainid"`
+	Fordisplay bool   `json:"fordisplay"`
+	Id         string `json:"id"`
+	Project    string `json:"project"`
+	Projectid  string `json:"projectid"`
+	Publicip   string `json:"publicip"`
+	Removed    string `json:"removed"`
+	Vpcid      string `json:"vpcid"`
 }

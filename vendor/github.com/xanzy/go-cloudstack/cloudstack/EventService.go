@@ -269,19 +269,19 @@ type ListEventsResponse struct {
 }
 
 type Event struct {
-	Account     string `json:"account,omitempty"`
-	Created     string `json:"created,omitempty"`
-	Description string `json:"description,omitempty"`
-	Domain      string `json:"domain,omitempty"`
-	Domainid    string `json:"domainid,omitempty"`
-	Id          string `json:"id,omitempty"`
-	Level       string `json:"level,omitempty"`
-	Parentid    string `json:"parentid,omitempty"`
-	Project     string `json:"project,omitempty"`
-	Projectid   string `json:"projectid,omitempty"`
-	State       string `json:"state,omitempty"`
-	Type        string `json:"type,omitempty"`
-	Username    string `json:"username,omitempty"`
+	Account     string `json:"account"`
+	Created     string `json:"created"`
+	Description string `json:"description"`
+	Domain      string `json:"domain"`
+	Domainid    string `json:"domainid"`
+	Id          string `json:"id"`
+	Level       string `json:"level"`
+	Parentid    string `json:"parentid"`
+	Project     string `json:"project"`
+	Projectid   string `json:"projectid"`
+	State       string `json:"state"`
+	Type        string `json:"type"`
+	Username    string `json:"username"`
 }
 
 type ListEventTypesParams struct {
@@ -325,7 +325,7 @@ type ListEventTypesResponse struct {
 }
 
 type EventType struct {
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 }
 
 type ArchiveEventsParams struct {
@@ -409,8 +409,8 @@ func (s *EventService) ArchiveEvents(p *ArchiveEventsParams) (*ArchiveEventsResp
 }
 
 type ArchiveEventsResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type DeleteEventsParams struct {
@@ -494,6 +494,6 @@ func (s *EventService) DeleteEvents(p *DeleteEventsParams) (*DeleteEventsRespons
 }
 
 type DeleteEventsResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }

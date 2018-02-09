@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"github.com/dcarbone/cs-zone-cloner/command"
 	"github.com/dcarbone/cs-zone-cloner/definition"
-	"github.com/myENA/consultant/log"
 	"os"
 	"strconv"
 	"strings"
@@ -31,6 +30,9 @@ type config struct {
 	dbSchema   string
 	dbUser     string
 	dbPassword string
+
+	fetch    string
+	fetchers []definition.Fetcher
 }
 
 type Command struct {
@@ -64,6 +66,7 @@ func (c *Command) Run(args []string) int {
 		Path:     c.conf.hostPath,
 		ZoneName: c.conf.zoneName,
 		ZoneID:   c.conf.zoneID,
+		Fetchers: c.conf.fetchers,
 	}
 	dbConf := &definition.DatabaseConfig{
 		Server:   c.conf.dbHost,
@@ -92,17 +95,17 @@ func (c *Command) Run(args []string) int {
 			if ml, ok := c.log.(command.MutableLogger); ok {
 				ml.UnMute()
 			}
-			log.Printf("[error] Error formatting: %s", err)
+			c.log.Printf("[error] Error formatting: %s", err)
 			return 1
 		}
 		if c.conf.output == "" {
 			fmt.Println(string(b))
 		} else {
 			if f, err := os.Create(c.conf.output); err != nil {
-				log.Printf("[error] Error opening \"%s\": %s", c.conf.output, err)
+				c.log.Printf("[error] Error opening \"%s\": %s", c.conf.output, err)
 				return 1
 			} else if _, err = f.Write(b); err != nil {
-				log.Printf("[error] Error writing to \"%s\": %s", c.conf.output, err)
+				c.log.Printf("[error] Error writing to \"%s\": %s", c.conf.output, err)
 				return 1
 			} else {
 				c.log.Printf("[info] Definition written to file \"%s\"", c.conf.output)
@@ -121,25 +124,26 @@ func (c *Command) Synopsis() string {
 func (c *Command) Help() string {
 	return fmt.Sprintf(`Usage: %s backup [options]
 
-	Perform a backup of an existing Zone's configuration
+    Perform a backup of an existing Zone's configuration
 
 Required:
-	-key			API key
-	-secret			API secret
-	-zone-name		Name of Zone to back up.  Mutually exclusive with "zone-id"
-	-zone-id		ID of Zone to back up.  Mutually exclusive with "zone-name"
+    -key            API key
+    -secret         API secret
+    -zone-name      Name of Zone to back up.  Mutually exclusive with "zone-id"
+    -zone-id        ID of Zone to back up.  Mutually exclusive with "zone-name"
 
 Optional:
-	-scheme			"http" or "https" (default: %s)
-	-host			Managment Server hostname with port (default: %s)
-	-path			Managment Server api path (default: %s)
-	-format			Backup format (currently only "json" is supported)
-	-output 		File to write backup to (default: echo to stdout)
-	-db-host		Database host to add to output (default: %s)
-	-db-port		Database port to add to output (default: %d)
-	-db-schema		Database schema to add to output
-	-db-user		Database user to add to output
-	-db-password 	Database password to add to output
+    -scheme         "http" or "https" (default: %s) 
+    -host           Managment Server hostname with port (default: %s)
+    -path           Managment Server api path (default: %s)
+    -format         Backup format (currently only "json" is supported)
+    -output         File to write backup to (default: echo to stdout)
+    -db-host        Database host to add to output (default: %s)
+    -db-port        Database port to add to output (default: %d)
+    -db-schema      Database schema to add to output
+    -db-user        Database user to add to output
+    -db-password    Database password to add to output
+    -fetch          Comma-separated list of fetchers to execute (default: %s)
 
 `,
 		c.self,
@@ -147,10 +151,13 @@ Optional:
 		definition.DefaultAddress,
 		definition.DefaultPath,
 		definition.DefaultDBHost,
-		definition.DefaultDBPort)
+		definition.DefaultDBPort,
+		strings.Join(definition.DefaultFetchers(), ","))
 }
 
 func (c *Command) parseFlags(args []string) error {
+	var err error
+
 	if c.conf == nil {
 		return errors.New("command improperly constructed")
 	}
@@ -173,44 +180,64 @@ func (c *Command) parseFlags(args []string) error {
 	fs.StringVar(&c.conf.dbUser, "db-user", "", "Database user")
 	fs.StringVar(&c.conf.dbPassword, "db-pass", "", "Database password")
 
-	if err := fs.Parse(args); err != nil {
+	fs.StringVar(&c.conf.fetch, "fetch", strings.Join(definition.DefaultFetchers(), ","), "Comma-separated list of fetchers to execute")
+
+	if err = fs.Parse(args); err != nil {
 		return err
 	}
 
-	ok := true
+	configOK := true
 
 	if c.conf.apiKey == "" {
 		c.log.Println("[error] key cannot be empty")
-		ok = false
+		configOK = false
 	}
 	if c.conf.apiSecret == "" {
 		c.log.Println("[error] secret cannot be empty")
-		ok = false
+		configOK = false
 	}
 	c.conf.hostScheme = strings.ToLower(c.conf.hostScheme)
 	if c.conf.hostScheme != "http" && c.conf.hostScheme != "https" {
 		c.log.Println("[error] scheme must be \"http\" or \"https\"")
-		ok = false
+		configOK = false
 	}
 	if c.conf.hostAddr == "" {
 		c.log.Println("[error] host cannot be empty")
-		ok = false
+		configOK = false
 	}
 	if c.conf.hostPath == "" {
 		c.log.Println("[error] path cannot be empty")
-		ok = false
+		configOK = false
 	}
 	if c.conf.zoneName == "" && c.conf.zoneID == "" {
 		c.log.Println("[error] zone-id or zone-name must be set")
-		ok = false
+		configOK = false
 	}
 	c.conf.format = strings.ToLower(c.conf.format)
 	if c.conf.format != "json" {
 		c.log.Println("[error] format must be json")
-		ok = false
+		configOK = false
 	}
 
-	if !ok {
+	var fetchers []string
+
+	if cf := strings.Split(c.conf.fetch, ","); len(cf) > 0 {
+		fetchers = cf
+	} else {
+		fetchers = definition.DefaultFetchers()
+	}
+
+	c.conf.fetchers = make([]definition.Fetcher, 0)
+	for _, name := range fetchers {
+		if fn, ok := definition.GetFetcher(name); !ok {
+			configOK = false
+			c.log.Printf("[error] no fetcher \"%s\" defined", name)
+		} else {
+			c.conf.fetchers = append(c.conf.fetchers, fn)
+		}
+	}
+
+	if !configOK {
 		return errors.New("error parsing flags, see log")
 	}
 

@@ -169,23 +169,23 @@ func (s *UserService) CreateUser(p *CreateUserParams) (*CreateUserResponse, erro
 }
 
 type CreateUserResponse struct {
-	Account             string `json:"account,omitempty"`
-	Accountid           string `json:"accountid,omitempty"`
-	Accounttype         int    `json:"accounttype,omitempty"`
-	Apikey              string `json:"apikey,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Email               string `json:"email,omitempty"`
-	Firstname           string `json:"firstname,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Iscallerchilddomain bool   `json:"iscallerchilddomain,omitempty"`
-	Isdefault           bool   `json:"isdefault,omitempty"`
-	Lastname            string `json:"lastname,omitempty"`
-	Secretkey           string `json:"secretkey,omitempty"`
-	State               string `json:"state,omitempty"`
-	Timezone            string `json:"timezone,omitempty"`
-	Username            string `json:"username,omitempty"`
+	Account             string `json:"account"`
+	Accountid           string `json:"accountid"`
+	Accounttype         int    `json:"accounttype"`
+	Apikey              string `json:"apikey"`
+	Created             string `json:"created"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Email               string `json:"email"`
+	Firstname           string `json:"firstname"`
+	Id                  string `json:"id"`
+	Iscallerchilddomain bool   `json:"iscallerchilddomain"`
+	Isdefault           bool   `json:"isdefault"`
+	Lastname            string `json:"lastname"`
+	Secretkey           string `json:"secretkey"`
+	State               string `json:"state"`
+	Timezone            string `json:"timezone"`
+	Username            string `json:"username"`
 }
 
 type DeleteUserParams struct {
@@ -236,8 +236,8 @@ func (s *UserService) DeleteUser(p *DeleteUserParams) (*DeleteUserResponse, erro
 }
 
 type DeleteUserResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type UpdateUserParams struct {
@@ -376,23 +376,23 @@ func (s *UserService) UpdateUser(p *UpdateUserParams) (*UpdateUserResponse, erro
 }
 
 type UpdateUserResponse struct {
-	Account             string `json:"account,omitempty"`
-	Accountid           string `json:"accountid,omitempty"`
-	Accounttype         int    `json:"accounttype,omitempty"`
-	Apikey              string `json:"apikey,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Email               string `json:"email,omitempty"`
-	Firstname           string `json:"firstname,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Iscallerchilddomain bool   `json:"iscallerchilddomain,omitempty"`
-	Isdefault           bool   `json:"isdefault,omitempty"`
-	Lastname            string `json:"lastname,omitempty"`
-	Secretkey           string `json:"secretkey,omitempty"`
-	State               string `json:"state,omitempty"`
-	Timezone            string `json:"timezone,omitempty"`
-	Username            string `json:"username,omitempty"`
+	Account             string `json:"account"`
+	Accountid           string `json:"accountid"`
+	Accounttype         int    `json:"accounttype"`
+	Apikey              string `json:"apikey"`
+	Created             string `json:"created"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Email               string `json:"email"`
+	Firstname           string `json:"firstname"`
+	Id                  string `json:"id"`
+	Iscallerchilddomain bool   `json:"iscallerchilddomain"`
+	Isdefault           bool   `json:"isdefault"`
+	Lastname            string `json:"lastname"`
+	Secretkey           string `json:"secretkey"`
+	State               string `json:"state"`
+	Timezone            string `json:"timezone"`
+	Username            string `json:"username"`
 }
 
 type ListUsersParams struct {
@@ -595,23 +595,23 @@ type ListUsersResponse struct {
 }
 
 type User struct {
-	Account             string `json:"account,omitempty"`
-	Accountid           string `json:"accountid,omitempty"`
-	Accounttype         int    `json:"accounttype,omitempty"`
-	Apikey              string `json:"apikey,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Email               string `json:"email,omitempty"`
-	Firstname           string `json:"firstname,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Iscallerchilddomain bool   `json:"iscallerchilddomain,omitempty"`
-	Isdefault           bool   `json:"isdefault,omitempty"`
-	Lastname            string `json:"lastname,omitempty"`
-	Secretkey           string `json:"secretkey,omitempty"`
-	State               string `json:"state,omitempty"`
-	Timezone            string `json:"timezone,omitempty"`
-	Username            string `json:"username,omitempty"`
+	Account             string `json:"account"`
+	Accountid           string `json:"accountid"`
+	Accounttype         int    `json:"accounttype"`
+	Apikey              string `json:"apikey"`
+	Created             string `json:"created"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Email               string `json:"email"`
+	Firstname           string `json:"firstname"`
+	Id                  string `json:"id"`
+	Iscallerchilddomain bool   `json:"iscallerchilddomain"`
+	Isdefault           bool   `json:"isdefault"`
+	Lastname            string `json:"lastname"`
+	Secretkey           string `json:"secretkey"`
+	State               string `json:"state"`
+	Timezone            string `json:"timezone"`
+	Username            string `json:"username"`
 }
 
 type LockUserParams struct {
@@ -662,23 +662,23 @@ func (s *UserService) LockUser(p *LockUserParams) (*LockUserResponse, error) {
 }
 
 type LockUserResponse struct {
-	Account             string `json:"account,omitempty"`
-	Accountid           string `json:"accountid,omitempty"`
-	Accounttype         int    `json:"accounttype,omitempty"`
-	Apikey              string `json:"apikey,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Email               string `json:"email,omitempty"`
-	Firstname           string `json:"firstname,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Iscallerchilddomain bool   `json:"iscallerchilddomain,omitempty"`
-	Isdefault           bool   `json:"isdefault,omitempty"`
-	Lastname            string `json:"lastname,omitempty"`
-	Secretkey           string `json:"secretkey,omitempty"`
-	State               string `json:"state,omitempty"`
-	Timezone            string `json:"timezone,omitempty"`
-	Username            string `json:"username,omitempty"`
+	Account             string `json:"account"`
+	Accountid           string `json:"accountid"`
+	Accounttype         int    `json:"accounttype"`
+	Apikey              string `json:"apikey"`
+	Created             string `json:"created"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Email               string `json:"email"`
+	Firstname           string `json:"firstname"`
+	Id                  string `json:"id"`
+	Iscallerchilddomain bool   `json:"iscallerchilddomain"`
+	Isdefault           bool   `json:"isdefault"`
+	Lastname            string `json:"lastname"`
+	Secretkey           string `json:"secretkey"`
+	State               string `json:"state"`
+	Timezone            string `json:"timezone"`
+	Username            string `json:"username"`
 }
 
 type DisableUserParams struct {
@@ -749,24 +749,24 @@ func (s *UserService) DisableUser(p *DisableUserParams) (*DisableUserResponse, e
 }
 
 type DisableUserResponse struct {
-	JobID               string `json:"jobid,omitempty"`
-	Account             string `json:"account,omitempty"`
-	Accountid           string `json:"accountid,omitempty"`
-	Accounttype         int    `json:"accounttype,omitempty"`
-	Apikey              string `json:"apikey,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Email               string `json:"email,omitempty"`
-	Firstname           string `json:"firstname,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Iscallerchilddomain bool   `json:"iscallerchilddomain,omitempty"`
-	Isdefault           bool   `json:"isdefault,omitempty"`
-	Lastname            string `json:"lastname,omitempty"`
-	Secretkey           string `json:"secretkey,omitempty"`
-	State               string `json:"state,omitempty"`
-	Timezone            string `json:"timezone,omitempty"`
-	Username            string `json:"username,omitempty"`
+	JobID               string `json:"jobid"`
+	Account             string `json:"account"`
+	Accountid           string `json:"accountid"`
+	Accounttype         int    `json:"accounttype"`
+	Apikey              string `json:"apikey"`
+	Created             string `json:"created"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Email               string `json:"email"`
+	Firstname           string `json:"firstname"`
+	Id                  string `json:"id"`
+	Iscallerchilddomain bool   `json:"iscallerchilddomain"`
+	Isdefault           bool   `json:"isdefault"`
+	Lastname            string `json:"lastname"`
+	Secretkey           string `json:"secretkey"`
+	State               string `json:"state"`
+	Timezone            string `json:"timezone"`
+	Username            string `json:"username"`
 }
 
 type EnableUserParams struct {
@@ -817,23 +817,23 @@ func (s *UserService) EnableUser(p *EnableUserParams) (*EnableUserResponse, erro
 }
 
 type EnableUserResponse struct {
-	Account             string `json:"account,omitempty"`
-	Accountid           string `json:"accountid,omitempty"`
-	Accounttype         int    `json:"accounttype,omitempty"`
-	Apikey              string `json:"apikey,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Email               string `json:"email,omitempty"`
-	Firstname           string `json:"firstname,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Iscallerchilddomain bool   `json:"iscallerchilddomain,omitempty"`
-	Isdefault           bool   `json:"isdefault,omitempty"`
-	Lastname            string `json:"lastname,omitempty"`
-	Secretkey           string `json:"secretkey,omitempty"`
-	State               string `json:"state,omitempty"`
-	Timezone            string `json:"timezone,omitempty"`
-	Username            string `json:"username,omitempty"`
+	Account             string `json:"account"`
+	Accountid           string `json:"accountid"`
+	Accounttype         int    `json:"accounttype"`
+	Apikey              string `json:"apikey"`
+	Created             string `json:"created"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Email               string `json:"email"`
+	Firstname           string `json:"firstname"`
+	Id                  string `json:"id"`
+	Iscallerchilddomain bool   `json:"iscallerchilddomain"`
+	Isdefault           bool   `json:"isdefault"`
+	Lastname            string `json:"lastname"`
+	Secretkey           string `json:"secretkey"`
+	State               string `json:"state"`
+	Timezone            string `json:"timezone"`
+	Username            string `json:"username"`
 }
 
 type GetUserParams struct {
@@ -884,23 +884,23 @@ func (s *UserService) GetUser(p *GetUserParams) (*GetUserResponse, error) {
 }
 
 type GetUserResponse struct {
-	Account             string `json:"account,omitempty"`
-	Accountid           string `json:"accountid,omitempty"`
-	Accounttype         int    `json:"accounttype,omitempty"`
-	Apikey              string `json:"apikey,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Email               string `json:"email,omitempty"`
-	Firstname           string `json:"firstname,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Iscallerchilddomain bool   `json:"iscallerchilddomain,omitempty"`
-	Isdefault           bool   `json:"isdefault,omitempty"`
-	Lastname            string `json:"lastname,omitempty"`
-	Secretkey           string `json:"secretkey,omitempty"`
-	State               string `json:"state,omitempty"`
-	Timezone            string `json:"timezone,omitempty"`
-	Username            string `json:"username,omitempty"`
+	Account             string `json:"account"`
+	Accountid           string `json:"accountid"`
+	Accounttype         int    `json:"accounttype"`
+	Apikey              string `json:"apikey"`
+	Created             string `json:"created"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Email               string `json:"email"`
+	Firstname           string `json:"firstname"`
+	Id                  string `json:"id"`
+	Iscallerchilddomain bool   `json:"iscallerchilddomain"`
+	Isdefault           bool   `json:"isdefault"`
+	Lastname            string `json:"lastname"`
+	Secretkey           string `json:"secretkey"`
+	State               string `json:"state"`
+	Timezone            string `json:"timezone"`
+	Username            string `json:"username"`
 }
 
 type GetVirtualMachineUserDataParams struct {
@@ -951,8 +951,8 @@ func (s *UserService) GetVirtualMachineUserData(p *GetVirtualMachineUserDataPara
 }
 
 type GetVirtualMachineUserDataResponse struct {
-	Userdata         string `json:"userdata,omitempty"`
-	Virtualmachineid string `json:"virtualmachineid,omitempty"`
+	Userdata         string `json:"userdata"`
+	Virtualmachineid string `json:"virtualmachineid"`
 }
 
 type RegisterUserKeysParams struct {
@@ -1007,8 +1007,8 @@ func (s *UserService) RegisterUserKeys(p *RegisterUserKeysParams) (*RegisterUser
 }
 
 type RegisterUserKeysResponse struct {
-	Apikey    string `json:"apikey,omitempty"`
-	Secretkey string `json:"secretkey,omitempty"`
+	Apikey    string `json:"apikey"`
+	Secretkey string `json:"secretkey"`
 }
 
 type ListLdapUsersParams struct {
@@ -1098,12 +1098,12 @@ type ListLdapUsersResponse struct {
 }
 
 type LdapUser struct {
-	Domain    string `json:"domain,omitempty"`
-	Email     string `json:"email,omitempty"`
-	Firstname string `json:"firstname,omitempty"`
-	Lastname  string `json:"lastname,omitempty"`
-	Principal string `json:"principal,omitempty"`
-	Username  string `json:"username,omitempty"`
+	Domain    string `json:"domain"`
+	Email     string `json:"email"`
+	Firstname string `json:"firstname"`
+	Lastname  string `json:"lastname"`
+	Principal string `json:"principal"`
+	Username  string `json:"username"`
 }
 
 type ImportLdapUsersParams struct {
@@ -1250,10 +1250,10 @@ func (s *UserService) ImportLdapUsers(p *ImportLdapUsersParams) (*ImportLdapUser
 }
 
 type ImportLdapUsersResponse struct {
-	Domain    string `json:"domain,omitempty"`
-	Email     string `json:"email,omitempty"`
-	Firstname string `json:"firstname,omitempty"`
-	Lastname  string `json:"lastname,omitempty"`
-	Principal string `json:"principal,omitempty"`
-	Username  string `json:"username,omitempty"`
+	Domain    string `json:"domain"`
+	Email     string `json:"email"`
+	Firstname string `json:"firstname"`
+	Lastname  string `json:"lastname"`
+	Principal string `json:"principal"`
+	Username  string `json:"username"`
 }

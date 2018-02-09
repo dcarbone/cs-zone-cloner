@@ -105,14 +105,14 @@ func (s *VMGroupService) CreateInstanceGroup(p *CreateInstanceGroupParams) (*Cre
 }
 
 type CreateInstanceGroupResponse struct {
-	Account   string `json:"account,omitempty"`
-	Created   string `json:"created,omitempty"`
-	Domain    string `json:"domain,omitempty"`
-	Domainid  string `json:"domainid,omitempty"`
-	Id        string `json:"id,omitempty"`
-	Name      string `json:"name,omitempty"`
-	Project   string `json:"project,omitempty"`
-	Projectid string `json:"projectid,omitempty"`
+	Account   string `json:"account"`
+	Created   string `json:"created"`
+	Domain    string `json:"domain"`
+	Domainid  string `json:"domainid"`
+	Id        string `json:"id"`
+	Name      string `json:"name"`
+	Project   string `json:"project"`
+	Projectid string `json:"projectid"`
 }
 
 type DeleteInstanceGroupParams struct {
@@ -163,8 +163,8 @@ func (s *VMGroupService) DeleteInstanceGroup(p *DeleteInstanceGroupParams) (*Del
 }
 
 type DeleteInstanceGroupResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type UpdateInstanceGroupParams struct {
@@ -226,14 +226,14 @@ func (s *VMGroupService) UpdateInstanceGroup(p *UpdateInstanceGroupParams) (*Upd
 }
 
 type UpdateInstanceGroupResponse struct {
-	Account   string `json:"account,omitempty"`
-	Created   string `json:"created,omitempty"`
-	Domain    string `json:"domain,omitempty"`
-	Domainid  string `json:"domainid,omitempty"`
-	Id        string `json:"id,omitempty"`
-	Name      string `json:"name,omitempty"`
-	Project   string `json:"project,omitempty"`
-	Projectid string `json:"projectid,omitempty"`
+	Account   string `json:"account"`
+	Created   string `json:"created"`
+	Domain    string `json:"domain"`
+	Domainid  string `json:"domainid"`
+	Id        string `json:"id"`
+	Name      string `json:"name"`
+	Project   string `json:"project"`
+	Projectid string `json:"projectid"`
 }
 
 type ListInstanceGroupsParams struct {
@@ -474,12 +474,12 @@ type ListInstanceGroupsResponse struct {
 }
 
 type InstanceGroup struct {
-	Account   string `json:"account,omitempty"`
-	Created   string `json:"created,omitempty"`
-	Domain    string `json:"domain,omitempty"`
-	Domainid  string `json:"domainid,omitempty"`
-	Id        string `json:"id,omitempty"`
-	Name      string `json:"name,omitempty"`
-	Project   string `json:"project,omitempty"`
-	Projectid string `json:"projectid,omitempty"`
+	Account   string `json:"account"`
+	Created   string `json:"created"`
+	Domain    string `json:"domain"`
+	Domainid  string `json:"domainid"`
+	Id        string `json:"id"`
+	Name      string `json:"name"`
+	Project   string `json:"project"`
+	Projectid string `json:"projectid"`
 }

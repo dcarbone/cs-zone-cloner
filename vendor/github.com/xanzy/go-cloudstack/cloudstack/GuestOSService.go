@@ -166,10 +166,10 @@ type ListOsTypesResponse struct {
 }
 
 type OsType struct {
-	Description   string `json:"description,omitempty"`
-	Id            string `json:"id,omitempty"`
-	Isuserdefined string `json:"isuserdefined,omitempty"`
-	Oscategoryid  string `json:"oscategoryid,omitempty"`
+	Description   string `json:"description"`
+	Id            string `json:"id"`
+	Isuserdefined string `json:"isuserdefined"`
+	Oscategoryid  string `json:"oscategoryid"`
 }
 
 type ListOsCategoriesParams struct {
@@ -353,8 +353,8 @@ type ListOsCategoriesResponse struct {
 }
 
 type OsCategory struct {
-	Id   string `json:"id,omitempty"`
-	Name string `json:"name,omitempty"`
+	Id   string `json:"id"`
+	Name string `json:"name"`
 }
 
 type AddGuestOsParams struct {
@@ -448,11 +448,11 @@ func (s *GuestOSService) AddGuestOs(p *AddGuestOsParams) (*AddGuestOsResponse, e
 }
 
 type AddGuestOsResponse struct {
-	JobID         string `json:"jobid,omitempty"`
-	Description   string `json:"description,omitempty"`
-	Id            string `json:"id,omitempty"`
-	Isuserdefined string `json:"isuserdefined,omitempty"`
-	Oscategoryid  string `json:"oscategoryid,omitempty"`
+	JobID         string `json:"jobid"`
+	Description   string `json:"description"`
+	Id            string `json:"id"`
+	Isuserdefined string `json:"isuserdefined"`
+	Oscategoryid  string `json:"oscategoryid"`
 }
 
 type UpdateGuestOsParams struct {
@@ -535,11 +535,11 @@ func (s *GuestOSService) UpdateGuestOs(p *UpdateGuestOsParams) (*UpdateGuestOsRe
 }
 
 type UpdateGuestOsResponse struct {
-	JobID         string `json:"jobid,omitempty"`
-	Description   string `json:"description,omitempty"`
-	Id            string `json:"id,omitempty"`
-	Isuserdefined string `json:"isuserdefined,omitempty"`
-	Oscategoryid  string `json:"oscategoryid,omitempty"`
+	JobID         string `json:"jobid"`
+	Description   string `json:"description"`
+	Id            string `json:"id"`
+	Isuserdefined string `json:"isuserdefined"`
+	Oscategoryid  string `json:"oscategoryid"`
 }
 
 type RemoveGuestOsParams struct {
@@ -605,9 +605,9 @@ func (s *GuestOSService) RemoveGuestOs(p *RemoveGuestOsParams) (*RemoveGuestOsRe
 }
 
 type RemoveGuestOsResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListGuestOsMappingParams struct {
@@ -763,13 +763,13 @@ type ListGuestOsMappingResponse struct {
 }
 
 type GuestOsMapping struct {
-	Hypervisor          string `json:"hypervisor,omitempty"`
-	Hypervisorversion   string `json:"hypervisorversion,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Isuserdefined       string `json:"isuserdefined,omitempty"`
-	Osdisplayname       string `json:"osdisplayname,omitempty"`
-	Osnameforhypervisor string `json:"osnameforhypervisor,omitempty"`
-	Ostypeid            string `json:"ostypeid,omitempty"`
+	Hypervisor          string `json:"hypervisor"`
+	Hypervisorversion   string `json:"hypervisorversion"`
+	Id                  string `json:"id"`
+	Isuserdefined       string `json:"isuserdefined"`
+	Osdisplayname       string `json:"osdisplayname"`
+	Osnameforhypervisor string `json:"osnameforhypervisor"`
+	Ostypeid            string `json:"ostypeid"`
 }
 
 type AddGuestOsMappingParams struct {
@@ -886,14 +886,14 @@ func (s *GuestOSService) AddGuestOsMapping(p *AddGuestOsMappingParams) (*AddGues
 }
 
 type AddGuestOsMappingResponse struct {
-	JobID               string `json:"jobid,omitempty"`
-	Hypervisor          string `json:"hypervisor,omitempty"`
-	Hypervisorversion   string `json:"hypervisorversion,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Isuserdefined       string `json:"isuserdefined,omitempty"`
-	Osdisplayname       string `json:"osdisplayname,omitempty"`
-	Osnameforhypervisor string `json:"osnameforhypervisor,omitempty"`
-	Ostypeid            string `json:"ostypeid,omitempty"`
+	JobID               string `json:"jobid"`
+	Hypervisor          string `json:"hypervisor"`
+	Hypervisorversion   string `json:"hypervisorversion"`
+	Id                  string `json:"id"`
+	Isuserdefined       string `json:"isuserdefined"`
+	Osdisplayname       string `json:"osdisplayname"`
+	Osnameforhypervisor string `json:"osnameforhypervisor"`
+	Ostypeid            string `json:"ostypeid"`
 }
 
 type UpdateGuestOsMappingParams struct {
@@ -976,14 +976,14 @@ func (s *GuestOSService) UpdateGuestOsMapping(p *UpdateGuestOsMappingParams) (*U
 }
 
 type UpdateGuestOsMappingResponse struct {
-	JobID               string `json:"jobid,omitempty"`
-	Hypervisor          string `json:"hypervisor,omitempty"`
-	Hypervisorversion   string `json:"hypervisorversion,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Isuserdefined       string `json:"isuserdefined,omitempty"`
-	Osdisplayname       string `json:"osdisplayname,omitempty"`
-	Osnameforhypervisor string `json:"osnameforhypervisor,omitempty"`
-	Ostypeid            string `json:"ostypeid,omitempty"`
+	JobID               string `json:"jobid"`
+	Hypervisor          string `json:"hypervisor"`
+	Hypervisorversion   string `json:"hypervisorversion"`
+	Id                  string `json:"id"`
+	Isuserdefined       string `json:"isuserdefined"`
+	Osdisplayname       string `json:"osdisplayname"`
+	Osnameforhypervisor string `json:"osnameforhypervisor"`
+	Ostypeid            string `json:"ostypeid"`
 }
 
 type RemoveGuestOsMappingParams struct {
@@ -1049,7 +1049,7 @@ func (s *GuestOSService) RemoveGuestOsMapping(p *RemoveGuestOsMappingParams) (*R
 }
 
 type RemoveGuestOsMappingResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }

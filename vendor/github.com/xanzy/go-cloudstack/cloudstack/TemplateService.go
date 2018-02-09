@@ -269,54 +269,54 @@ func (s *TemplateService) CreateTemplate(p *CreateTemplateParams) (*CreateTempla
 }
 
 type CreateTemplateResponse struct {
-	JobID                 string            `json:"jobid,omitempty"`
-	Account               string            `json:"account,omitempty"`
-	Accountid             string            `json:"accountid,omitempty"`
-	Bootable              bool              `json:"bootable,omitempty"`
-	Checksum              string            `json:"checksum,omitempty"`
-	Created               string            `json:"created,omitempty"`
-	CrossZones            bool              `json:"crossZones,omitempty"`
-	Details               map[string]string `json:"details,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Format                string            `json:"format,omitempty"`
-	Hostid                string            `json:"hostid,omitempty"`
-	Hostname              string            `json:"hostname,omitempty"`
-	Hypervisor            string            `json:"hypervisor,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Isdynamicallyscalable bool              `json:"isdynamicallyscalable,omitempty"`
-	Isextractable         bool              `json:"isextractable,omitempty"`
-	Isfeatured            bool              `json:"isfeatured,omitempty"`
-	Ispublic              bool              `json:"ispublic,omitempty"`
-	Isready               bool              `json:"isready,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Ostypeid              string            `json:"ostypeid,omitempty"`
-	Ostypename            string            `json:"ostypename,omitempty"`
-	Passwordenabled       bool              `json:"passwordenabled,omitempty"`
-	Project               string            `json:"project,omitempty"`
-	Projectid             string            `json:"projectid,omitempty"`
-	Removed               string            `json:"removed,omitempty"`
-	Size                  int64             `json:"size,omitempty"`
-	Sourcetemplateid      string            `json:"sourcetemplateid,omitempty"`
-	Sshkeyenabled         bool              `json:"sshkeyenabled,omitempty"`
-	Status                string            `json:"status,omitempty"`
+	JobID                 string            `json:"jobid"`
+	Account               string            `json:"account"`
+	Accountid             string            `json:"accountid"`
+	Bootable              bool              `json:"bootable"`
+	Checksum              string            `json:"checksum"`
+	Created               string            `json:"created"`
+	CrossZones            bool              `json:"crossZones"`
+	Details               map[string]string `json:"details"`
+	Displaytext           string            `json:"displaytext"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Format                string            `json:"format"`
+	Hostid                string            `json:"hostid"`
+	Hostname              string            `json:"hostname"`
+	Hypervisor            string            `json:"hypervisor"`
+	Id                    string            `json:"id"`
+	Isdynamicallyscalable bool              `json:"isdynamicallyscalable"`
+	Isextractable         bool              `json:"isextractable"`
+	Isfeatured            bool              `json:"isfeatured"`
+	Ispublic              bool              `json:"ispublic"`
+	Isready               bool              `json:"isready"`
+	Name                  string            `json:"name"`
+	Ostypeid              string            `json:"ostypeid"`
+	Ostypename            string            `json:"ostypename"`
+	Passwordenabled       bool              `json:"passwordenabled"`
+	Project               string            `json:"project"`
+	Projectid             string            `json:"projectid"`
+	Removed               string            `json:"removed"`
+	Size                  int64             `json:"size"`
+	Sourcetemplateid      string            `json:"sourcetemplateid"`
+	Sshkeyenabled         bool              `json:"sshkeyenabled"`
+	Status                string            `json:"status"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Templatetag  string `json:"templatetag,omitempty"`
-	Templatetype string `json:"templatetype,omitempty"`
-	Zoneid       string `json:"zoneid,omitempty"`
-	Zonename     string `json:"zonename,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Templatetag  string `json:"templatetag"`
+	Templatetype string `json:"templatetype"`
+	Zoneid       string `json:"zoneid"`
+	Zonename     string `json:"zonename"`
 }
 
 type RegisterTemplateParams struct {
@@ -622,53 +622,53 @@ type RegisterTemplateResponse struct {
 }
 
 type RegisterTemplate struct {
-	Account               string            `json:"account,omitempty"`
-	Accountid             string            `json:"accountid,omitempty"`
-	Bootable              bool              `json:"bootable,omitempty"`
-	Checksum              string            `json:"checksum,omitempty"`
-	Created               string            `json:"created,omitempty"`
-	CrossZones            bool              `json:"crossZones,omitempty"`
-	Details               map[string]string `json:"details,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Format                string            `json:"format,omitempty"`
-	Hostid                string            `json:"hostid,omitempty"`
-	Hostname              string            `json:"hostname,omitempty"`
-	Hypervisor            string            `json:"hypervisor,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Isdynamicallyscalable bool              `json:"isdynamicallyscalable,omitempty"`
-	Isextractable         bool              `json:"isextractable,omitempty"`
-	Isfeatured            bool              `json:"isfeatured,omitempty"`
-	Ispublic              bool              `json:"ispublic,omitempty"`
-	Isready               bool              `json:"isready,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Ostypeid              string            `json:"ostypeid,omitempty"`
-	Ostypename            string            `json:"ostypename,omitempty"`
-	Passwordenabled       bool              `json:"passwordenabled,omitempty"`
-	Project               string            `json:"project,omitempty"`
-	Projectid             string            `json:"projectid,omitempty"`
-	Removed               string            `json:"removed,omitempty"`
-	Size                  int64             `json:"size,omitempty"`
-	Sourcetemplateid      string            `json:"sourcetemplateid,omitempty"`
-	Sshkeyenabled         bool              `json:"sshkeyenabled,omitempty"`
-	Status                string            `json:"status,omitempty"`
+	Account               string            `json:"account"`
+	Accountid             string            `json:"accountid"`
+	Bootable              bool              `json:"bootable"`
+	Checksum              string            `json:"checksum"`
+	Created               string            `json:"created"`
+	CrossZones            bool              `json:"crossZones"`
+	Details               map[string]string `json:"details"`
+	Displaytext           string            `json:"displaytext"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Format                string            `json:"format"`
+	Hostid                string            `json:"hostid"`
+	Hostname              string            `json:"hostname"`
+	Hypervisor            string            `json:"hypervisor"`
+	Id                    string            `json:"id"`
+	Isdynamicallyscalable bool              `json:"isdynamicallyscalable"`
+	Isextractable         bool              `json:"isextractable"`
+	Isfeatured            bool              `json:"isfeatured"`
+	Ispublic              bool              `json:"ispublic"`
+	Isready               bool              `json:"isready"`
+	Name                  string            `json:"name"`
+	Ostypeid              string            `json:"ostypeid"`
+	Ostypename            string            `json:"ostypename"`
+	Passwordenabled       bool              `json:"passwordenabled"`
+	Project               string            `json:"project"`
+	Projectid             string            `json:"projectid"`
+	Removed               string            `json:"removed"`
+	Size                  int64             `json:"size"`
+	Sourcetemplateid      string            `json:"sourcetemplateid"`
+	Sshkeyenabled         bool              `json:"sshkeyenabled"`
+	Status                string            `json:"status"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Templatetag  string `json:"templatetag,omitempty"`
-	Templatetype string `json:"templatetype,omitempty"`
-	Zoneid       string `json:"zoneid,omitempty"`
-	Zonename     string `json:"zonename,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Templatetag  string `json:"templatetag"`
+	Templatetype string `json:"templatetype"`
+	Zoneid       string `json:"zoneid"`
+	Zonename     string `json:"zonename"`
 }
 
 type UpdateTemplateParams struct {
@@ -850,53 +850,53 @@ func (s *TemplateService) UpdateTemplate(p *UpdateTemplateParams) (*UpdateTempla
 }
 
 type UpdateTemplateResponse struct {
-	Account               string            `json:"account,omitempty"`
-	Accountid             string            `json:"accountid,omitempty"`
-	Bootable              bool              `json:"bootable,omitempty"`
-	Checksum              string            `json:"checksum,omitempty"`
-	Created               string            `json:"created,omitempty"`
-	CrossZones            bool              `json:"crossZones,omitempty"`
-	Details               map[string]string `json:"details,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Format                string            `json:"format,omitempty"`
-	Hostid                string            `json:"hostid,omitempty"`
-	Hostname              string            `json:"hostname,omitempty"`
-	Hypervisor            string            `json:"hypervisor,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Isdynamicallyscalable bool              `json:"isdynamicallyscalable,omitempty"`
-	Isextractable         bool              `json:"isextractable,omitempty"`
-	Isfeatured            bool              `json:"isfeatured,omitempty"`
-	Ispublic              bool              `json:"ispublic,omitempty"`
-	Isready               bool              `json:"isready,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Ostypeid              string            `json:"ostypeid,omitempty"`
-	Ostypename            string            `json:"ostypename,omitempty"`
-	Passwordenabled       bool              `json:"passwordenabled,omitempty"`
-	Project               string            `json:"project,omitempty"`
-	Projectid             string            `json:"projectid,omitempty"`
-	Removed               string            `json:"removed,omitempty"`
-	Size                  int64             `json:"size,omitempty"`
-	Sourcetemplateid      string            `json:"sourcetemplateid,omitempty"`
-	Sshkeyenabled         bool              `json:"sshkeyenabled,omitempty"`
-	Status                string            `json:"status,omitempty"`
+	Account               string            `json:"account"`
+	Accountid             string            `json:"accountid"`
+	Bootable              bool              `json:"bootable"`
+	Checksum              string            `json:"checksum"`
+	Created               string            `json:"created"`
+	CrossZones            bool              `json:"crossZones"`
+	Details               map[string]string `json:"details"`
+	Displaytext           string            `json:"displaytext"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Format                string            `json:"format"`
+	Hostid                string            `json:"hostid"`
+	Hostname              string            `json:"hostname"`
+	Hypervisor            string            `json:"hypervisor"`
+	Id                    string            `json:"id"`
+	Isdynamicallyscalable bool              `json:"isdynamicallyscalable"`
+	Isextractable         bool              `json:"isextractable"`
+	Isfeatured            bool              `json:"isfeatured"`
+	Ispublic              bool              `json:"ispublic"`
+	Isready               bool              `json:"isready"`
+	Name                  string            `json:"name"`
+	Ostypeid              string            `json:"ostypeid"`
+	Ostypename            string            `json:"ostypename"`
+	Passwordenabled       bool              `json:"passwordenabled"`
+	Project               string            `json:"project"`
+	Projectid             string            `json:"projectid"`
+	Removed               string            `json:"removed"`
+	Size                  int64             `json:"size"`
+	Sourcetemplateid      string            `json:"sourcetemplateid"`
+	Sshkeyenabled         bool              `json:"sshkeyenabled"`
+	Status                string            `json:"status"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Templatetag  string `json:"templatetag,omitempty"`
-	Templatetype string `json:"templatetype,omitempty"`
-	Zoneid       string `json:"zoneid,omitempty"`
-	Zonename     string `json:"zonename,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Templatetag  string `json:"templatetag"`
+	Templatetype string `json:"templatetype"`
+	Zoneid       string `json:"zoneid"`
+	Zonename     string `json:"zonename"`
 }
 
 type CopyTemplateParams struct {
@@ -990,54 +990,54 @@ func (s *TemplateService) CopyTemplate(p *CopyTemplateParams) (*CopyTemplateResp
 }
 
 type CopyTemplateResponse struct {
-	JobID                 string            `json:"jobid,omitempty"`
-	Account               string            `json:"account,omitempty"`
-	Accountid             string            `json:"accountid,omitempty"`
-	Bootable              bool              `json:"bootable,omitempty"`
-	Checksum              string            `json:"checksum,omitempty"`
-	Created               string            `json:"created,omitempty"`
-	CrossZones            bool              `json:"crossZones,omitempty"`
-	Details               map[string]string `json:"details,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Format                string            `json:"format,omitempty"`
-	Hostid                string            `json:"hostid,omitempty"`
-	Hostname              string            `json:"hostname,omitempty"`
-	Hypervisor            string            `json:"hypervisor,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Isdynamicallyscalable bool              `json:"isdynamicallyscalable,omitempty"`
-	Isextractable         bool              `json:"isextractable,omitempty"`
-	Isfeatured            bool              `json:"isfeatured,omitempty"`
-	Ispublic              bool              `json:"ispublic,omitempty"`
-	Isready               bool              `json:"isready,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Ostypeid              string            `json:"ostypeid,omitempty"`
-	Ostypename            string            `json:"ostypename,omitempty"`
-	Passwordenabled       bool              `json:"passwordenabled,omitempty"`
-	Project               string            `json:"project,omitempty"`
-	Projectid             string            `json:"projectid,omitempty"`
-	Removed               string            `json:"removed,omitempty"`
-	Size                  int64             `json:"size,omitempty"`
-	Sourcetemplateid      string            `json:"sourcetemplateid,omitempty"`
-	Sshkeyenabled         bool              `json:"sshkeyenabled,omitempty"`
-	Status                string            `json:"status,omitempty"`
+	JobID                 string            `json:"jobid"`
+	Account               string            `json:"account"`
+	Accountid             string            `json:"accountid"`
+	Bootable              bool              `json:"bootable"`
+	Checksum              string            `json:"checksum"`
+	Created               string            `json:"created"`
+	CrossZones            bool              `json:"crossZones"`
+	Details               map[string]string `json:"details"`
+	Displaytext           string            `json:"displaytext"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Format                string            `json:"format"`
+	Hostid                string            `json:"hostid"`
+	Hostname              string            `json:"hostname"`
+	Hypervisor            string            `json:"hypervisor"`
+	Id                    string            `json:"id"`
+	Isdynamicallyscalable bool              `json:"isdynamicallyscalable"`
+	Isextractable         bool              `json:"isextractable"`
+	Isfeatured            bool              `json:"isfeatured"`
+	Ispublic              bool              `json:"ispublic"`
+	Isready               bool              `json:"isready"`
+	Name                  string            `json:"name"`
+	Ostypeid              string            `json:"ostypeid"`
+	Ostypename            string            `json:"ostypename"`
+	Passwordenabled       bool              `json:"passwordenabled"`
+	Project               string            `json:"project"`
+	Projectid             string            `json:"projectid"`
+	Removed               string            `json:"removed"`
+	Size                  int64             `json:"size"`
+	Sourcetemplateid      string            `json:"sourcetemplateid"`
+	Sshkeyenabled         bool              `json:"sshkeyenabled"`
+	Status                string            `json:"status"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Templatetag  string `json:"templatetag,omitempty"`
-	Templatetype string `json:"templatetype,omitempty"`
-	Zoneid       string `json:"zoneid,omitempty"`
-	Zonename     string `json:"zonename,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Templatetag  string `json:"templatetag"`
+	Templatetype string `json:"templatetype"`
+	Zoneid       string `json:"zoneid"`
+	Zonename     string `json:"zonename"`
 }
 
 type DeleteTemplateParams struct {
@@ -1114,9 +1114,9 @@ func (s *TemplateService) DeleteTemplate(p *DeleteTemplateParams) (*DeleteTempla
 }
 
 type DeleteTemplateResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListTemplatesParams struct {
@@ -1422,53 +1422,53 @@ type ListTemplatesResponse struct {
 }
 
 type Template struct {
-	Account               string            `json:"account,omitempty"`
-	Accountid             string            `json:"accountid,omitempty"`
-	Bootable              bool              `json:"bootable,omitempty"`
-	Checksum              string            `json:"checksum,omitempty"`
-	Created               string            `json:"created,omitempty"`
-	CrossZones            bool              `json:"crossZones,omitempty"`
-	Details               map[string]string `json:"details,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Format                string            `json:"format,omitempty"`
-	Hostid                string            `json:"hostid,omitempty"`
-	Hostname              string            `json:"hostname,omitempty"`
-	Hypervisor            string            `json:"hypervisor,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Isdynamicallyscalable bool              `json:"isdynamicallyscalable,omitempty"`
-	Isextractable         bool              `json:"isextractable,omitempty"`
-	Isfeatured            bool              `json:"isfeatured,omitempty"`
-	Ispublic              bool              `json:"ispublic,omitempty"`
-	Isready               bool              `json:"isready,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Ostypeid              string            `json:"ostypeid,omitempty"`
-	Ostypename            string            `json:"ostypename,omitempty"`
-	Passwordenabled       bool              `json:"passwordenabled,omitempty"`
-	Project               string            `json:"project,omitempty"`
-	Projectid             string            `json:"projectid,omitempty"`
-	Removed               string            `json:"removed,omitempty"`
-	Size                  int64             `json:"size,omitempty"`
-	Sourcetemplateid      string            `json:"sourcetemplateid,omitempty"`
-	Sshkeyenabled         bool              `json:"sshkeyenabled,omitempty"`
-	Status                string            `json:"status,omitempty"`
+	Account               string            `json:"account"`
+	Accountid             string            `json:"accountid"`
+	Bootable              bool              `json:"bootable"`
+	Checksum              string            `json:"checksum"`
+	Created               string            `json:"created"`
+	CrossZones            bool              `json:"crossZones"`
+	Details               map[string]string `json:"details"`
+	Displaytext           string            `json:"displaytext"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Format                string            `json:"format"`
+	Hostid                string            `json:"hostid"`
+	Hostname              string            `json:"hostname"`
+	Hypervisor            string            `json:"hypervisor"`
+	Id                    string            `json:"id"`
+	Isdynamicallyscalable bool              `json:"isdynamicallyscalable"`
+	Isextractable         bool              `json:"isextractable"`
+	Isfeatured            bool              `json:"isfeatured"`
+	Ispublic              bool              `json:"ispublic"`
+	Isready               bool              `json:"isready"`
+	Name                  string            `json:"name"`
+	Ostypeid              string            `json:"ostypeid"`
+	Ostypename            string            `json:"ostypename"`
+	Passwordenabled       bool              `json:"passwordenabled"`
+	Project               string            `json:"project"`
+	Projectid             string            `json:"projectid"`
+	Removed               string            `json:"removed"`
+	Size                  int64             `json:"size"`
+	Sourcetemplateid      string            `json:"sourcetemplateid"`
+	Sshkeyenabled         bool              `json:"sshkeyenabled"`
+	Status                string            `json:"status"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Templatetag  string `json:"templatetag,omitempty"`
-	Templatetype string `json:"templatetype,omitempty"`
-	Zoneid       string `json:"zoneid,omitempty"`
-	Zonename     string `json:"zonename,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Templatetag  string `json:"templatetag"`
+	Templatetype string `json:"templatetype"`
+	Zoneid       string `json:"zoneid"`
+	Zonename     string `json:"zonename"`
 }
 
 type UpdateTemplatePermissionsParams struct {
@@ -1590,8 +1590,8 @@ func (s *TemplateService) UpdateTemplatePermissions(p *UpdateTemplatePermissions
 }
 
 type UpdateTemplatePermissionsResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type ListTemplatePermissionsParams struct {
@@ -1680,11 +1680,11 @@ type ListTemplatePermissionsResponse struct {
 }
 
 type TemplatePermission struct {
-	Account    []string `json:"account,omitempty"`
-	Domainid   string   `json:"domainid,omitempty"`
-	Id         string   `json:"id,omitempty"`
-	Ispublic   bool     `json:"ispublic,omitempty"`
-	Projectids []string `json:"projectids,omitempty"`
+	Account    []string `json:"account"`
+	Domainid   string   `json:"domainid"`
+	Id         string   `json:"id"`
+	Ispublic   bool     `json:"ispublic"`
+	Projectids []string `json:"projectids"`
 }
 
 type ExtractTemplateParams struct {
@@ -1789,21 +1789,21 @@ func (s *TemplateService) ExtractTemplate(p *ExtractTemplateParams) (*ExtractTem
 }
 
 type ExtractTemplateResponse struct {
-	JobID            string `json:"jobid,omitempty"`
-	Accountid        string `json:"accountid,omitempty"`
-	Created          string `json:"created,omitempty"`
-	ExtractId        string `json:"extractId,omitempty"`
-	ExtractMode      string `json:"extractMode,omitempty"`
-	Id               string `json:"id,omitempty"`
-	Name             string `json:"name,omitempty"`
-	Resultstring     string `json:"resultstring,omitempty"`
-	State            string `json:"state,omitempty"`
-	Status           string `json:"status,omitempty"`
-	Storagetype      string `json:"storagetype,omitempty"`
-	Uploadpercentage int    `json:"uploadpercentage,omitempty"`
-	Url              string `json:"url,omitempty"`
-	Zoneid           string `json:"zoneid,omitempty"`
-	Zonename         string `json:"zonename,omitempty"`
+	JobID            string `json:"jobid"`
+	Accountid        string `json:"accountid"`
+	Created          string `json:"created"`
+	ExtractId        string `json:"extractId"`
+	ExtractMode      string `json:"extractMode"`
+	Id               string `json:"id"`
+	Name             string `json:"name"`
+	Resultstring     string `json:"resultstring"`
+	State            string `json:"state"`
+	Status           string `json:"status"`
+	Storagetype      string `json:"storagetype"`
+	Uploadpercentage int    `json:"uploadpercentage"`
+	Url              string `json:"url"`
+	Zoneid           string `json:"zoneid"`
+	Zonename         string `json:"zonename"`
 }
 
 type PrepareTemplateParams struct {
@@ -1877,53 +1877,53 @@ func (s *TemplateService) PrepareTemplate(p *PrepareTemplateParams) (*PrepareTem
 }
 
 type PrepareTemplateResponse struct {
-	Account               string            `json:"account,omitempty"`
-	Accountid             string            `json:"accountid,omitempty"`
-	Bootable              bool              `json:"bootable,omitempty"`
-	Checksum              string            `json:"checksum,omitempty"`
-	Created               string            `json:"created,omitempty"`
-	CrossZones            bool              `json:"crossZones,omitempty"`
-	Details               map[string]string `json:"details,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Format                string            `json:"format,omitempty"`
-	Hostid                string            `json:"hostid,omitempty"`
-	Hostname              string            `json:"hostname,omitempty"`
-	Hypervisor            string            `json:"hypervisor,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Isdynamicallyscalable bool              `json:"isdynamicallyscalable,omitempty"`
-	Isextractable         bool              `json:"isextractable,omitempty"`
-	Isfeatured            bool              `json:"isfeatured,omitempty"`
-	Ispublic              bool              `json:"ispublic,omitempty"`
-	Isready               bool              `json:"isready,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Ostypeid              string            `json:"ostypeid,omitempty"`
-	Ostypename            string            `json:"ostypename,omitempty"`
-	Passwordenabled       bool              `json:"passwordenabled,omitempty"`
-	Project               string            `json:"project,omitempty"`
-	Projectid             string            `json:"projectid,omitempty"`
-	Removed               string            `json:"removed,omitempty"`
-	Size                  int64             `json:"size,omitempty"`
-	Sourcetemplateid      string            `json:"sourcetemplateid,omitempty"`
-	Sshkeyenabled         bool              `json:"sshkeyenabled,omitempty"`
-	Status                string            `json:"status,omitempty"`
+	Account               string            `json:"account"`
+	Accountid             string            `json:"accountid"`
+	Bootable              bool              `json:"bootable"`
+	Checksum              string            `json:"checksum"`
+	Created               string            `json:"created"`
+	CrossZones            bool              `json:"crossZones"`
+	Details               map[string]string `json:"details"`
+	Displaytext           string            `json:"displaytext"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Format                string            `json:"format"`
+	Hostid                string            `json:"hostid"`
+	Hostname              string            `json:"hostname"`
+	Hypervisor            string            `json:"hypervisor"`
+	Id                    string            `json:"id"`
+	Isdynamicallyscalable bool              `json:"isdynamicallyscalable"`
+	Isextractable         bool              `json:"isextractable"`
+	Isfeatured            bool              `json:"isfeatured"`
+	Ispublic              bool              `json:"ispublic"`
+	Isready               bool              `json:"isready"`
+	Name                  string            `json:"name"`
+	Ostypeid              string            `json:"ostypeid"`
+	Ostypename            string            `json:"ostypename"`
+	Passwordenabled       bool              `json:"passwordenabled"`
+	Project               string            `json:"project"`
+	Projectid             string            `json:"projectid"`
+	Removed               string            `json:"removed"`
+	Size                  int64             `json:"size"`
+	Sourcetemplateid      string            `json:"sourcetemplateid"`
+	Sshkeyenabled         bool              `json:"sshkeyenabled"`
+	Status                string            `json:"status"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Templatetag  string `json:"templatetag,omitempty"`
-	Templatetype string `json:"templatetype,omitempty"`
-	Zoneid       string `json:"zoneid,omitempty"`
-	Zonename     string `json:"zonename,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Templatetag  string `json:"templatetag"`
+	Templatetype string `json:"templatetype"`
+	Zoneid       string `json:"zoneid"`
+	Zonename     string `json:"zonename"`
 }
 
 type UpgradeRouterTemplateParams struct {
@@ -2028,8 +2028,8 @@ func (s *TemplateService) UpgradeRouterTemplate(p *UpgradeRouterTemplateParams) 
 }
 
 type UpgradeRouterTemplateResponse struct {
-	Jobid     string `json:"jobid,omitempty"`
-	Jobstatus int    `json:"jobstatus,omitempty"`
+	Jobid     string `json:"jobid"`
+	Jobstatus int    `json:"jobstatus"`
 }
 
 type GetUploadParamsForTemplateParams struct {
@@ -2318,9 +2318,9 @@ func (s *TemplateService) GetUploadParamsForTemplate(p *GetUploadParamsForTempla
 }
 
 type GetUploadParamsForTemplateResponse struct {
-	Expires   string `json:"expires,omitempty"`
-	Id        string `json:"id,omitempty"`
-	Metadata  string `json:"metadata,omitempty"`
-	PostURL   string `json:"postURL,omitempty"`
-	Signature string `json:"signature,omitempty"`
+	Expires   string `json:"expires"`
+	Id        string `json:"id"`
+	Metadata  string `json:"metadata"`
+	PostURL   string `json:"postURL"`
+	Signature string `json:"signature"`
 }

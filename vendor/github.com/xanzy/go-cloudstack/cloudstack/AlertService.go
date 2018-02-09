@@ -216,11 +216,11 @@ type ListAlertsResponse struct {
 }
 
 type Alert struct {
-	Description string `json:"description,omitempty"`
-	Id          string `json:"id,omitempty"`
-	Name        string `json:"name,omitempty"`
-	Sent        string `json:"sent,omitempty"`
-	Type        int    `json:"type,omitempty"`
+	Description string `json:"description"`
+	Id          string `json:"id"`
+	Name        string `json:"name"`
+	Sent        string `json:"sent"`
+	Type        int    `json:"type"`
 }
 
 type ArchiveAlertsParams struct {
@@ -304,8 +304,8 @@ func (s *AlertService) ArchiveAlerts(p *ArchiveAlertsParams) (*ArchiveAlertsResp
 }
 
 type ArchiveAlertsResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type DeleteAlertsParams struct {
@@ -389,8 +389,8 @@ func (s *AlertService) DeleteAlerts(p *DeleteAlertsParams) (*DeleteAlertsRespons
 }
 
 type DeleteAlertsResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type GenerateAlertParams struct {
@@ -503,7 +503,7 @@ func (s *AlertService) GenerateAlert(p *GenerateAlertParams) (*GenerateAlertResp
 }
 
 type GenerateAlertResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }

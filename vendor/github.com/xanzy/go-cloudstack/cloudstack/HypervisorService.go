@@ -76,7 +76,7 @@ type ListHypervisorsResponse struct {
 }
 
 type Hypervisor struct {
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 }
 
 type UpdateHypervisorCapabilitiesParams struct {
@@ -150,14 +150,14 @@ func (s *HypervisorService) UpdateHypervisorCapabilities(p *UpdateHypervisorCapa
 }
 
 type UpdateHypervisorCapabilitiesResponse struct {
-	Hypervisor           string `json:"hypervisor,omitempty"`
-	Hypervisorversion    string `json:"hypervisorversion,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Maxdatavolumeslimit  int    `json:"maxdatavolumeslimit,omitempty"`
-	Maxguestslimit       int64  `json:"maxguestslimit,omitempty"`
-	Maxhostspercluster   int    `json:"maxhostspercluster,omitempty"`
-	Securitygroupenabled bool   `json:"securitygroupenabled,omitempty"`
-	Storagemotionenabled bool   `json:"storagemotionenabled,omitempty"`
+	Hypervisor           string `json:"hypervisor"`
+	Hypervisorversion    string `json:"hypervisorversion"`
+	Id                   string `json:"id"`
+	Maxdatavolumeslimit  int    `json:"maxdatavolumeslimit"`
+	Maxguestslimit       int64  `json:"maxguestslimit"`
+	Maxhostspercluster   int    `json:"maxhostspercluster"`
+	Securitygroupenabled bool   `json:"securitygroupenabled"`
+	Storagemotionenabled bool   `json:"storagemotionenabled"`
 }
 
 type ListHypervisorCapabilitiesParams struct {
@@ -291,12 +291,12 @@ type ListHypervisorCapabilitiesResponse struct {
 }
 
 type HypervisorCapability struct {
-	Hypervisor           string `json:"hypervisor,omitempty"`
-	Hypervisorversion    string `json:"hypervisorversion,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Maxdatavolumeslimit  int    `json:"maxdatavolumeslimit,omitempty"`
-	Maxguestslimit       int64  `json:"maxguestslimit,omitempty"`
-	Maxhostspercluster   int    `json:"maxhostspercluster,omitempty"`
-	Securitygroupenabled bool   `json:"securitygroupenabled,omitempty"`
-	Storagemotionenabled bool   `json:"storagemotionenabled,omitempty"`
+	Hypervisor           string `json:"hypervisor"`
+	Hypervisorversion    string `json:"hypervisorversion"`
+	Id                   string `json:"id"`
+	Maxdatavolumeslimit  int    `json:"maxdatavolumeslimit"`
+	Maxguestslimit       int64  `json:"maxguestslimit"`
+	Maxhostspercluster   int    `json:"maxhostspercluster"`
+	Securitygroupenabled bool   `json:"securitygroupenabled"`
+	Storagemotionenabled bool   `json:"storagemotionenabled"`
 }

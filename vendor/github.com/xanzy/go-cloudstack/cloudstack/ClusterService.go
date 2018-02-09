@@ -274,31 +274,31 @@ func (s *ClusterService) AddCluster(p *AddClusterParams) (*AddClusterResponse, e
 }
 
 type AddClusterResponse struct {
-	Allocationstate string `json:"allocationstate,omitempty"`
+	Allocationstate string `json:"allocationstate"`
 	Capacity        []struct {
-		Capacitytotal int64  `json:"capacitytotal,omitempty"`
-		Capacityused  int64  `json:"capacityused,omitempty"`
-		Clusterid     string `json:"clusterid,omitempty"`
-		Clustername   string `json:"clustername,omitempty"`
-		Percentused   string `json:"percentused,omitempty"`
-		Podid         string `json:"podid,omitempty"`
-		Podname       string `json:"podname,omitempty"`
-		Type          int    `json:"type,omitempty"`
-		Zoneid        string `json:"zoneid,omitempty"`
-		Zonename      string `json:"zonename,omitempty"`
-	} `json:"capacity,omitempty"`
-	Clustertype           string `json:"clustertype,omitempty"`
-	Cpuovercommitratio    string `json:"cpuovercommitratio,omitempty"`
-	Hypervisortype        string `json:"hypervisortype,omitempty"`
-	Id                    string `json:"id,omitempty"`
-	Managedstate          string `json:"managedstate,omitempty"`
-	Memoryovercommitratio string `json:"memoryovercommitratio,omitempty"`
-	Name                  string `json:"name,omitempty"`
-	Ovm3vip               string `json:"ovm3vip,omitempty"`
-	Podid                 string `json:"podid,omitempty"`
-	Podname               string `json:"podname,omitempty"`
-	Zoneid                string `json:"zoneid,omitempty"`
-	Zonename              string `json:"zonename,omitempty"`
+		Capacitytotal int64  `json:"capacitytotal"`
+		Capacityused  int64  `json:"capacityused"`
+		Clusterid     string `json:"clusterid"`
+		Clustername   string `json:"clustername"`
+		Percentused   string `json:"percentused"`
+		Podid         string `json:"podid"`
+		Podname       string `json:"podname"`
+		Type          int    `json:"type"`
+		Zoneid        string `json:"zoneid"`
+		Zonename      string `json:"zonename"`
+	} `json:"capacity"`
+	Clustertype           string `json:"clustertype"`
+	Cpuovercommitratio    string `json:"cpuovercommitratio"`
+	Hypervisortype        string `json:"hypervisortype"`
+	Id                    string `json:"id"`
+	Managedstate          string `json:"managedstate"`
+	Memoryovercommitratio string `json:"memoryovercommitratio"`
+	Name                  string `json:"name"`
+	Ovm3vip               string `json:"ovm3vip"`
+	Podid                 string `json:"podid"`
+	Podname               string `json:"podname"`
+	Zoneid                string `json:"zoneid"`
+	Zonename              string `json:"zonename"`
 }
 
 type DeleteClusterParams struct {
@@ -349,8 +349,8 @@ func (s *ClusterService) DeleteCluster(p *DeleteClusterParams) (*DeleteClusterRe
 }
 
 type DeleteClusterResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type UpdateClusterParams struct {
@@ -456,31 +456,31 @@ func (s *ClusterService) UpdateCluster(p *UpdateClusterParams) (*UpdateClusterRe
 }
 
 type UpdateClusterResponse struct {
-	Allocationstate string `json:"allocationstate,omitempty"`
+	Allocationstate string `json:"allocationstate"`
 	Capacity        []struct {
-		Capacitytotal int64  `json:"capacitytotal,omitempty"`
-		Capacityused  int64  `json:"capacityused,omitempty"`
-		Clusterid     string `json:"clusterid,omitempty"`
-		Clustername   string `json:"clustername,omitempty"`
-		Percentused   string `json:"percentused,omitempty"`
-		Podid         string `json:"podid,omitempty"`
-		Podname       string `json:"podname,omitempty"`
-		Type          int    `json:"type,omitempty"`
-		Zoneid        string `json:"zoneid,omitempty"`
-		Zonename      string `json:"zonename,omitempty"`
-	} `json:"capacity,omitempty"`
-	Clustertype           string `json:"clustertype,omitempty"`
-	Cpuovercommitratio    string `json:"cpuovercommitratio,omitempty"`
-	Hypervisortype        string `json:"hypervisortype,omitempty"`
-	Id                    string `json:"id,omitempty"`
-	Managedstate          string `json:"managedstate,omitempty"`
-	Memoryovercommitratio string `json:"memoryovercommitratio,omitempty"`
-	Name                  string `json:"name,omitempty"`
-	Ovm3vip               string `json:"ovm3vip,omitempty"`
-	Podid                 string `json:"podid,omitempty"`
-	Podname               string `json:"podname,omitempty"`
-	Zoneid                string `json:"zoneid,omitempty"`
-	Zonename              string `json:"zonename,omitempty"`
+		Capacitytotal int64  `json:"capacitytotal"`
+		Capacityused  int64  `json:"capacityused"`
+		Clusterid     string `json:"clusterid"`
+		Clustername   string `json:"clustername"`
+		Percentused   string `json:"percentused"`
+		Podid         string `json:"podid"`
+		Podname       string `json:"podname"`
+		Type          int    `json:"type"`
+		Zoneid        string `json:"zoneid"`
+		Zonename      string `json:"zonename"`
+	} `json:"capacity"`
+	Clustertype           string `json:"clustertype"`
+	Cpuovercommitratio    string `json:"cpuovercommitratio"`
+	Hypervisortype        string `json:"hypervisortype"`
+	Id                    string `json:"id"`
+	Managedstate          string `json:"managedstate"`
+	Memoryovercommitratio string `json:"memoryovercommitratio"`
+	Name                  string `json:"name"`
+	Ovm3vip               string `json:"ovm3vip"`
+	Podid                 string `json:"podid"`
+	Podname               string `json:"podname"`
+	Zoneid                string `json:"zoneid"`
+	Zonename              string `json:"zonename"`
 }
 
 type ListClustersParams struct {
@@ -742,31 +742,31 @@ type ListClustersResponse struct {
 }
 
 type Cluster struct {
-	Allocationstate string `json:"allocationstate,omitempty"`
+	Allocationstate string `json:"allocationstate"`
 	Capacity        []struct {
-		Capacitytotal int64  `json:"capacitytotal,omitempty"`
-		Capacityused  int64  `json:"capacityused,omitempty"`
-		Clusterid     string `json:"clusterid,omitempty"`
-		Clustername   string `json:"clustername,omitempty"`
-		Percentused   string `json:"percentused,omitempty"`
-		Podid         string `json:"podid,omitempty"`
-		Podname       string `json:"podname,omitempty"`
-		Type          int    `json:"type,omitempty"`
-		Zoneid        string `json:"zoneid,omitempty"`
-		Zonename      string `json:"zonename,omitempty"`
-	} `json:"capacity,omitempty"`
-	Clustertype           string `json:"clustertype,omitempty"`
-	Cpuovercommitratio    string `json:"cpuovercommitratio,omitempty"`
-	Hypervisortype        string `json:"hypervisortype,omitempty"`
-	Id                    string `json:"id,omitempty"`
-	Managedstate          string `json:"managedstate,omitempty"`
-	Memoryovercommitratio string `json:"memoryovercommitratio,omitempty"`
-	Name                  string `json:"name,omitempty"`
-	Ovm3vip               string `json:"ovm3vip,omitempty"`
-	Podid                 string `json:"podid,omitempty"`
-	Podname               string `json:"podname,omitempty"`
-	Zoneid                string `json:"zoneid,omitempty"`
-	Zonename              string `json:"zonename,omitempty"`
+		Capacitytotal int64  `json:"capacitytotal"`
+		Capacityused  int64  `json:"capacityused"`
+		Clusterid     string `json:"clusterid"`
+		Clustername   string `json:"clustername"`
+		Percentused   string `json:"percentused"`
+		Podid         string `json:"podid"`
+		Podname       string `json:"podname"`
+		Type          int    `json:"type"`
+		Zoneid        string `json:"zoneid"`
+		Zonename      string `json:"zonename"`
+	} `json:"capacity"`
+	Clustertype           string `json:"clustertype"`
+	Cpuovercommitratio    string `json:"cpuovercommitratio"`
+	Hypervisortype        string `json:"hypervisortype"`
+	Id                    string `json:"id"`
+	Managedstate          string `json:"managedstate"`
+	Memoryovercommitratio string `json:"memoryovercommitratio"`
+	Name                  string `json:"name"`
+	Ovm3vip               string `json:"ovm3vip"`
+	Podid                 string `json:"podid"`
+	Podname               string `json:"podname"`
+	Zoneid                string `json:"zoneid"`
+	Zonename              string `json:"zonename"`
 }
 
 type DedicateClusterParams struct {
@@ -860,13 +860,13 @@ func (s *ClusterService) DedicateCluster(p *DedicateClusterParams) (*DedicateClu
 }
 
 type DedicateClusterResponse struct {
-	JobID           string `json:"jobid,omitempty"`
-	Accountid       string `json:"accountid,omitempty"`
-	Affinitygroupid string `json:"affinitygroupid,omitempty"`
-	Clusterid       string `json:"clusterid,omitempty"`
-	Clustername     string `json:"clustername,omitempty"`
-	Domainid        string `json:"domainid,omitempty"`
-	Id              string `json:"id,omitempty"`
+	JobID           string `json:"jobid"`
+	Accountid       string `json:"accountid"`
+	Affinitygroupid string `json:"affinitygroupid"`
+	Clusterid       string `json:"clusterid"`
+	Clustername     string `json:"clustername"`
+	Domainid        string `json:"domainid"`
+	Id              string `json:"id"`
 }
 
 type ReleaseDedicatedClusterParams struct {
@@ -932,9 +932,9 @@ func (s *ClusterService) ReleaseDedicatedCluster(p *ReleaseDedicatedClusterParam
 }
 
 type ReleaseDedicatedClusterResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListDedicatedClustersParams struct {
@@ -1057,10 +1057,10 @@ type ListDedicatedClustersResponse struct {
 }
 
 type DedicatedCluster struct {
-	Accountid       string `json:"accountid,omitempty"`
-	Affinitygroupid string `json:"affinitygroupid,omitempty"`
-	Clusterid       string `json:"clusterid,omitempty"`
-	Clustername     string `json:"clustername,omitempty"`
-	Domainid        string `json:"domainid,omitempty"`
-	Id              string `json:"id,omitempty"`
+	Accountid       string `json:"accountid"`
+	Affinitygroupid string `json:"affinitygroupid"`
+	Clusterid       string `json:"clusterid"`
+	Clustername     string `json:"clustername"`
+	Domainid        string `json:"domainid"`
+	Id              string `json:"id"`
 }

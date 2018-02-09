@@ -2,9 +2,69 @@ package definition
 
 import (
 	"github.com/xanzy/go-cloudstack/cloudstack"
+	"sync"
 )
 
-func fetchPods(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+var (
+	registeredFetchers   map[string]Fetcher
+	registeredFetchersMu sync.Mutex
+
+	defaultFetchers []Fetcher
+)
+
+func init() {
+	defaultFetchers = []Fetcher{
+		new(FetchPods),
+		new(FetchClusters),
+		new(FetchHosts),
+		new(FetchPrimaryStoragePools),
+		new(FetchSecondaryStoragePools),
+		new(FetchPhysicalNetworks),
+		new(FetchComputeOfferings),
+		new(FetchDiskOfferings),
+		new(FetchTemplates),
+		new(FetchZoneConfigurations),
+		new(FetchGlobalConfigurations),
+	}
+	registeredFetchers = make(map[string]Fetcher, len(defaultFetchers))
+	for _, df := range defaultFetchers {
+		registeredFetchers[df.Name()] = df
+	}
+}
+
+func DefaultFetchers() []string {
+	fetchers := make([]string, len(defaultFetchers))
+	for i, fetcher := range defaultFetchers {
+		fetchers[i] = fetcher.Name()
+	}
+	return fetchers
+}
+
+func RegisterFetcher(f Fetcher) {
+	registeredFetchersMu.Lock()
+	registeredFetchers[f.Name()] = f
+	registeredFetchersMu.Unlock()
+}
+
+func GetFetcher(name string) (Fetcher, bool) {
+	registeredFetchersMu.Lock()
+	f, ok := registeredFetchers[name]
+	registeredFetchersMu.Unlock()
+	return f, ok
+}
+
+type Fetcher interface {
+	Name() string
+	Fetch(*cloudstack.CloudStackClient, *ZoneDefinition) error
+}
+
+type FetchPods struct{}
+
+func (*FetchPods) Name() string {
+	return "pods"
+}
+
+func (*FetchPods) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Pods...")
 	params := client.Pod.NewListPodsParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -20,7 +80,13 @@ func fetchPods(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchClusters(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+type FetchClusters struct{}
+
+func (*FetchClusters) Name() string {
+	return "clusters"
+}
+
+func (*FetchClusters) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Clusters...")
 	params := client.Cluster.NewListClustersParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -36,7 +102,13 @@ func fetchClusters(client *cloudstack.CloudStackClient, zd *ZoneDefinition) erro
 	return nil
 }
 
-func fetchHosts(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+type FetchHosts struct{}
+
+func (*FetchHosts) Name() string {
+	return "hosts"
+}
+
+func (*FetchHosts) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Hosts...")
 	params := client.Host.NewListHostsParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -52,7 +124,13 @@ func fetchHosts(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	return nil
 }
 
-func fetchPrimaryStoragePools(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+type FetchPrimaryStoragePools struct{}
+
+func (*FetchPrimaryStoragePools) Name() string {
+	return "primaryStoragePools"
+}
+
+func (*FetchPrimaryStoragePools) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Primary Storage Pools...")
 	params := client.Pool.NewListStoragePoolsParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -68,7 +146,13 @@ func fetchPrimaryStoragePools(client *cloudstack.CloudStackClient, zd *ZoneDefin
 	return nil
 }
 
-func fetchSecondaryStoragePools(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+type FetchSecondaryStoragePools struct{}
+
+func (*FetchSecondaryStoragePools) Name() string {
+	return "secondaryStoragePools"
+}
+
+func (*FetchSecondaryStoragePools) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Secondary (Image) Storage Pools...")
 	params := client.ImageStore.NewListImageStoresParams()
 	params.SetZoneid(zd.Zone.Id)
@@ -84,8 +168,15 @@ func fetchSecondaryStoragePools(client *cloudstack.CloudStackClient, zd *ZoneDef
 	return nil
 }
 
-func expandTrafficType(client *cloudstack.CloudStackClient, zd *ZoneDefinition, csttype *cloudstack.TrafficType) (TrafficType, error) {
+type FetchPhysicalNetworks struct{}
+
+func (*FetchPhysicalNetworks) Name() string {
+	return "physicalNetworks"
+}
+
+func (*FetchPhysicalNetworks) expandTrafficType(client *cloudstack.CloudStackClient, zd *ZoneDefinition, csttype *cloudstack.TrafficType) (TrafficType, error) {
 	var err error
+	var key string
 	log.Println("    Expanding Traffic Type " + csttype.TrafficType + "...")
 	ttype := &TrafficType{
 		TrafficType: *csttype,
@@ -103,14 +194,19 @@ func expandTrafficType(client *cloudstack.CloudStackClient, zd *ZoneDefinition, 
 	}
 	log.Println("    Traffic Type " + csttype.TrafficType + " Networks fetched")
 	for _, network := range csnetworks.Networks {
-		ttype.Networks[network.Name] = *network
-		log.Println("      Network: " + network.Name)
+		if network.Name == "" {
+			key = network.Id
+		} else {
+			key = network.Name
+		}
+		ttype.Networks[key] = *network
+		log.Println("      Network: " + key)
 	}
 done:
 	return *ttype, err
 }
 
-func expandPhysicalNetwork(client *cloudstack.CloudStackClient, zd *ZoneDefinition, cspn *cloudstack.PhysicalNetwork) (PhysicalNetwork, error) {
+func (fpn *FetchPhysicalNetworks) expandPhysicalNetwork(client *cloudstack.CloudStackClient, zd *ZoneDefinition, cspn *cloudstack.PhysicalNetwork) (PhysicalNetwork, error) {
 	var err error
 	log.Println("  Expanding Physical Network " + cspn.Name + "...")
 	ps := &PhysicalNetwork{
@@ -125,7 +221,7 @@ func expandPhysicalNetwork(client *cloudstack.CloudStackClient, zd *ZoneDefiniti
 	}
 	log.Println("  Physical Network " + cspn.Name + " Traffic Types fetched")
 	for _, csttype := range csttypes.TrafficTypes {
-		if ps.TrafficTypes[csttype.TrafficType], err = expandTrafficType(client, zd, csttype); err != nil {
+		if ps.TrafficTypes[csttype.TrafficType], err = fpn.expandTrafficType(client, zd, csttype); err != nil {
 			goto done
 		}
 	}
@@ -134,7 +230,7 @@ done:
 	return *ps, err
 }
 
-func fetchPhysicalNetworks(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+func (fpn *FetchPhysicalNetworks) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	var err error
 	log.Println("Fetching Physical Networks...")
 	params := client.Network.NewListPhysicalNetworksParams()
@@ -145,14 +241,20 @@ func fetchPhysicalNetworks(client *cloudstack.CloudStackClient, zd *ZoneDefiniti
 	}
 	log.Println("Physical Networks fetched")
 	for _, cspn := range cspns.PhysicalNetworks {
-		if zd.PhysicalNetworks[cspn.Name], err = expandPhysicalNetwork(client, zd, cspn); err != nil {
+		if zd.PhysicalNetworks[cspn.Name], err = fpn.expandPhysicalNetwork(client, zd, cspn); err != nil {
 			return err
 		}
 	}
 	return nil
 }
 
-func fetchComputeOfferings(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+type FetchComputeOfferings struct{}
+
+func (*FetchComputeOfferings) Name() string {
+	return "computeOfferings"
+}
+
+func (*FetchComputeOfferings) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Compute Offerings...")
 	params := client.ServiceOffering.NewListServiceOfferingsParams()
 	params.SetIsrecursive(true)
@@ -170,7 +272,13 @@ func fetchComputeOfferings(client *cloudstack.CloudStackClient, zd *ZoneDefiniti
 	return nil
 }
 
-func fetchDiskOfferings(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+type FetchDiskOfferings struct{}
+
+func (*FetchDiskOfferings) Name() string {
+	return "diskOfferings"
+}
+
+func (*FetchDiskOfferings) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
 	log.Println("Fetching Disk Offerings...")
 	params := client.DiskOffering.NewListDiskOfferingsParams()
 	params.SetIsrecursive(true)
@@ -187,8 +295,38 @@ func fetchDiskOfferings(client *cloudstack.CloudStackClient, zd *ZoneDefinition)
 	return nil
 }
 
-func fetchGlobalConfigs(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
-	log.Println("Fetching Global Configuration...")
+type FetchTemplates struct{}
+
+func (*FetchTemplates) Name() string {
+	return "templates"
+}
+
+func (*FetchTemplates) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+	log.Println("Fetching Templates...")
+	params := client.Template.NewListTemplatesParams("all")
+	params.SetZoneid(zd.Zone.Id)
+	params.SetIsrecursive(true)
+	params.SetListall(true)
+	templates, err := client.Template.ListTemplates(params)
+	if err != nil {
+		return err
+	}
+	log.Println("Templates fetched")
+	for _, template := range templates.Templates {
+		zd.Templates[template.Name] = *template
+		log.Println("  Template: " + template.Name)
+	}
+	return nil
+}
+
+type FetchGlobalConfigurations struct{}
+
+func (*FetchGlobalConfigurations) Name() string {
+	return "globalConfigs"
+}
+
+func (*FetchGlobalConfigurations) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+	log.Println("Fetching Global Configurations...")
 	params := client.Configuration.NewListConfigurationsParams()
 	configs, err := client.Configuration.ListConfigurations(params)
 	if err != nil {
@@ -196,22 +334,31 @@ func fetchGlobalConfigs(client *cloudstack.CloudStackClient, zd *ZoneDefinition)
 	}
 	log.Println("Global Configuration fetched")
 	for _, config := range configs.Configurations {
-		zd.GlobalConfigs[config.Name] = *config
+		zd.GlobalConfiguration[config.Name] = *config
+		log.Printf("  %s: %v", config.Name, config.Value)
 	}
+	return nil
+}
+
+type FetchZoneConfigurations struct{}
+
+func (*FetchZoneConfigurations) Name() string {
+	return "zoneConfigs"
+}
+
+func (*FetchZoneConfigurations) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+	log.Println("Fetching Zone Configurations...")
 	log.Println("Fetching Zone-specific Configuration...")
+	params := client.Configuration.NewListConfigurationsParams()
 	params.SetZoneid(zd.Zone.Id)
-	configs, err = client.Configuration.ListConfigurations(params)
+	configs, err := client.Configuration.ListConfigurations(params)
 	if err != nil {
 		return err
 	}
 	log.Println("Zone-specific Configuration fetched")
 	for _, config := range configs.Configurations {
-		if c, ok := zd.GlobalConfigs[config.Name]; ok {
-			log.Printf("  Overwriting Global Config %v value %v with %v\n", config.Name, c.Value, config.Value)
-		} else {
-			log.Printf("  Setting Config %v to %v\n", config.Name, config.Value)
-		}
-		zd.GlobalConfigs[config.Name] = *config
+		zd.ZoneConfiguration[config.Name] = *config
+		log.Printf("  %s: %v", config.Name, config.Value)
 	}
 	return nil
 }

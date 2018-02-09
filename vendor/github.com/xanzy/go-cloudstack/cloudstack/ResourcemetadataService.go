@@ -126,9 +126,9 @@ func (s *ResourcemetadataService) AddResourceDetail(p *AddResourceDetailParams) 
 }
 
 type AddResourceDetailResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type RemoveResourceDetailParams struct {
@@ -217,9 +217,9 @@ func (s *ResourcemetadataService) RemoveResourceDetail(p *RemoveResourceDetailPa
 }
 
 type RemoveResourceDetailResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListResourceDetailsParams struct {
@@ -412,14 +412,14 @@ type ListResourceDetailsResponse struct {
 }
 
 type ResourceDetail struct {
-	Account      string `json:"account,omitempty"`
-	Customer     string `json:"customer,omitempty"`
-	Domain       string `json:"domain,omitempty"`
-	Domainid     string `json:"domainid,omitempty"`
-	Key          string `json:"key,omitempty"`
-	Project      string `json:"project,omitempty"`
-	Projectid    string `json:"projectid,omitempty"`
-	Resourceid   string `json:"resourceid,omitempty"`
-	Resourcetype string `json:"resourcetype,omitempty"`
-	Value        string `json:"value,omitempty"`
+	Account      string `json:"account"`
+	Customer     string `json:"customer"`
+	Domain       string `json:"domain"`
+	Domainid     string `json:"domainid"`
+	Key          string `json:"key"`
+	Project      string `json:"project"`
+	Projectid    string `json:"projectid"`
+	Resourceid   string `json:"resourceid"`
+	Resourcetype string `json:"resourcetype"`
+	Value        string `json:"value"`
 }

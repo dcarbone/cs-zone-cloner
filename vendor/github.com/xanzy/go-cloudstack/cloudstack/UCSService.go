@@ -119,10 +119,10 @@ func (s *UCSService) AddUcsManager(p *AddUcsManagerParams) (*AddUcsManagerRespon
 }
 
 type AddUcsManagerResponse struct {
-	Id     string `json:"id,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Url    string `json:"url,omitempty"`
-	Zoneid string `json:"zoneid,omitempty"`
+	Id     string `json:"id"`
+	Name   string `json:"name"`
+	Url    string `json:"url"`
+	Zoneid string `json:"zoneid"`
 }
 
 type ListUcsManagersParams struct {
@@ -306,10 +306,10 @@ type ListUcsManagersResponse struct {
 }
 
 type UcsManager struct {
-	Id     string `json:"id,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Url    string `json:"url,omitempty"`
-	Zoneid string `json:"zoneid,omitempty"`
+	Id     string `json:"id"`
+	Name   string `json:"name"`
+	Url    string `json:"url"`
+	Zoneid string `json:"zoneid"`
 }
 
 type ListUcsProfilesParams struct {
@@ -400,7 +400,7 @@ type ListUcsProfilesResponse struct {
 }
 
 type UcsProfile struct {
-	Ucsdn string `json:"ucsdn,omitempty"`
+	Ucsdn string `json:"ucsdn"`
 }
 
 type ListUcsBladesParams struct {
@@ -491,11 +491,11 @@ type ListUcsBladesResponse struct {
 }
 
 type UcsBlade struct {
-	Bladedn      string `json:"bladedn,omitempty"`
-	Hostid       string `json:"hostid,omitempty"`
-	Id           string `json:"id,omitempty"`
-	Profiledn    string `json:"profiledn,omitempty"`
-	Ucsmanagerid string `json:"ucsmanagerid,omitempty"`
+	Bladedn      string `json:"bladedn"`
+	Hostid       string `json:"hostid"`
+	Id           string `json:"id"`
+	Profiledn    string `json:"profiledn"`
+	Ucsmanagerid string `json:"ucsmanagerid"`
 }
 
 type AssociateUcsProfileToBladeParams struct {
@@ -590,10 +590,10 @@ func (s *UCSService) AssociateUcsProfileToBlade(p *AssociateUcsProfileToBladePar
 }
 
 type AssociateUcsProfileToBladeResponse struct {
-	JobID        string `json:"jobid,omitempty"`
-	Bladedn      string `json:"bladedn,omitempty"`
-	Hostid       string `json:"hostid,omitempty"`
-	Id           string `json:"id,omitempty"`
-	Profiledn    string `json:"profiledn,omitempty"`
-	Ucsmanagerid string `json:"ucsmanagerid,omitempty"`
+	JobID        string `json:"jobid"`
+	Bladedn      string `json:"bladedn"`
+	Hostid       string `json:"hostid"`
+	Id           string `json:"id"`
+	Profiledn    string `json:"profiledn"`
+	Ucsmanagerid string `json:"ucsmanagerid"`
 }

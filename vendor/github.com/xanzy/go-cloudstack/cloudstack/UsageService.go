@@ -180,15 +180,15 @@ func (s *UsageService) AddTrafficType(p *AddTrafficTypeParams) (*AddTrafficTypeR
 }
 
 type AddTrafficTypeResponse struct {
-	JobID              string `json:"jobid,omitempty"`
-	Hypervnetworklabel string `json:"hypervnetworklabel,omitempty"`
-	Id                 string `json:"id,omitempty"`
-	Kvmnetworklabel    string `json:"kvmnetworklabel,omitempty"`
-	Ovm3networklabel   string `json:"ovm3networklabel,omitempty"`
-	Physicalnetworkid  string `json:"physicalnetworkid,omitempty"`
-	Traffictype        string `json:"traffictype,omitempty"`
-	Vmwarenetworklabel string `json:"vmwarenetworklabel,omitempty"`
-	Xennetworklabel    string `json:"xennetworklabel,omitempty"`
+	JobID              string `json:"jobid"`
+	Hypervnetworklabel string `json:"hypervnetworklabel"`
+	Id                 string `json:"id"`
+	Kvmnetworklabel    string `json:"kvmnetworklabel"`
+	Ovm3networklabel   string `json:"ovm3networklabel"`
+	Physicalnetworkid  string `json:"physicalnetworkid"`
+	Traffictype        string `json:"traffictype"`
+	Vmwarenetworklabel string `json:"vmwarenetworklabel"`
+	Xennetworklabel    string `json:"xennetworklabel"`
 }
 
 type DeleteTrafficTypeParams struct {
@@ -254,9 +254,9 @@ func (s *UsageService) DeleteTrafficType(p *DeleteTrafficTypeParams) (*DeleteTra
 }
 
 type DeleteTrafficTypeResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListTrafficTypesParams struct {
@@ -384,14 +384,14 @@ type ListTrafficTypesResponse struct {
 }
 
 type TrafficType struct {
-	Canenableindividualservice   bool     `json:"canenableindividualservice,omitempty"`
-	Destinationphysicalnetworkid string   `json:"destinationphysicalnetworkid,omitempty"`
-	Id                           string   `json:"id,omitempty"`
-	Name                         string   `json:"name,omitempty"`
-	Physicalnetworkid            string   `json:"physicalnetworkid,omitempty"`
-	Servicelist                  []string `json:"servicelist,omitempty"`
-	State                        string   `json:"state,omitempty"`
-	TrafficType                  string   `json:"traffictype,omitempty"`
+	Canenableindividualservice   bool     `json:"canenableindividualservice"`
+	Destinationphysicalnetworkid string   `json:"destinationphysicalnetworkid"`
+	Id                           string   `json:"id"`
+	Name                         string   `json:"name"`
+	Physicalnetworkid            string   `json:"physicalnetworkid"`
+	Servicelist                  []string `json:"servicelist"`
+	State                        string   `json:"state"`
+	TrafficType                  string   `json:"traffictype"`
 }
 
 type UpdateTrafficTypeParams struct {
@@ -517,15 +517,15 @@ func (s *UsageService) UpdateTrafficType(p *UpdateTrafficTypeParams) (*UpdateTra
 }
 
 type UpdateTrafficTypeResponse struct {
-	JobID              string `json:"jobid,omitempty"`
-	Hypervnetworklabel string `json:"hypervnetworklabel,omitempty"`
-	Id                 string `json:"id,omitempty"`
-	Kvmnetworklabel    string `json:"kvmnetworklabel,omitempty"`
-	Ovm3networklabel   string `json:"ovm3networklabel,omitempty"`
-	Physicalnetworkid  string `json:"physicalnetworkid,omitempty"`
-	Traffictype        string `json:"traffictype,omitempty"`
-	Vmwarenetworklabel string `json:"vmwarenetworklabel,omitempty"`
-	Xennetworklabel    string `json:"xennetworklabel,omitempty"`
+	JobID              string `json:"jobid"`
+	Hypervnetworklabel string `json:"hypervnetworklabel"`
+	Id                 string `json:"id"`
+	Kvmnetworklabel    string `json:"kvmnetworklabel"`
+	Ovm3networklabel   string `json:"ovm3networklabel"`
+	Physicalnetworkid  string `json:"physicalnetworkid"`
+	Traffictype        string `json:"traffictype"`
+	Vmwarenetworklabel string `json:"vmwarenetworklabel"`
+	Xennetworklabel    string `json:"xennetworklabel"`
 }
 
 type ListTrafficTypeImplementorsParams struct {
@@ -615,8 +615,8 @@ type ListTrafficTypeImplementorsResponse struct {
 }
 
 type TrafficTypeImplementor struct {
-	Traffictype            string `json:"traffictype,omitempty"`
-	Traffictypeimplementor string `json:"traffictypeimplementor,omitempty"`
+	Traffictype            string `json:"traffictype"`
+	Traffictypeimplementor string `json:"traffictypeimplementor"`
 }
 
 type GenerateUsageRecordsParams struct {
@@ -690,8 +690,8 @@ func (s *UsageService) GenerateUsageRecords(p *GenerateUsageRecordsParams) (*Gen
 }
 
 type GenerateUsageRecordsResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type ListUsageRecordsParams struct {
@@ -861,34 +861,34 @@ type ListUsageRecordsResponse struct {
 }
 
 type UsageRecord struct {
-	Account          string `json:"account,omitempty"`
-	Accountid        string `json:"accountid,omitempty"`
-	Cpunumber        int64  `json:"cpunumber,omitempty"`
-	Cpuspeed         int64  `json:"cpuspeed,omitempty"`
-	Description      string `json:"description,omitempty"`
-	Domain           string `json:"domain,omitempty"`
-	Domainid         string `json:"domainid,omitempty"`
-	Enddate          string `json:"enddate,omitempty"`
-	Isdefault        bool   `json:"isdefault,omitempty"`
-	Issourcenat      bool   `json:"issourcenat,omitempty"`
-	Issystem         bool   `json:"issystem,omitempty"`
-	Memory           int64  `json:"memory,omitempty"`
-	Name             string `json:"name,omitempty"`
-	Networkid        string `json:"networkid,omitempty"`
-	Offeringid       string `json:"offeringid,omitempty"`
-	Project          string `json:"project,omitempty"`
-	Projectid        string `json:"projectid,omitempty"`
-	Rawusage         string `json:"rawusage,omitempty"`
-	Size             int64  `json:"size,omitempty"`
-	Startdate        string `json:"startdate,omitempty"`
-	Templateid       string `json:"templateid,omitempty"`
-	Type             string `json:"type,omitempty"`
-	Usage            string `json:"usage,omitempty"`
-	Usageid          string `json:"usageid,omitempty"`
-	Usagetype        int    `json:"usagetype,omitempty"`
-	Virtualmachineid string `json:"virtualmachineid,omitempty"`
-	Virtualsize      int64  `json:"virtualsize,omitempty"`
-	Zoneid           string `json:"zoneid,omitempty"`
+	Account          string `json:"account"`
+	Accountid        string `json:"accountid"`
+	Cpunumber        int64  `json:"cpunumber"`
+	Cpuspeed         int64  `json:"cpuspeed"`
+	Description      string `json:"description"`
+	Domain           string `json:"domain"`
+	Domainid         string `json:"domainid"`
+	Enddate          string `json:"enddate"`
+	Isdefault        bool   `json:"isdefault"`
+	Issourcenat      bool   `json:"issourcenat"`
+	Issystem         bool   `json:"issystem"`
+	Memory           int64  `json:"memory"`
+	Name             string `json:"name"`
+	Networkid        string `json:"networkid"`
+	Offeringid       string `json:"offeringid"`
+	Project          string `json:"project"`
+	Projectid        string `json:"projectid"`
+	Rawusage         string `json:"rawusage"`
+	Size             int64  `json:"size"`
+	Startdate        string `json:"startdate"`
+	Templateid       string `json:"templateid"`
+	Type             string `json:"type"`
+	Usage            string `json:"usage"`
+	Usageid          string `json:"usageid"`
+	Usagetype        int    `json:"usagetype"`
+	Virtualmachineid string `json:"virtualmachineid"`
+	Virtualsize      int64  `json:"virtualsize"`
+	Zoneid           string `json:"zoneid"`
 }
 
 type ListUsageTypesParams struct {
@@ -932,8 +932,8 @@ type ListUsageTypesResponse struct {
 }
 
 type UsageType struct {
-	Description string `json:"description,omitempty"`
-	Usagetypeid int    `json:"usagetypeid,omitempty"`
+	Description string `json:"description"`
+	Usagetypeid int    `json:"usagetypeid"`
 }
 
 type RemoveRawUsageRecordsParams struct {
@@ -985,8 +985,8 @@ func (s *UsageService) RemoveRawUsageRecords(p *RemoveRawUsageRecordsParams) (*R
 }
 
 type RemoveRawUsageRecordsResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type AddTrafficMonitorParams struct {
@@ -1071,11 +1071,11 @@ func (s *UsageService) AddTrafficMonitor(p *AddTrafficMonitorParams) (*AddTraffi
 }
 
 type AddTrafficMonitorResponse struct {
-	Id         string `json:"id,omitempty"`
-	Ipaddress  string `json:"ipaddress,omitempty"`
-	Numretries string `json:"numretries,omitempty"`
-	Timeout    string `json:"timeout,omitempty"`
-	Zoneid     string `json:"zoneid,omitempty"`
+	Id         string `json:"id"`
+	Ipaddress  string `json:"ipaddress"`
+	Numretries string `json:"numretries"`
+	Timeout    string `json:"timeout"`
+	Zoneid     string `json:"zoneid"`
 }
 
 type DeleteTrafficMonitorParams struct {
@@ -1126,8 +1126,8 @@ func (s *UsageService) DeleteTrafficMonitor(p *DeleteTrafficMonitorParams) (*Del
 }
 
 type DeleteTrafficMonitorResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type ListTrafficMonitorsParams struct {
@@ -1218,9 +1218,9 @@ type ListTrafficMonitorsResponse struct {
 }
 
 type TrafficMonitor struct {
-	Id         string `json:"id,omitempty"`
-	Ipaddress  string `json:"ipaddress,omitempty"`
-	Numretries string `json:"numretries,omitempty"`
-	Timeout    string `json:"timeout,omitempty"`
-	Zoneid     string `json:"zoneid,omitempty"`
+	Id         string `json:"id"`
+	Ipaddress  string `json:"ipaddress"`
+	Numretries string `json:"numretries"`
+	Timeout    string `json:"timeout"`
+	Zoneid     string `json:"zoneid"`
 }

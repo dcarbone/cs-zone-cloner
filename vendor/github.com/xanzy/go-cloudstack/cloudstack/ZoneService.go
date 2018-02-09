@@ -220,51 +220,51 @@ func (s *ZoneService) CreateZone(p *CreateZoneParams) (*CreateZoneResponse, erro
 }
 
 type CreateZoneResponse struct {
-	Allocationstate string `json:"allocationstate,omitempty"`
+	Allocationstate string `json:"allocationstate"`
 	Capacity        []struct {
-		Capacitytotal int64  `json:"capacitytotal,omitempty"`
-		Capacityused  int64  `json:"capacityused,omitempty"`
-		Clusterid     string `json:"clusterid,omitempty"`
-		Clustername   string `json:"clustername,omitempty"`
-		Percentused   string `json:"percentused,omitempty"`
-		Podid         string `json:"podid,omitempty"`
-		Podname       string `json:"podname,omitempty"`
-		Type          int    `json:"type,omitempty"`
-		Zoneid        string `json:"zoneid,omitempty"`
-		Zonename      string `json:"zonename,omitempty"`
-	} `json:"capacity,omitempty"`
-	Description           string            `json:"description,omitempty"`
-	Dhcpprovider          string            `json:"dhcpprovider,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Dns1                  string            `json:"dns1,omitempty"`
-	Dns2                  string            `json:"dns2,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Domainname            string            `json:"domainname,omitempty"`
-	Guestcidraddress      string            `json:"guestcidraddress,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Internaldns1          string            `json:"internaldns1,omitempty"`
-	Internaldns2          string            `json:"internaldns2,omitempty"`
-	Ip6dns1               string            `json:"ip6dns1,omitempty"`
-	Ip6dns2               string            `json:"ip6dns2,omitempty"`
-	Localstorageenabled   bool              `json:"localstorageenabled,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Networktype           string            `json:"networktype,omitempty"`
-	Resourcedetails       map[string]string `json:"resourcedetails,omitempty"`
-	Securitygroupsenabled bool              `json:"securitygroupsenabled,omitempty"`
+		Capacitytotal int64  `json:"capacitytotal"`
+		Capacityused  int64  `json:"capacityused"`
+		Clusterid     string `json:"clusterid"`
+		Clustername   string `json:"clustername"`
+		Percentused   string `json:"percentused"`
+		Podid         string `json:"podid"`
+		Podname       string `json:"podname"`
+		Type          int    `json:"type"`
+		Zoneid        string `json:"zoneid"`
+		Zonename      string `json:"zonename"`
+	} `json:"capacity"`
+	Description           string            `json:"description"`
+	Dhcpprovider          string            `json:"dhcpprovider"`
+	Displaytext           string            `json:"displaytext"`
+	Dns1                  string            `json:"dns1"`
+	Dns2                  string            `json:"dns2"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Domainname            string            `json:"domainname"`
+	Guestcidraddress      string            `json:"guestcidraddress"`
+	Id                    string            `json:"id"`
+	Internaldns1          string            `json:"internaldns1"`
+	Internaldns2          string            `json:"internaldns2"`
+	Ip6dns1               string            `json:"ip6dns1"`
+	Ip6dns2               string            `json:"ip6dns2"`
+	Localstorageenabled   bool              `json:"localstorageenabled"`
+	Name                  string            `json:"name"`
+	Networktype           string            `json:"networktype"`
+	Resourcedetails       map[string]string `json:"resourcedetails"`
+	Securitygroupsenabled bool              `json:"securitygroupsenabled"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Zonetoken string `json:"zonetoken,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Zonetoken string `json:"zonetoken"`
 }
 
 type UpdateZoneParams struct {
@@ -487,51 +487,51 @@ func (s *ZoneService) UpdateZone(p *UpdateZoneParams) (*UpdateZoneResponse, erro
 }
 
 type UpdateZoneResponse struct {
-	Allocationstate string `json:"allocationstate,omitempty"`
+	Allocationstate string `json:"allocationstate"`
 	Capacity        []struct {
-		Capacitytotal int64  `json:"capacitytotal,omitempty"`
-		Capacityused  int64  `json:"capacityused,omitempty"`
-		Clusterid     string `json:"clusterid,omitempty"`
-		Clustername   string `json:"clustername,omitempty"`
-		Percentused   string `json:"percentused,omitempty"`
-		Podid         string `json:"podid,omitempty"`
-		Podname       string `json:"podname,omitempty"`
-		Type          int    `json:"type,omitempty"`
-		Zoneid        string `json:"zoneid,omitempty"`
-		Zonename      string `json:"zonename,omitempty"`
-	} `json:"capacity,omitempty"`
-	Description           string            `json:"description,omitempty"`
-	Dhcpprovider          string            `json:"dhcpprovider,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Dns1                  string            `json:"dns1,omitempty"`
-	Dns2                  string            `json:"dns2,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Domainname            string            `json:"domainname,omitempty"`
-	Guestcidraddress      string            `json:"guestcidraddress,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Internaldns1          string            `json:"internaldns1,omitempty"`
-	Internaldns2          string            `json:"internaldns2,omitempty"`
-	Ip6dns1               string            `json:"ip6dns1,omitempty"`
-	Ip6dns2               string            `json:"ip6dns2,omitempty"`
-	Localstorageenabled   bool              `json:"localstorageenabled,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Networktype           string            `json:"networktype,omitempty"`
-	Resourcedetails       map[string]string `json:"resourcedetails,omitempty"`
-	Securitygroupsenabled bool              `json:"securitygroupsenabled,omitempty"`
+		Capacitytotal int64  `json:"capacitytotal"`
+		Capacityused  int64  `json:"capacityused"`
+		Clusterid     string `json:"clusterid"`
+		Clustername   string `json:"clustername"`
+		Percentused   string `json:"percentused"`
+		Podid         string `json:"podid"`
+		Podname       string `json:"podname"`
+		Type          int    `json:"type"`
+		Zoneid        string `json:"zoneid"`
+		Zonename      string `json:"zonename"`
+	} `json:"capacity"`
+	Description           string            `json:"description"`
+	Dhcpprovider          string            `json:"dhcpprovider"`
+	Displaytext           string            `json:"displaytext"`
+	Dns1                  string            `json:"dns1"`
+	Dns2                  string            `json:"dns2"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Domainname            string            `json:"domainname"`
+	Guestcidraddress      string            `json:"guestcidraddress"`
+	Id                    string            `json:"id"`
+	Internaldns1          string            `json:"internaldns1"`
+	Internaldns2          string            `json:"internaldns2"`
+	Ip6dns1               string            `json:"ip6dns1"`
+	Ip6dns2               string            `json:"ip6dns2"`
+	Localstorageenabled   bool              `json:"localstorageenabled"`
+	Name                  string            `json:"name"`
+	Networktype           string            `json:"networktype"`
+	Resourcedetails       map[string]string `json:"resourcedetails"`
+	Securitygroupsenabled bool              `json:"securitygroupsenabled"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Zonetoken string `json:"zonetoken,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Zonetoken string `json:"zonetoken"`
 }
 
 type DeleteZoneParams struct {
@@ -582,8 +582,8 @@ func (s *ZoneService) DeleteZone(p *DeleteZoneParams) (*DeleteZoneResponse, erro
 }
 
 type DeleteZoneResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type ListZonesParams struct {
@@ -829,51 +829,51 @@ type ListZonesResponse struct {
 }
 
 type Zone struct {
-	Allocationstate string `json:"allocationstate,omitempty"`
+	Allocationstate string `json:"allocationstate"`
 	Capacity        []struct {
-		Capacitytotal int64  `json:"capacitytotal,omitempty"`
-		Capacityused  int64  `json:"capacityused,omitempty"`
-		Clusterid     string `json:"clusterid,omitempty"`
-		Clustername   string `json:"clustername,omitempty"`
-		Percentused   string `json:"percentused,omitempty"`
-		Podid         string `json:"podid,omitempty"`
-		Podname       string `json:"podname,omitempty"`
-		Type          int    `json:"type,omitempty"`
-		Zoneid        string `json:"zoneid,omitempty"`
-		Zonename      string `json:"zonename,omitempty"`
-	} `json:"capacity,omitempty"`
-	Description           string            `json:"description,omitempty"`
-	Dhcpprovider          string            `json:"dhcpprovider,omitempty"`
-	Displaytext           string            `json:"displaytext,omitempty"`
-	Dns1                  string            `json:"dns1,omitempty"`
-	Dns2                  string            `json:"dns2,omitempty"`
-	Domain                string            `json:"domain,omitempty"`
-	Domainid              string            `json:"domainid,omitempty"`
-	Domainname            string            `json:"domainname,omitempty"`
-	Guestcidraddress      string            `json:"guestcidraddress,omitempty"`
-	Id                    string            `json:"id,omitempty"`
-	Internaldns1          string            `json:"internaldns1,omitempty"`
-	Internaldns2          string            `json:"internaldns2,omitempty"`
-	Ip6dns1               string            `json:"ip6dns1,omitempty"`
-	Ip6dns2               string            `json:"ip6dns2,omitempty"`
-	Localstorageenabled   bool              `json:"localstorageenabled,omitempty"`
-	Name                  string            `json:"name,omitempty"`
-	Networktype           string            `json:"networktype,omitempty"`
-	Resourcedetails       map[string]string `json:"resourcedetails,omitempty"`
-	Securitygroupsenabled bool              `json:"securitygroupsenabled,omitempty"`
+		Capacitytotal int64  `json:"capacitytotal"`
+		Capacityused  int64  `json:"capacityused"`
+		Clusterid     string `json:"clusterid"`
+		Clustername   string `json:"clustername"`
+		Percentused   string `json:"percentused"`
+		Podid         string `json:"podid"`
+		Podname       string `json:"podname"`
+		Type          int    `json:"type"`
+		Zoneid        string `json:"zoneid"`
+		Zonename      string `json:"zonename"`
+	} `json:"capacity"`
+	Description           string            `json:"description"`
+	Dhcpprovider          string            `json:"dhcpprovider"`
+	Displaytext           string            `json:"displaytext"`
+	Dns1                  string            `json:"dns1"`
+	Dns2                  string            `json:"dns2"`
+	Domain                string            `json:"domain"`
+	Domainid              string            `json:"domainid"`
+	Domainname            string            `json:"domainname"`
+	Guestcidraddress      string            `json:"guestcidraddress"`
+	Id                    string            `json:"id"`
+	Internaldns1          string            `json:"internaldns1"`
+	Internaldns2          string            `json:"internaldns2"`
+	Ip6dns1               string            `json:"ip6dns1"`
+	Ip6dns2               string            `json:"ip6dns2"`
+	Localstorageenabled   bool              `json:"localstorageenabled"`
+	Name                  string            `json:"name"`
+	Networktype           string            `json:"networktype"`
+	Resourcedetails       map[string]string `json:"resourcedetails"`
+	Securitygroupsenabled bool              `json:"securitygroupsenabled"`
 	Tags                  []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Zonetoken string `json:"zonetoken,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Zonetoken string `json:"zonetoken"`
 }
 
 type DedicateZoneParams struct {
@@ -967,13 +967,13 @@ func (s *ZoneService) DedicateZone(p *DedicateZoneParams) (*DedicateZoneResponse
 }
 
 type DedicateZoneResponse struct {
-	JobID           string `json:"jobid,omitempty"`
-	Accountid       string `json:"accountid,omitempty"`
-	Affinitygroupid string `json:"affinitygroupid,omitempty"`
-	Domainid        string `json:"domainid,omitempty"`
-	Id              string `json:"id,omitempty"`
-	Zoneid          string `json:"zoneid,omitempty"`
-	Zonename        string `json:"zonename,omitempty"`
+	JobID           string `json:"jobid"`
+	Accountid       string `json:"accountid"`
+	Affinitygroupid string `json:"affinitygroupid"`
+	Domainid        string `json:"domainid"`
+	Id              string `json:"id"`
+	Zoneid          string `json:"zoneid"`
+	Zonename        string `json:"zonename"`
 }
 
 type ReleaseDedicatedZoneParams struct {
@@ -1039,9 +1039,9 @@ func (s *ZoneService) ReleaseDedicatedZone(p *ReleaseDedicatedZoneParams) (*Rele
 }
 
 type ReleaseDedicatedZoneResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListDedicatedZonesParams struct {
@@ -1164,10 +1164,10 @@ type ListDedicatedZonesResponse struct {
 }
 
 type DedicatedZone struct {
-	Accountid       string `json:"accountid,omitempty"`
-	Affinitygroupid string `json:"affinitygroupid,omitempty"`
-	Domainid        string `json:"domainid,omitempty"`
-	Id              string `json:"id,omitempty"`
-	Zoneid          string `json:"zoneid,omitempty"`
-	Zonename        string `json:"zonename,omitempty"`
+	Accountid       string `json:"accountid"`
+	Affinitygroupid string `json:"affinitygroupid"`
+	Domainid        string `json:"domainid"`
+	Id              string `json:"id"`
+	Zoneid          string `json:"zoneid"`
+	Zonename        string `json:"zonename"`
 }

@@ -116,12 +116,12 @@ func (s *AutoScaleService) CreateCounter(p *CreateCounterParams) (*CreateCounter
 }
 
 type CreateCounterResponse struct {
-	JobID  string `json:"jobid,omitempty"`
-	Id     string `json:"id,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Source string `json:"source,omitempty"`
-	Value  string `json:"value,omitempty"`
-	Zoneid string `json:"zoneid,omitempty"`
+	JobID  string `json:"jobid"`
+	Id     string `json:"id"`
+	Name   string `json:"name"`
+	Source string `json:"source"`
+	Value  string `json:"value"`
+	Zoneid string `json:"zoneid"`
 }
 
 type CreateConditionParams struct {
@@ -239,17 +239,17 @@ func (s *AutoScaleService) CreateCondition(p *CreateConditionParams) (*CreateCon
 }
 
 type CreateConditionResponse struct {
-	JobID              string   `json:"jobid,omitempty"`
-	Account            string   `json:"account,omitempty"`
-	Counter            []string `json:"counter,omitempty"`
-	Domain             string   `json:"domain,omitempty"`
-	Domainid           string   `json:"domainid,omitempty"`
-	Id                 string   `json:"id,omitempty"`
-	Project            string   `json:"project,omitempty"`
-	Projectid          string   `json:"projectid,omitempty"`
-	Relationaloperator string   `json:"relationaloperator,omitempty"`
-	Threshold          int64    `json:"threshold,omitempty"`
-	Zoneid             string   `json:"zoneid,omitempty"`
+	JobID              string   `json:"jobid"`
+	Account            string   `json:"account"`
+	Counter            []string `json:"counter"`
+	Domain             string   `json:"domain"`
+	Domainid           string   `json:"domainid"`
+	Id                 string   `json:"id"`
+	Project            string   `json:"project"`
+	Projectid          string   `json:"projectid"`
+	Relationaloperator string   `json:"relationaloperator"`
+	Threshold          int64    `json:"threshold"`
+	Zoneid             string   `json:"zoneid"`
 }
 
 type CreateAutoScalePolicyParams struct {
@@ -358,17 +358,17 @@ func (s *AutoScaleService) CreateAutoScalePolicy(p *CreateAutoScalePolicyParams)
 }
 
 type CreateAutoScalePolicyResponse struct {
-	JobID      string   `json:"jobid,omitempty"`
-	Account    string   `json:"account,omitempty"`
-	Action     string   `json:"action,omitempty"`
-	Conditions []string `json:"conditions,omitempty"`
-	Domain     string   `json:"domain,omitempty"`
-	Domainid   string   `json:"domainid,omitempty"`
-	Duration   int      `json:"duration,omitempty"`
-	Id         string   `json:"id,omitempty"`
-	Project    string   `json:"project,omitempty"`
-	Projectid  string   `json:"projectid,omitempty"`
-	Quiettime  int      `json:"quiettime,omitempty"`
+	JobID      string   `json:"jobid"`
+	Account    string   `json:"account"`
+	Action     string   `json:"action"`
+	Conditions []string `json:"conditions"`
+	Domain     string   `json:"domain"`
+	Domainid   string   `json:"domainid"`
+	Duration   int      `json:"duration"`
+	Id         string   `json:"id"`
+	Project    string   `json:"project"`
+	Projectid  string   `json:"projectid"`
+	Quiettime  int      `json:"quiettime"`
 }
 
 type CreateAutoScaleVmProfileParams struct {
@@ -525,20 +525,20 @@ func (s *AutoScaleService) CreateAutoScaleVmProfile(p *CreateAutoScaleVmProfileP
 }
 
 type CreateAutoScaleVmProfileResponse struct {
-	JobID                string `json:"jobid,omitempty"`
-	Account              string `json:"account,omitempty"`
-	Autoscaleuserid      string `json:"autoscaleuserid,omitempty"`
-	Destroyvmgraceperiod int    `json:"destroyvmgraceperiod,omitempty"`
-	Domain               string `json:"domain,omitempty"`
-	Domainid             string `json:"domainid,omitempty"`
-	Fordisplay           bool   `json:"fordisplay,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Otherdeployparams    string `json:"otherdeployparams,omitempty"`
-	Project              string `json:"project,omitempty"`
-	Projectid            string `json:"projectid,omitempty"`
-	Serviceofferingid    string `json:"serviceofferingid,omitempty"`
-	Templateid           string `json:"templateid,omitempty"`
-	Zoneid               string `json:"zoneid,omitempty"`
+	JobID                string `json:"jobid"`
+	Account              string `json:"account"`
+	Autoscaleuserid      string `json:"autoscaleuserid"`
+	Destroyvmgraceperiod int    `json:"destroyvmgraceperiod"`
+	Domain               string `json:"domain"`
+	Domainid             string `json:"domainid"`
+	Fordisplay           bool   `json:"fordisplay"`
+	Id                   string `json:"id"`
+	Otherdeployparams    string `json:"otherdeployparams"`
+	Project              string `json:"project"`
+	Projectid            string `json:"projectid"`
+	Serviceofferingid    string `json:"serviceofferingid"`
+	Templateid           string `json:"templateid"`
+	Zoneid               string `json:"zoneid"`
 }
 
 type CreateAutoScaleVmGroupParams struct {
@@ -697,22 +697,22 @@ func (s *AutoScaleService) CreateAutoScaleVmGroup(p *CreateAutoScaleVmGroupParam
 }
 
 type CreateAutoScaleVmGroupResponse struct {
-	JobID             string   `json:"jobid,omitempty"`
-	Account           string   `json:"account,omitempty"`
-	Domain            string   `json:"domain,omitempty"`
-	Domainid          string   `json:"domainid,omitempty"`
-	Fordisplay        bool     `json:"fordisplay,omitempty"`
-	Id                string   `json:"id,omitempty"`
-	Interval          int      `json:"interval,omitempty"`
-	Lbruleid          string   `json:"lbruleid,omitempty"`
-	Maxmembers        int      `json:"maxmembers,omitempty"`
-	Minmembers        int      `json:"minmembers,omitempty"`
-	Project           string   `json:"project,omitempty"`
-	Projectid         string   `json:"projectid,omitempty"`
-	Scaledownpolicies []string `json:"scaledownpolicies,omitempty"`
-	Scaleuppolicies   []string `json:"scaleuppolicies,omitempty"`
-	State             string   `json:"state,omitempty"`
-	Vmprofileid       string   `json:"vmprofileid,omitempty"`
+	JobID             string   `json:"jobid"`
+	Account           string   `json:"account"`
+	Domain            string   `json:"domain"`
+	Domainid          string   `json:"domainid"`
+	Fordisplay        bool     `json:"fordisplay"`
+	Id                string   `json:"id"`
+	Interval          int      `json:"interval"`
+	Lbruleid          string   `json:"lbruleid"`
+	Maxmembers        int      `json:"maxmembers"`
+	Minmembers        int      `json:"minmembers"`
+	Project           string   `json:"project"`
+	Projectid         string   `json:"projectid"`
+	Scaledownpolicies []string `json:"scaledownpolicies"`
+	Scaleuppolicies   []string `json:"scaleuppolicies"`
+	State             string   `json:"state"`
+	Vmprofileid       string   `json:"vmprofileid"`
 }
 
 type DeleteCounterParams struct {
@@ -778,9 +778,9 @@ func (s *AutoScaleService) DeleteCounter(p *DeleteCounterParams) (*DeleteCounter
 }
 
 type DeleteCounterResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type DeleteConditionParams struct {
@@ -846,9 +846,9 @@ func (s *AutoScaleService) DeleteCondition(p *DeleteConditionParams) (*DeleteCon
 }
 
 type DeleteConditionResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type DeleteAutoScalePolicyParams struct {
@@ -914,9 +914,9 @@ func (s *AutoScaleService) DeleteAutoScalePolicy(p *DeleteAutoScalePolicyParams)
 }
 
 type DeleteAutoScalePolicyResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type DeleteAutoScaleVmProfileParams struct {
@@ -982,9 +982,9 @@ func (s *AutoScaleService) DeleteAutoScaleVmProfile(p *DeleteAutoScaleVmProfileP
 }
 
 type DeleteAutoScaleVmProfileResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type DeleteAutoScaleVmGroupParams struct {
@@ -1050,9 +1050,9 @@ func (s *AutoScaleService) DeleteAutoScaleVmGroup(p *DeleteAutoScaleVmGroupParam
 }
 
 type DeleteAutoScaleVmGroupResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListCountersParams struct {
@@ -1247,11 +1247,11 @@ type ListCountersResponse struct {
 }
 
 type Counter struct {
-	Id     string `json:"id,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Source string `json:"source,omitempty"`
-	Value  string `json:"value,omitempty"`
-	Zoneid string `json:"zoneid,omitempty"`
+	Id     string `json:"id"`
+	Name   string `json:"name"`
+	Source string `json:"source"`
+	Value  string `json:"value"`
+	Zoneid string `json:"zoneid"`
 }
 
 type ListConditionsParams struct {
@@ -1442,16 +1442,16 @@ type ListConditionsResponse struct {
 }
 
 type Condition struct {
-	Account            string   `json:"account,omitempty"`
-	Counter            []string `json:"counter,omitempty"`
-	Domain             string   `json:"domain,omitempty"`
-	Domainid           string   `json:"domainid,omitempty"`
-	Id                 string   `json:"id,omitempty"`
-	Project            string   `json:"project,omitempty"`
-	Projectid          string   `json:"projectid,omitempty"`
-	Relationaloperator string   `json:"relationaloperator,omitempty"`
-	Threshold          int64    `json:"threshold,omitempty"`
-	Zoneid             string   `json:"zoneid,omitempty"`
+	Account            string   `json:"account"`
+	Counter            []string `json:"counter"`
+	Domain             string   `json:"domain"`
+	Domainid           string   `json:"domainid"`
+	Id                 string   `json:"id"`
+	Project            string   `json:"project"`
+	Projectid          string   `json:"projectid"`
+	Relationaloperator string   `json:"relationaloperator"`
+	Threshold          int64    `json:"threshold"`
+	Zoneid             string   `json:"zoneid"`
 }
 
 type ListAutoScalePoliciesParams struct {
@@ -1653,16 +1653,16 @@ type ListAutoScalePoliciesResponse struct {
 }
 
 type AutoScalePolicy struct {
-	Account    string   `json:"account,omitempty"`
-	Action     string   `json:"action,omitempty"`
-	Conditions []string `json:"conditions,omitempty"`
-	Domain     string   `json:"domain,omitempty"`
-	Domainid   string   `json:"domainid,omitempty"`
-	Duration   int      `json:"duration,omitempty"`
-	Id         string   `json:"id,omitempty"`
-	Project    string   `json:"project,omitempty"`
-	Projectid  string   `json:"projectid,omitempty"`
-	Quiettime  int      `json:"quiettime,omitempty"`
+	Account    string   `json:"account"`
+	Action     string   `json:"action"`
+	Conditions []string `json:"conditions"`
+	Domain     string   `json:"domain"`
+	Domainid   string   `json:"domainid"`
+	Duration   int      `json:"duration"`
+	Id         string   `json:"id"`
+	Project    string   `json:"project"`
+	Projectid  string   `json:"projectid"`
+	Quiettime  int      `json:"quiettime"`
 }
 
 type ListAutoScaleVmProfilesParams struct {
@@ -1898,19 +1898,19 @@ type ListAutoScaleVmProfilesResponse struct {
 }
 
 type AutoScaleVmProfile struct {
-	Account              string `json:"account,omitempty"`
-	Autoscaleuserid      string `json:"autoscaleuserid,omitempty"`
-	Destroyvmgraceperiod int    `json:"destroyvmgraceperiod,omitempty"`
-	Domain               string `json:"domain,omitempty"`
-	Domainid             string `json:"domainid,omitempty"`
-	Fordisplay           bool   `json:"fordisplay,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Otherdeployparams    string `json:"otherdeployparams,omitempty"`
-	Project              string `json:"project,omitempty"`
-	Projectid            string `json:"projectid,omitempty"`
-	Serviceofferingid    string `json:"serviceofferingid,omitempty"`
-	Templateid           string `json:"templateid,omitempty"`
-	Zoneid               string `json:"zoneid,omitempty"`
+	Account              string `json:"account"`
+	Autoscaleuserid      string `json:"autoscaleuserid"`
+	Destroyvmgraceperiod int    `json:"destroyvmgraceperiod"`
+	Domain               string `json:"domain"`
+	Domainid             string `json:"domainid"`
+	Fordisplay           bool   `json:"fordisplay"`
+	Id                   string `json:"id"`
+	Otherdeployparams    string `json:"otherdeployparams"`
+	Project              string `json:"project"`
+	Projectid            string `json:"projectid"`
+	Serviceofferingid    string `json:"serviceofferingid"`
+	Templateid           string `json:"templateid"`
+	Zoneid               string `json:"zoneid"`
 }
 
 type ListAutoScaleVmGroupsParams struct {
@@ -2146,21 +2146,21 @@ type ListAutoScaleVmGroupsResponse struct {
 }
 
 type AutoScaleVmGroup struct {
-	Account           string   `json:"account,omitempty"`
-	Domain            string   `json:"domain,omitempty"`
-	Domainid          string   `json:"domainid,omitempty"`
-	Fordisplay        bool     `json:"fordisplay,omitempty"`
-	Id                string   `json:"id,omitempty"`
-	Interval          int      `json:"interval,omitempty"`
-	Lbruleid          string   `json:"lbruleid,omitempty"`
-	Maxmembers        int      `json:"maxmembers,omitempty"`
-	Minmembers        int      `json:"minmembers,omitempty"`
-	Project           string   `json:"project,omitempty"`
-	Projectid         string   `json:"projectid,omitempty"`
-	Scaledownpolicies []string `json:"scaledownpolicies,omitempty"`
-	Scaleuppolicies   []string `json:"scaleuppolicies,omitempty"`
-	State             string   `json:"state,omitempty"`
-	Vmprofileid       string   `json:"vmprofileid,omitempty"`
+	Account           string   `json:"account"`
+	Domain            string   `json:"domain"`
+	Domainid          string   `json:"domainid"`
+	Fordisplay        bool     `json:"fordisplay"`
+	Id                string   `json:"id"`
+	Interval          int      `json:"interval"`
+	Lbruleid          string   `json:"lbruleid"`
+	Maxmembers        int      `json:"maxmembers"`
+	Minmembers        int      `json:"minmembers"`
+	Project           string   `json:"project"`
+	Projectid         string   `json:"projectid"`
+	Scaledownpolicies []string `json:"scaledownpolicies"`
+	Scaleuppolicies   []string `json:"scaleuppolicies"`
+	State             string   `json:"state"`
+	Vmprofileid       string   `json:"vmprofileid"`
 }
 
 type EnableAutoScaleVmGroupParams struct {
@@ -2231,22 +2231,22 @@ func (s *AutoScaleService) EnableAutoScaleVmGroup(p *EnableAutoScaleVmGroupParam
 }
 
 type EnableAutoScaleVmGroupResponse struct {
-	JobID             string   `json:"jobid,omitempty"`
-	Account           string   `json:"account,omitempty"`
-	Domain            string   `json:"domain,omitempty"`
-	Domainid          string   `json:"domainid,omitempty"`
-	Fordisplay        bool     `json:"fordisplay,omitempty"`
-	Id                string   `json:"id,omitempty"`
-	Interval          int      `json:"interval,omitempty"`
-	Lbruleid          string   `json:"lbruleid,omitempty"`
-	Maxmembers        int      `json:"maxmembers,omitempty"`
-	Minmembers        int      `json:"minmembers,omitempty"`
-	Project           string   `json:"project,omitempty"`
-	Projectid         string   `json:"projectid,omitempty"`
-	Scaledownpolicies []string `json:"scaledownpolicies,omitempty"`
-	Scaleuppolicies   []string `json:"scaleuppolicies,omitempty"`
-	State             string   `json:"state,omitempty"`
-	Vmprofileid       string   `json:"vmprofileid,omitempty"`
+	JobID             string   `json:"jobid"`
+	Account           string   `json:"account"`
+	Domain            string   `json:"domain"`
+	Domainid          string   `json:"domainid"`
+	Fordisplay        bool     `json:"fordisplay"`
+	Id                string   `json:"id"`
+	Interval          int      `json:"interval"`
+	Lbruleid          string   `json:"lbruleid"`
+	Maxmembers        int      `json:"maxmembers"`
+	Minmembers        int      `json:"minmembers"`
+	Project           string   `json:"project"`
+	Projectid         string   `json:"projectid"`
+	Scaledownpolicies []string `json:"scaledownpolicies"`
+	Scaleuppolicies   []string `json:"scaleuppolicies"`
+	State             string   `json:"state"`
+	Vmprofileid       string   `json:"vmprofileid"`
 }
 
 type DisableAutoScaleVmGroupParams struct {
@@ -2317,22 +2317,22 @@ func (s *AutoScaleService) DisableAutoScaleVmGroup(p *DisableAutoScaleVmGroupPar
 }
 
 type DisableAutoScaleVmGroupResponse struct {
-	JobID             string   `json:"jobid,omitempty"`
-	Account           string   `json:"account,omitempty"`
-	Domain            string   `json:"domain,omitempty"`
-	Domainid          string   `json:"domainid,omitempty"`
-	Fordisplay        bool     `json:"fordisplay,omitempty"`
-	Id                string   `json:"id,omitempty"`
-	Interval          int      `json:"interval,omitempty"`
-	Lbruleid          string   `json:"lbruleid,omitempty"`
-	Maxmembers        int      `json:"maxmembers,omitempty"`
-	Minmembers        int      `json:"minmembers,omitempty"`
-	Project           string   `json:"project,omitempty"`
-	Projectid         string   `json:"projectid,omitempty"`
-	Scaledownpolicies []string `json:"scaledownpolicies,omitempty"`
-	Scaleuppolicies   []string `json:"scaleuppolicies,omitempty"`
-	State             string   `json:"state,omitempty"`
-	Vmprofileid       string   `json:"vmprofileid,omitempty"`
+	JobID             string   `json:"jobid"`
+	Account           string   `json:"account"`
+	Domain            string   `json:"domain"`
+	Domainid          string   `json:"domainid"`
+	Fordisplay        bool     `json:"fordisplay"`
+	Id                string   `json:"id"`
+	Interval          int      `json:"interval"`
+	Lbruleid          string   `json:"lbruleid"`
+	Maxmembers        int      `json:"maxmembers"`
+	Minmembers        int      `json:"minmembers"`
+	Project           string   `json:"project"`
+	Projectid         string   `json:"projectid"`
+	Scaledownpolicies []string `json:"scaledownpolicies"`
+	Scaleuppolicies   []string `json:"scaleuppolicies"`
+	State             string   `json:"state"`
+	Vmprofileid       string   `json:"vmprofileid"`
 }
 
 type UpdateAutoScalePolicyParams struct {
@@ -2439,17 +2439,17 @@ func (s *AutoScaleService) UpdateAutoScalePolicy(p *UpdateAutoScalePolicyParams)
 }
 
 type UpdateAutoScalePolicyResponse struct {
-	JobID      string   `json:"jobid,omitempty"`
-	Account    string   `json:"account,omitempty"`
-	Action     string   `json:"action,omitempty"`
-	Conditions []string `json:"conditions,omitempty"`
-	Domain     string   `json:"domain,omitempty"`
-	Domainid   string   `json:"domainid,omitempty"`
-	Duration   int      `json:"duration,omitempty"`
-	Id         string   `json:"id,omitempty"`
-	Project    string   `json:"project,omitempty"`
-	Projectid  string   `json:"projectid,omitempty"`
-	Quiettime  int      `json:"quiettime,omitempty"`
+	JobID      string   `json:"jobid"`
+	Account    string   `json:"account"`
+	Action     string   `json:"action"`
+	Conditions []string `json:"conditions"`
+	Domain     string   `json:"domain"`
+	Domainid   string   `json:"domainid"`
+	Duration   int      `json:"duration"`
+	Id         string   `json:"id"`
+	Project    string   `json:"project"`
+	Projectid  string   `json:"projectid"`
+	Quiettime  int      `json:"quiettime"`
 }
 
 type UpdateAutoScaleVmProfileParams struct {
@@ -2593,20 +2593,20 @@ func (s *AutoScaleService) UpdateAutoScaleVmProfile(p *UpdateAutoScaleVmProfileP
 }
 
 type UpdateAutoScaleVmProfileResponse struct {
-	JobID                string `json:"jobid,omitempty"`
-	Account              string `json:"account,omitempty"`
-	Autoscaleuserid      string `json:"autoscaleuserid,omitempty"`
-	Destroyvmgraceperiod int    `json:"destroyvmgraceperiod,omitempty"`
-	Domain               string `json:"domain,omitempty"`
-	Domainid             string `json:"domainid,omitempty"`
-	Fordisplay           bool   `json:"fordisplay,omitempty"`
-	Id                   string `json:"id,omitempty"`
-	Otherdeployparams    string `json:"otherdeployparams,omitempty"`
-	Project              string `json:"project,omitempty"`
-	Projectid            string `json:"projectid,omitempty"`
-	Serviceofferingid    string `json:"serviceofferingid,omitempty"`
-	Templateid           string `json:"templateid,omitempty"`
-	Zoneid               string `json:"zoneid,omitempty"`
+	JobID                string `json:"jobid"`
+	Account              string `json:"account"`
+	Autoscaleuserid      string `json:"autoscaleuserid"`
+	Destroyvmgraceperiod int    `json:"destroyvmgraceperiod"`
+	Domain               string `json:"domain"`
+	Domainid             string `json:"domainid"`
+	Fordisplay           bool   `json:"fordisplay"`
+	Id                   string `json:"id"`
+	Otherdeployparams    string `json:"otherdeployparams"`
+	Project              string `json:"project"`
+	Projectid            string `json:"projectid"`
+	Serviceofferingid    string `json:"serviceofferingid"`
+	Templateid           string `json:"templateid"`
+	Zoneid               string `json:"zoneid"`
 }
 
 type UpdateAutoScaleVmGroupParams struct {
@@ -2760,20 +2760,20 @@ func (s *AutoScaleService) UpdateAutoScaleVmGroup(p *UpdateAutoScaleVmGroupParam
 }
 
 type UpdateAutoScaleVmGroupResponse struct {
-	JobID             string   `json:"jobid,omitempty"`
-	Account           string   `json:"account,omitempty"`
-	Domain            string   `json:"domain,omitempty"`
-	Domainid          string   `json:"domainid,omitempty"`
-	Fordisplay        bool     `json:"fordisplay,omitempty"`
-	Id                string   `json:"id,omitempty"`
-	Interval          int      `json:"interval,omitempty"`
-	Lbruleid          string   `json:"lbruleid,omitempty"`
-	Maxmembers        int      `json:"maxmembers,omitempty"`
-	Minmembers        int      `json:"minmembers,omitempty"`
-	Project           string   `json:"project,omitempty"`
-	Projectid         string   `json:"projectid,omitempty"`
-	Scaledownpolicies []string `json:"scaledownpolicies,omitempty"`
-	Scaleuppolicies   []string `json:"scaleuppolicies,omitempty"`
-	State             string   `json:"state,omitempty"`
-	Vmprofileid       string   `json:"vmprofileid,omitempty"`
+	JobID             string   `json:"jobid"`
+	Account           string   `json:"account"`
+	Domain            string   `json:"domain"`
+	Domainid          string   `json:"domainid"`
+	Fordisplay        bool     `json:"fordisplay"`
+	Id                string   `json:"id"`
+	Interval          int      `json:"interval"`
+	Lbruleid          string   `json:"lbruleid"`
+	Maxmembers        int      `json:"maxmembers"`
+	Minmembers        int      `json:"minmembers"`
+	Project           string   `json:"project"`
+	Projectid         string   `json:"projectid"`
+	Scaledownpolicies []string `json:"scaledownpolicies"`
+	Scaleuppolicies   []string `json:"scaleuppolicies"`
+	State             string   `json:"state"`
+	Vmprofileid       string   `json:"vmprofileid"`
 }

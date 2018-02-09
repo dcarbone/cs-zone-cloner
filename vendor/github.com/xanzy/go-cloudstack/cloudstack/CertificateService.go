@@ -136,6 +136,6 @@ func (s *CertificateService) UploadCustomCertificate(p *UploadCustomCertificateP
 }
 
 type UploadCustomCertificateResponse struct {
-	JobID   string `json:"jobid,omitempty"`
-	Message string `json:"message,omitempty"`
+	JobID   string `json:"jobid"`
+	Message string `json:"message"`
 }

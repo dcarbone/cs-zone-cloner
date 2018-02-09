@@ -106,8 +106,8 @@ func (s *NATService) EnableStaticNat(p *EnableStaticNatParams) (*EnableStaticNat
 }
 
 type EnableStaticNatResponse struct {
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     string `json:"success,omitempty"`
+	Displaytext string `json:"displaytext"`
+	Success     string `json:"success"`
 }
 
 type CreateIpForwardingRuleParams struct {
@@ -239,35 +239,35 @@ func (s *NATService) CreateIpForwardingRule(p *CreateIpForwardingRuleParams) (*C
 }
 
 type CreateIpForwardingRuleResponse struct {
-	JobID          string `json:"jobid,omitempty"`
-	Cidrlist       string `json:"cidrlist,omitempty"`
-	Fordisplay     bool   `json:"fordisplay,omitempty"`
-	Id             string `json:"id,omitempty"`
-	Ipaddress      string `json:"ipaddress,omitempty"`
-	Ipaddressid    string `json:"ipaddressid,omitempty"`
-	Networkid      string `json:"networkid,omitempty"`
-	Privateendport string `json:"privateendport,omitempty"`
-	Privateport    string `json:"privateport,omitempty"`
-	Protocol       string `json:"protocol,omitempty"`
-	Publicendport  string `json:"publicendport,omitempty"`
-	Publicport     string `json:"publicport,omitempty"`
-	State          string `json:"state,omitempty"`
+	JobID          string `json:"jobid"`
+	Cidrlist       string `json:"cidrlist"`
+	Fordisplay     bool   `json:"fordisplay"`
+	Id             string `json:"id"`
+	Ipaddress      string `json:"ipaddress"`
+	Ipaddressid    string `json:"ipaddressid"`
+	Networkid      string `json:"networkid"`
+	Privateendport string `json:"privateendport"`
+	Privateport    string `json:"privateport"`
+	Protocol       string `json:"protocol"`
+	Publicendport  string `json:"publicendport"`
+	Publicport     string `json:"publicport"`
+	State          string `json:"state"`
 	Tags           []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Virtualmachinedisplayname string `json:"virtualmachinedisplayname,omitempty"`
-	Virtualmachineid          string `json:"virtualmachineid,omitempty"`
-	Virtualmachinename        string `json:"virtualmachinename,omitempty"`
-	Vmguestip                 string `json:"vmguestip,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Virtualmachinedisplayname string `json:"virtualmachinedisplayname"`
+	Virtualmachineid          string `json:"virtualmachineid"`
+	Virtualmachinename        string `json:"virtualmachinename"`
+	Vmguestip                 string `json:"vmguestip"`
 }
 
 type DeleteIpForwardingRuleParams struct {
@@ -333,9 +333,9 @@ func (s *NATService) DeleteIpForwardingRule(p *DeleteIpForwardingRuleParams) (*D
 }
 
 type DeleteIpForwardingRuleResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListIpForwardingRulesParams struct {
@@ -537,34 +537,34 @@ type ListIpForwardingRulesResponse struct {
 }
 
 type IpForwardingRule struct {
-	Cidrlist       string `json:"cidrlist,omitempty"`
-	Fordisplay     bool   `json:"fordisplay,omitempty"`
-	Id             string `json:"id,omitempty"`
-	Ipaddress      string `json:"ipaddress,omitempty"`
-	Ipaddressid    string `json:"ipaddressid,omitempty"`
-	Networkid      string `json:"networkid,omitempty"`
-	Privateendport string `json:"privateendport,omitempty"`
-	Privateport    string `json:"privateport,omitempty"`
-	Protocol       string `json:"protocol,omitempty"`
-	Publicendport  string `json:"publicendport,omitempty"`
-	Publicport     string `json:"publicport,omitempty"`
-	State          string `json:"state,omitempty"`
+	Cidrlist       string `json:"cidrlist"`
+	Fordisplay     bool   `json:"fordisplay"`
+	Id             string `json:"id"`
+	Ipaddress      string `json:"ipaddress"`
+	Ipaddressid    string `json:"ipaddressid"`
+	Networkid      string `json:"networkid"`
+	Privateendport string `json:"privateendport"`
+	Privateport    string `json:"privateport"`
+	Protocol       string `json:"protocol"`
+	Publicendport  string `json:"publicendport"`
+	Publicport     string `json:"publicport"`
+	State          string `json:"state"`
 	Tags           []struct {
-		Account      string `json:"account,omitempty"`
-		Customer     string `json:"customer,omitempty"`
-		Domain       string `json:"domain,omitempty"`
-		Domainid     string `json:"domainid,omitempty"`
-		Key          string `json:"key,omitempty"`
-		Project      string `json:"project,omitempty"`
-		Projectid    string `json:"projectid,omitempty"`
-		Resourceid   string `json:"resourceid,omitempty"`
-		Resourcetype string `json:"resourcetype,omitempty"`
-		Value        string `json:"value,omitempty"`
-	} `json:"tags,omitempty"`
-	Virtualmachinedisplayname string `json:"virtualmachinedisplayname,omitempty"`
-	Virtualmachineid          string `json:"virtualmachineid,omitempty"`
-	Virtualmachinename        string `json:"virtualmachinename,omitempty"`
-	Vmguestip                 string `json:"vmguestip,omitempty"`
+		Account      string `json:"account"`
+		Customer     string `json:"customer"`
+		Domain       string `json:"domain"`
+		Domainid     string `json:"domainid"`
+		Key          string `json:"key"`
+		Project      string `json:"project"`
+		Projectid    string `json:"projectid"`
+		Resourceid   string `json:"resourceid"`
+		Resourcetype string `json:"resourcetype"`
+		Value        string `json:"value"`
+	} `json:"tags"`
+	Virtualmachinedisplayname string `json:"virtualmachinedisplayname"`
+	Virtualmachineid          string `json:"virtualmachineid"`
+	Virtualmachinename        string `json:"virtualmachinename"`
+	Vmguestip                 string `json:"vmguestip"`
 }
 
 type DisableStaticNatParams struct {
@@ -630,7 +630,7 @@ func (s *NATService) DisableStaticNat(p *DisableStaticNatParams) (*DisableStatic
 }
 
 type DisableStaticNatResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }

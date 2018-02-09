@@ -136,9 +136,9 @@ type ListStorageTagsResponse struct {
 }
 
 type StorageTag struct {
-	Id     string `json:"id,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Poolid int64  `json:"poolid,omitempty"`
+	Id     string `json:"id"`
+	Name   string `json:"name"`
+	Poolid int64  `json:"poolid"`
 }
 
 type CreateTagsParams struct {
@@ -245,9 +245,9 @@ func (s *ResourcetagsService) CreateTags(p *CreateTagsParams) (*CreateTagsRespon
 }
 
 type CreateTagsResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type DeleteTagsParams struct {
@@ -342,9 +342,9 @@ func (s *ResourcetagsService) DeleteTags(p *DeleteTagsParams) (*DeleteTagsRespon
 }
 
 type DeleteTagsResponse struct {
-	JobID       string `json:"jobid,omitempty"`
-	Displaytext string `json:"displaytext,omitempty"`
-	Success     bool   `json:"success,omitempty"`
+	JobID       string `json:"jobid"`
+	Displaytext string `json:"displaytext"`
+	Success     bool   `json:"success"`
 }
 
 type ListTagsParams struct {
@@ -535,14 +535,14 @@ type ListTagsResponse struct {
 }
 
 type Tag struct {
-	Account      string `json:"account,omitempty"`
-	Customer     string `json:"customer,omitempty"`
-	Domain       string `json:"domain,omitempty"`
-	Domainid     string `json:"domainid,omitempty"`
-	Key          string `json:"key,omitempty"`
-	Project      string `json:"project,omitempty"`
-	Projectid    string `json:"projectid,omitempty"`
-	Resourceid   string `json:"resourceid,omitempty"`
-	Resourcetype string `json:"resourcetype,omitempty"`
-	Value        string `json:"value,omitempty"`
+	Account      string `json:"account"`
+	Customer     string `json:"customer"`
+	Domain       string `json:"domain"`
+	Domainid     string `json:"domainid"`
+	Key          string `json:"key"`
+	Project      string `json:"project"`
+	Projectid    string `json:"projectid"`
+	Resourceid   string `json:"resourceid"`
+	Resourcetype string `json:"resourcetype"`
+	Value        string `json:"value"`
 }

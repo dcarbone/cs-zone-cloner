@@ -126,8 +126,8 @@ func (s *StratosphereSSPService) AddStratosphereSsp(p *AddStratosphereSspParams)
 }
 
 type AddStratosphereSspResponse struct {
-	Hostid string `json:"hostid,omitempty"`
-	Name   string `json:"name,omitempty"`
-	Url    string `json:"url,omitempty"`
-	Zoneid string `json:"zoneid,omitempty"`
+	Hostid string `json:"hostid"`
+	Name   string `json:"name"`
+	Url    string `json:"url"`
+	Zoneid string `json:"zoneid"`
 }

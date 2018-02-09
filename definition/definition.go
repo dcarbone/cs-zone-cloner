@@ -15,20 +15,6 @@ const (
 	DefaultDBPort = 3306
 )
 
-var (
-	defaultFetchers = []Fetcher{
-		fetchPods,
-		fetchClusters,
-		fetchHosts,
-		fetchPrimaryStoragePools,
-		fetchSecondaryStoragePools,
-		fetchPhysicalNetworks,
-		fetchComputeOfferings,
-		fetchDiskOfferings,
-		fetchGlobalConfigs,
-	}
-)
-
 type (
 	TrafficType struct {
 		cloudstack.TrafficType
@@ -57,7 +43,9 @@ type (
 		PhysicalNetworks      map[string]PhysicalNetwork
 		ComputeOfferings      map[string]cloudstack.ServiceOffering
 		DiskOfferings         map[string]cloudstack.DiskOffering
-		GlobalConfigs         map[string]cloudstack.Configuration
+		Templates             map[string]cloudstack.Template
+		GlobalConfiguration   map[string]cloudstack.Configuration
+		ZoneConfiguration     map[string]cloudstack.Configuration
 
 		Database DatabaseConfig
 
@@ -78,7 +66,9 @@ func NewZoneDefinition(zone cloudstack.Zone) *ZoneDefinition {
 		PhysicalNetworks:      make(map[string]PhysicalNetwork),
 		ComputeOfferings:      make(map[string]cloudstack.ServiceOffering),
 		DiskOfferings:         make(map[string]cloudstack.DiskOffering),
-		GlobalConfigs:         make(map[string]cloudstack.Configuration),
+		Templates:             make(map[string]cloudstack.Template),
+		ZoneConfiguration:     make(map[string]cloudstack.Configuration),
+		GlobalConfiguration:   make(map[string]cloudstack.Configuration),
 
 		Custom: make(map[string]interface{}),
 	}
@@ -86,8 +76,6 @@ func NewZoneDefinition(zone cloudstack.Zone) *ZoneDefinition {
 }
 
 type (
-	Fetcher func(*cloudstack.CloudStackClient, *ZoneDefinition) error
-
 	Config struct {
 		Key      string `json:"key"`
 		Secret   string `json:"secret"`
@@ -159,8 +147,16 @@ func FetchDefinition(conf Config, dbConfig *DatabaseConfig) (*ZoneDefinition, er
 
 	zd := NewZoneDefinition(*zone)
 
-	for _, fetcher := range append(defaultFetchers, conf.Fetchers...) {
-		if err = fetcher(client, zd); err != nil {
+	var fetchers []Fetcher
+
+	if len(conf.Fetchers) == 0 {
+		fetchers = defaultFetchers
+	} else {
+		fetchers = conf.Fetchers
+	}
+
+	for _, fetcher := range fetchers {
+		if err = fetcher.Fetch(client, zd); err != nil {
 			return nil, err
 		}
 	}

@@ -105,10 +105,10 @@ func (s *InternalLBService) ConfigureInternalLoadBalancerElement(p *ConfigureInt
 }
 
 type ConfigureInternalLoadBalancerElementResponse struct {
-	JobID   string `json:"jobid,omitempty"`
-	Enabled bool   `json:"enabled,omitempty"`
-	Id      string `json:"id,omitempty"`
-	Nspid   string `json:"nspid,omitempty"`
+	JobID   string `json:"jobid"`
+	Enabled bool   `json:"enabled"`
+	Id      string `json:"id"`
+	Nspid   string `json:"nspid"`
 }
 
 type CreateInternalLoadBalancerElementParams struct {
@@ -179,10 +179,10 @@ func (s *InternalLBService) CreateInternalLoadBalancerElement(p *CreateInternalL
 }
 
 type CreateInternalLoadBalancerElementResponse struct {
-	JobID   string `json:"jobid,omitempty"`
-	Enabled bool   `json:"enabled,omitempty"`
-	Id      string `json:"id,omitempty"`
-	Nspid   string `json:"nspid,omitempty"`
+	JobID   string `json:"jobid"`
+	Enabled bool   `json:"enabled"`
+	Id      string `json:"id"`
+	Nspid   string `json:"nspid"`
 }
 
 type ListInternalLoadBalancerElementsParams struct {
@@ -328,9 +328,9 @@ type ListInternalLoadBalancerElementsResponse struct {
 }
 
 type InternalLoadBalancerElement struct {
-	Enabled bool   `json:"enabled,omitempty"`
-	Id      string `json:"id,omitempty"`
-	Nspid   string `json:"nspid,omitempty"`
+	Enabled bool   `json:"enabled"`
+	Id      string `json:"id"`
+	Nspid   string `json:"nspid"`
 }
 
 type StopInternalLoadBalancerVMParams struct {
@@ -413,75 +413,75 @@ func (s *InternalLBService) StopInternalLoadBalancerVM(p *StopInternalLoadBalanc
 }
 
 type StopInternalLoadBalancerVMResponse struct {
-	JobID               string `json:"jobid,omitempty"`
-	Account             string `json:"account,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Dns1                string `json:"dns1,omitempty"`
-	Dns2                string `json:"dns2,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Gateway             string `json:"gateway,omitempty"`
-	Guestipaddress      string `json:"guestipaddress,omitempty"`
-	Guestmacaddress     string `json:"guestmacaddress,omitempty"`
-	Guestnetmask        string `json:"guestnetmask,omitempty"`
-	Guestnetworkid      string `json:"guestnetworkid,omitempty"`
-	Guestnetworkname    string `json:"guestnetworkname,omitempty"`
-	Hostid              string `json:"hostid,omitempty"`
-	Hostname            string `json:"hostname,omitempty"`
-	Hypervisor          string `json:"hypervisor,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Ip6dns1             string `json:"ip6dns1,omitempty"`
-	Ip6dns2             string `json:"ip6dns2,omitempty"`
-	Isredundantrouter   bool   `json:"isredundantrouter,omitempty"`
-	Linklocalip         string `json:"linklocalip,omitempty"`
-	Linklocalmacaddress string `json:"linklocalmacaddress,omitempty"`
-	Linklocalnetmask    string `json:"linklocalnetmask,omitempty"`
-	Linklocalnetworkid  string `json:"linklocalnetworkid,omitempty"`
-	Name                string `json:"name,omitempty"`
-	Networkdomain       string `json:"networkdomain,omitempty"`
+	JobID               string `json:"jobid"`
+	Account             string `json:"account"`
+	Created             string `json:"created"`
+	Dns1                string `json:"dns1"`
+	Dns2                string `json:"dns2"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Gateway             string `json:"gateway"`
+	Guestipaddress      string `json:"guestipaddress"`
+	Guestmacaddress     string `json:"guestmacaddress"`
+	Guestnetmask        string `json:"guestnetmask"`
+	Guestnetworkid      string `json:"guestnetworkid"`
+	Guestnetworkname    string `json:"guestnetworkname"`
+	Hostid              string `json:"hostid"`
+	Hostname            string `json:"hostname"`
+	Hypervisor          string `json:"hypervisor"`
+	Id                  string `json:"id"`
+	Ip6dns1             string `json:"ip6dns1"`
+	Ip6dns2             string `json:"ip6dns2"`
+	Isredundantrouter   bool   `json:"isredundantrouter"`
+	Linklocalip         string `json:"linklocalip"`
+	Linklocalmacaddress string `json:"linklocalmacaddress"`
+	Linklocalnetmask    string `json:"linklocalnetmask"`
+	Linklocalnetworkid  string `json:"linklocalnetworkid"`
+	Name                string `json:"name"`
+	Networkdomain       string `json:"networkdomain"`
 	Nic                 []struct {
-		Broadcasturi string `json:"broadcasturi,omitempty"`
-		Deviceid     string `json:"deviceid,omitempty"`
-		Gateway      string `json:"gateway,omitempty"`
-		Id           string `json:"id,omitempty"`
-		Ip6address   string `json:"ip6address,omitempty"`
-		Ip6cidr      string `json:"ip6cidr,omitempty"`
-		Ip6gateway   string `json:"ip6gateway,omitempty"`
-		Ipaddress    string `json:"ipaddress,omitempty"`
-		Isdefault    bool   `json:"isdefault,omitempty"`
-		Isolationuri string `json:"isolationuri,omitempty"`
-		Macaddress   string `json:"macaddress,omitempty"`
-		Netmask      string `json:"netmask,omitempty"`
-		Networkid    string `json:"networkid,omitempty"`
-		Networkname  string `json:"networkname,omitempty"`
+		Broadcasturi string `json:"broadcasturi"`
+		Deviceid     string `json:"deviceid"`
+		Gateway      string `json:"gateway"`
+		Id           string `json:"id"`
+		Ip6address   string `json:"ip6address"`
+		Ip6cidr      string `json:"ip6cidr"`
+		Ip6gateway   string `json:"ip6gateway"`
+		Ipaddress    string `json:"ipaddress"`
+		Isdefault    bool   `json:"isdefault"`
+		Isolationuri string `json:"isolationuri"`
+		Macaddress   string `json:"macaddress"`
+		Netmask      string `json:"netmask"`
+		Networkid    string `json:"networkid"`
+		Networkname  string `json:"networkname"`
 		Secondaryip  []struct {
-			Id        string `json:"id,omitempty"`
-			Ipaddress string `json:"ipaddress,omitempty"`
-		} `json:"secondaryip,omitempty"`
-		Traffictype      string `json:"traffictype,omitempty"`
-		Type             string `json:"type,omitempty"`
-		Virtualmachineid string `json:"virtualmachineid,omitempty"`
-	} `json:"nic,omitempty"`
-	Podid               string `json:"podid,omitempty"`
-	Project             string `json:"project,omitempty"`
-	Projectid           string `json:"projectid,omitempty"`
-	Publicip            string `json:"publicip,omitempty"`
-	Publicmacaddress    string `json:"publicmacaddress,omitempty"`
-	Publicnetmask       string `json:"publicnetmask,omitempty"`
-	Publicnetworkid     string `json:"publicnetworkid,omitempty"`
-	Redundantstate      string `json:"redundantstate,omitempty"`
-	Requiresupgrade     bool   `json:"requiresupgrade,omitempty"`
-	Role                string `json:"role,omitempty"`
-	Scriptsversion      string `json:"scriptsversion,omitempty"`
-	Serviceofferingid   string `json:"serviceofferingid,omitempty"`
-	Serviceofferingname string `json:"serviceofferingname,omitempty"`
-	State               string `json:"state,omitempty"`
-	Templateid          string `json:"templateid,omitempty"`
-	Version             string `json:"version,omitempty"`
-	Vpcid               string `json:"vpcid,omitempty"`
-	Vpcname             string `json:"vpcname,omitempty"`
-	Zoneid              string `json:"zoneid,omitempty"`
-	Zonename            string `json:"zonename,omitempty"`
+			Id        string `json:"id"`
+			Ipaddress string `json:"ipaddress"`
+		} `json:"secondaryip"`
+		Traffictype      string `json:"traffictype"`
+		Type             string `json:"type"`
+		Virtualmachineid string `json:"virtualmachineid"`
+	} `json:"nic"`
+	Podid               string `json:"podid"`
+	Project             string `json:"project"`
+	Projectid           string `json:"projectid"`
+	Publicip            string `json:"publicip"`
+	Publicmacaddress    string `json:"publicmacaddress"`
+	Publicnetmask       string `json:"publicnetmask"`
+	Publicnetworkid     string `json:"publicnetworkid"`
+	Redundantstate      string `json:"redundantstate"`
+	Requiresupgrade     bool   `json:"requiresupgrade"`
+	Role                string `json:"role"`
+	Scriptsversion      string `json:"scriptsversion"`
+	Serviceofferingid   string `json:"serviceofferingid"`
+	Serviceofferingname string `json:"serviceofferingname"`
+	State               string `json:"state"`
+	Templateid          string `json:"templateid"`
+	Version             string `json:"version"`
+	Vpcid               string `json:"vpcid"`
+	Vpcname             string `json:"vpcname"`
+	Zoneid              string `json:"zoneid"`
+	Zonename            string `json:"zonename"`
 }
 
 type StartInternalLoadBalancerVMParams struct {
@@ -552,75 +552,75 @@ func (s *InternalLBService) StartInternalLoadBalancerVM(p *StartInternalLoadBala
 }
 
 type StartInternalLoadBalancerVMResponse struct {
-	JobID               string `json:"jobid,omitempty"`
-	Account             string `json:"account,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Dns1                string `json:"dns1,omitempty"`
-	Dns2                string `json:"dns2,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Gateway             string `json:"gateway,omitempty"`
-	Guestipaddress      string `json:"guestipaddress,omitempty"`
-	Guestmacaddress     string `json:"guestmacaddress,omitempty"`
-	Guestnetmask        string `json:"guestnetmask,omitempty"`
-	Guestnetworkid      string `json:"guestnetworkid,omitempty"`
-	Guestnetworkname    string `json:"guestnetworkname,omitempty"`
-	Hostid              string `json:"hostid,omitempty"`
-	Hostname            string `json:"hostname,omitempty"`
-	Hypervisor          string `json:"hypervisor,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Ip6dns1             string `json:"ip6dns1,omitempty"`
-	Ip6dns2             string `json:"ip6dns2,omitempty"`
-	Isredundantrouter   bool   `json:"isredundantrouter,omitempty"`
-	Linklocalip         string `json:"linklocalip,omitempty"`
-	Linklocalmacaddress string `json:"linklocalmacaddress,omitempty"`
-	Linklocalnetmask    string `json:"linklocalnetmask,omitempty"`
-	Linklocalnetworkid  string `json:"linklocalnetworkid,omitempty"`
-	Name                string `json:"name,omitempty"`
-	Networkdomain       string `json:"networkdomain,omitempty"`
+	JobID               string `json:"jobid"`
+	Account             string `json:"account"`
+	Created             string `json:"created"`
+	Dns1                string `json:"dns1"`
+	Dns2                string `json:"dns2"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Gateway             string `json:"gateway"`
+	Guestipaddress      string `json:"guestipaddress"`
+	Guestmacaddress     string `json:"guestmacaddress"`
+	Guestnetmask        string `json:"guestnetmask"`
+	Guestnetworkid      string `json:"guestnetworkid"`
+	Guestnetworkname    string `json:"guestnetworkname"`
+	Hostid              string `json:"hostid"`
+	Hostname            string `json:"hostname"`
+	Hypervisor          string `json:"hypervisor"`
+	Id                  string `json:"id"`
+	Ip6dns1             string `json:"ip6dns1"`
+	Ip6dns2             string `json:"ip6dns2"`
+	Isredundantrouter   bool   `json:"isredundantrouter"`
+	Linklocalip         string `json:"linklocalip"`
+	Linklocalmacaddress string `json:"linklocalmacaddress"`
+	Linklocalnetmask    string `json:"linklocalnetmask"`
+	Linklocalnetworkid  string `json:"linklocalnetworkid"`
+	Name                string `json:"name"`
+	Networkdomain       string `json:"networkdomain"`
 	Nic                 []struct {
-		Broadcasturi string `json:"broadcasturi,omitempty"`
-		Deviceid     string `json:"deviceid,omitempty"`
-		Gateway      string `json:"gateway,omitempty"`
-		Id           string `json:"id,omitempty"`
-		Ip6address   string `json:"ip6address,omitempty"`
-		Ip6cidr      string `json:"ip6cidr,omitempty"`
-		Ip6gateway   string `json:"ip6gateway,omitempty"`
-		Ipaddress    string `json:"ipaddress,omitempty"`
-		Isdefault    bool   `json:"isdefault,omitempty"`
-		Isolationuri string `json:"isolationuri,omitempty"`
-		Macaddress   string `json:"macaddress,omitempty"`
-		Netmask      string `json:"netmask,omitempty"`
-		Networkid    string `json:"networkid,omitempty"`
-		Networkname  string `json:"networkname,omitempty"`
+		Broadcasturi string `json:"broadcasturi"`
+		Deviceid     string `json:"deviceid"`
+		Gateway      string `json:"gateway"`
+		Id           string `json:"id"`
+		Ip6address   string `json:"ip6address"`
+		Ip6cidr      string `json:"ip6cidr"`
+		Ip6gateway   string `json:"ip6gateway"`
+		Ipaddress    string `json:"ipaddress"`
+		Isdefault    bool   `json:"isdefault"`
+		Isolationuri string `json:"isolationuri"`
+		Macaddress   string `json:"macaddress"`
+		Netmask      string `json:"netmask"`
+		Networkid    string `json:"networkid"`
+		Networkname  string `json:"networkname"`
 		Secondaryip  []struct {
-			Id        string `json:"id,omitempty"`
-			Ipaddress string `json:"ipaddress,omitempty"`
-		} `json:"secondaryip,omitempty"`
-		Traffictype      string `json:"traffictype,omitempty"`
-		Type             string `json:"type,omitempty"`
-		Virtualmachineid string `json:"virtualmachineid,omitempty"`
-	} `json:"nic,omitempty"`
-	Podid               string `json:"podid,omitempty"`
-	Project             string `json:"project,omitempty"`
-	Projectid           string `json:"projectid,omitempty"`
-	Publicip            string `json:"publicip,omitempty"`
-	Publicmacaddress    string `json:"publicmacaddress,omitempty"`
-	Publicnetmask       string `json:"publicnetmask,omitempty"`
-	Publicnetworkid     string `json:"publicnetworkid,omitempty"`
-	Redundantstate      string `json:"redundantstate,omitempty"`
-	Requiresupgrade     bool   `json:"requiresupgrade,omitempty"`
-	Role                string `json:"role,omitempty"`
-	Scriptsversion      string `json:"scriptsversion,omitempty"`
-	Serviceofferingid   string `json:"serviceofferingid,omitempty"`
-	Serviceofferingname string `json:"serviceofferingname,omitempty"`
-	State               string `json:"state,omitempty"`
-	Templateid          string `json:"templateid,omitempty"`
-	Version             string `json:"version,omitempty"`
-	Vpcid               string `json:"vpcid,omitempty"`
-	Vpcname             string `json:"vpcname,omitempty"`
-	Zoneid              string `json:"zoneid,omitempty"`
-	Zonename            string `json:"zonename,omitempty"`
+			Id        string `json:"id"`
+			Ipaddress string `json:"ipaddress"`
+		} `json:"secondaryip"`
+		Traffictype      string `json:"traffictype"`
+		Type             string `json:"type"`
+		Virtualmachineid string `json:"virtualmachineid"`
+	} `json:"nic"`
+	Podid               string `json:"podid"`
+	Project             string `json:"project"`
+	Projectid           string `json:"projectid"`
+	Publicip            string `json:"publicip"`
+	Publicmacaddress    string `json:"publicmacaddress"`
+	Publicnetmask       string `json:"publicnetmask"`
+	Publicnetworkid     string `json:"publicnetworkid"`
+	Redundantstate      string `json:"redundantstate"`
+	Requiresupgrade     bool   `json:"requiresupgrade"`
+	Role                string `json:"role"`
+	Scriptsversion      string `json:"scriptsversion"`
+	Serviceofferingid   string `json:"serviceofferingid"`
+	Serviceofferingname string `json:"serviceofferingname"`
+	State               string `json:"state"`
+	Templateid          string `json:"templateid"`
+	Version             string `json:"version"`
+	Vpcid               string `json:"vpcid"`
+	Vpcname             string `json:"vpcname"`
+	Zoneid              string `json:"zoneid"`
+	Zonename            string `json:"zonename"`
 }
 
 type ListInternalLoadBalancerVMsParams struct {
@@ -939,72 +939,72 @@ type ListInternalLoadBalancerVMsResponse struct {
 }
 
 type InternalLoadBalancerVM struct {
-	Account             string `json:"account,omitempty"`
-	Created             string `json:"created,omitempty"`
-	Dns1                string `json:"dns1,omitempty"`
-	Dns2                string `json:"dns2,omitempty"`
-	Domain              string `json:"domain,omitempty"`
-	Domainid            string `json:"domainid,omitempty"`
-	Gateway             string `json:"gateway,omitempty"`
-	Guestipaddress      string `json:"guestipaddress,omitempty"`
-	Guestmacaddress     string `json:"guestmacaddress,omitempty"`
-	Guestnetmask        string `json:"guestnetmask,omitempty"`
-	Guestnetworkid      string `json:"guestnetworkid,omitempty"`
-	Guestnetworkname    string `json:"guestnetworkname,omitempty"`
-	Hostid              string `json:"hostid,omitempty"`
-	Hostname            string `json:"hostname,omitempty"`
-	Hypervisor          string `json:"hypervisor,omitempty"`
-	Id                  string `json:"id,omitempty"`
-	Ip6dns1             string `json:"ip6dns1,omitempty"`
-	Ip6dns2             string `json:"ip6dns2,omitempty"`
-	Isredundantrouter   bool   `json:"isredundantrouter,omitempty"`
-	Linklocalip         string `json:"linklocalip,omitempty"`
-	Linklocalmacaddress string `json:"linklocalmacaddress,omitempty"`
-	Linklocalnetmask    string `json:"linklocalnetmask,omitempty"`
-	Linklocalnetworkid  string `json:"linklocalnetworkid,omitempty"`
-	Name                string `json:"name,omitempty"`
-	Networkdomain       string `json:"networkdomain,omitempty"`
+	Account             string `json:"account"`
+	Created             string `json:"created"`
+	Dns1                string `json:"dns1"`
+	Dns2                string `json:"dns2"`
+	Domain              string `json:"domain"`
+	Domainid            string `json:"domainid"`
+	Gateway             string `json:"gateway"`
+	Guestipaddress      string `json:"guestipaddress"`
+	Guestmacaddress     string `json:"guestmacaddress"`
+	Guestnetmask        string `json:"guestnetmask"`
+	Guestnetworkid      string `json:"guestnetworkid"`
+	Guestnetworkname    string `json:"guestnetworkname"`
+	Hostid              string `json:"hostid"`
+	Hostname            string `json:"hostname"`
+	Hypervisor          string `json:"hypervisor"`
+	Id                  string `json:"id"`
+	Ip6dns1             string `json:"ip6dns1"`
+	Ip6dns2             string `json:"ip6dns2"`
+	Isredundantrouter   bool   `json:"isredundantrouter"`
+	Linklocalip         string `json:"linklocalip"`
+	Linklocalmacaddress string `json:"linklocalmacaddress"`
+	Linklocalnetmask    string `json:"linklocalnetmask"`
+	Linklocalnetworkid  string `json:"linklocalnetworkid"`
+	Name                string `json:"name"`
+	Networkdomain       string `json:"networkdomain"`
 	Nic                 []struct {
-		Broadcasturi string `json:"broadcasturi,omitempty"`
-		Deviceid     string `json:"deviceid,omitempty"`
-		Gateway      string `json:"gateway,omitempty"`
-		Id           string `json:"id,omitempty"`
-		Ip6address   string `json:"ip6address,omitempty"`
-		Ip6cidr      string `json:"ip6cidr,omitempty"`
-		Ip6gateway   string `json:"ip6gateway,omitempty"`
-		Ipaddress    string `json:"ipaddress,omitempty"`
-		Isdefault    bool   `json:"isdefault,omitempty"`
-		Isolationuri string `json:"isolationuri,omitempty"`
-		Macaddress   string `json:"macaddress,omitempty"`
-		Netmask      string `json:"netmask,omitempty"`
-		Networkid    string `json:"networkid,omitempty"`
-		Networkname  string `json:"networkname,omitempty"`
+		Broadcasturi string `json:"broadcasturi"`
+		Deviceid     string `json:"deviceid"`
+		Gateway      string `json:"gateway"`
+		Id           string `json:"id"`
+		Ip6address   string `json:"ip6address"`
+		Ip6cidr      string `json:"ip6cidr"`
+		Ip6gateway   string `json:"ip6gateway"`
+		Ipaddress    string `json:"ipaddress"`
+		Isdefault    bool   `json:"isdefault"`
+		Isolationuri string `json:"isolationuri"`
+		Macaddress   string `json:"macaddress"`
+		Netmask      string `json:"netmask"`
+		Networkid    string `json:"networkid"`
+		Networkname  string `json:"networkname"`
 		Secondaryip  []struct {
-			Id        string `json:"id,omitempty"`
-			Ipaddress string `json:"ipaddress,omitempty"`
-		} `json:"secondaryip,omitempty"`
-		Traffictype      string `json:"traffictype,omitempty"`
-		Type             string `json:"type,omitempty"`
-		Virtualmachineid string `json:"virtualmachineid,omitempty"`
-	} `json:"nic,omitempty"`
-	Podid               string `json:"podid,omitempty"`
-	Project             string `json:"project,omitempty"`
-	Projectid           string `json:"projectid,omitempty"`
-	Publicip            string `json:"publicip,omitempty"`
-	Publicmacaddress    string `json:"publicmacaddress,omitempty"`
-	Publicnetmask       string `json:"publicnetmask,omitempty"`
-	Publicnetworkid     string `json:"publicnetworkid,omitempty"`
-	Redundantstate      string `json:"redundantstate,omitempty"`
-	Requiresupgrade     bool   `json:"requiresupgrade,omitempty"`
-	Role                string `json:"role,omitempty"`
-	Scriptsversion      string `json:"scriptsversion,omitempty"`
-	Serviceofferingid   string `json:"serviceofferingid,omitempty"`
-	Serviceofferingname string `json:"serviceofferingname,omitempty"`
-	State               string `json:"state,omitempty"`
-	Templateid          string `json:"templateid,omitempty"`
-	Version             string `json:"version,omitempty"`
-	Vpcid               string `json:"vpcid,omitempty"`
-	Vpcname             string `json:"vpcname,omitempty"`
-	Zoneid              string `json:"zoneid,omitempty"`
-	Zonename            string `json:"zonename,omitempty"`
+			Id        string `json:"id"`
+			Ipaddress string `json:"ipaddress"`
+		} `json:"secondaryip"`
+		Traffictype      string `json:"traffictype"`
+		Type             string `json:"type"`
+		Virtualmachineid string `json:"virtualmachineid"`
+	} `json:"nic"`
+	Podid               string `json:"podid"`
+	Project             string `json:"project"`
+	Projectid           string `json:"projectid"`
+	Publicip            string `json:"publicip"`
+	Publicmacaddress    string `json:"publicmacaddress"`
+	Publicnetmask       string `json:"publicnetmask"`
+	Publicnetworkid     string `json:"publicnetworkid"`
+	Redundantstate      string `json:"redundantstate"`
+	Requiresupgrade     bool   `json:"requiresupgrade"`
+	Role                string `json:"role"`
+	Scriptsversion      string `json:"scriptsversion"`
+	Serviceofferingid   string `json:"serviceofferingid"`
+	Serviceofferingname string `json:"serviceofferingname"`
+	State               string `json:"state"`
+	Templateid          string `json:"templateid"`
+	Version             string `json:"version"`
+	Vpcid               string `json:"vpcid"`
+	Vpcname             string `json:"vpcname"`
+	Zoneid              string `json:"zoneid"`
+	Zonename            string `json:"zonename"`
 }

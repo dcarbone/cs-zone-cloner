@@ -57,5 +57,5 @@ func (s *QuotaService) QuotaIsEnabled(p *QuotaIsEnabledParams) (*QuotaIsEnabledR
 }
 
 type QuotaIsEnabledResponse struct {
-	Isenabled bool `json:"isenabled,omitempty"`
+	Isenabled bool `json:"isenabled"`
 }
