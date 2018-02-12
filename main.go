@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/dcarbone/cs-zone-cloner/command"
 	"github.com/dcarbone/cs-zone-cloner/command/backup"
+	"github.com/dcarbone/cs-zone-cloner/command/restore"
 	"github.com/mitchellh/cli"
 	stdlog "log"
 	"os"
@@ -18,6 +19,9 @@ func main() {
 	c.Commands = map[string]cli.CommandFactory{
 		"backup": func() (cli.Command, error) {
 			return backup.New(os.Args[0], l), nil
+		},
+		"restore": func() (cli.Command, error) {
+			return restore.New(os.Args[0], l), nil
 		},
 	}
 

@@ -50,7 +50,45 @@ func New(self string, log command.Logger) *Command {
 	return c
 }
 
-func (c *Command) Run(args []string) int {
+func (Command) Synopsis() string {
+	return "Back up existing Zone configuration"
+}
+
+func (c Command) Help() string {
+	return fmt.Sprintf(`Usage: %s backup [options]
+
+    Perform a backup of an existing Zone's configuration
+
+Required:
+    -key            API key
+    -secret         API secret
+    -zone-name      Name of Zone to back up.  Mutually exclusive with "zone-id"
+    -zone-id        ID of Zone to back up.  Mutually exclusive with "zone-name"
+
+Optional:
+    -scheme         "http" or "https" (default: %s) 
+    -host           Managment Server hostname with port (default: %s)
+    -path           Managment Server api path (default: %s)
+    -format         Backup format (currently only "json" is supported)
+    -output         File to write backup to (default: echo to stdout)
+    -db-host        Database host to add to output (default: %s)
+    -db-port        Database port to add to output (default: %d)
+    -db-schema      Database schema to add to output
+    -db-user        Database user to add to output
+    -db-password    Database password to add to output
+    -fetch          Comma-separated list of fetchers to execute (default: %s)
+
+`,
+		c.self,
+		definition.DefaultScheme,
+		definition.DefaultHost,
+		definition.DefaultPath,
+		definition.DefaultDBHost,
+		definition.DefaultDBPort,
+		strings.Join(definition.DefaultFetchers(), ","))
+}
+
+func (c Command) Run(args []string) int {
 	var err error
 
 	if err = c.parseFlags(args); err != nil {
@@ -62,7 +100,7 @@ func (c *Command) Run(args []string) int {
 		Key:      c.conf.apiKey,
 		Secret:   c.conf.apiSecret,
 		Scheme:   c.conf.hostScheme,
-		Address:  c.conf.hostAddr,
+		Host:     c.conf.hostAddr,
 		Path:     c.conf.hostPath,
 		ZoneName: c.conf.zoneName,
 		ZoneID:   c.conf.zoneID,
@@ -117,45 +155,7 @@ func (c *Command) Run(args []string) int {
 	return 0
 }
 
-func (c *Command) Synopsis() string {
-	return "Back up existing Zone configuration"
-}
-
-func (c *Command) Help() string {
-	return fmt.Sprintf(`Usage: %s backup [options]
-
-    Perform a backup of an existing Zone's configuration
-
-Required:
-    -key            API key
-    -secret         API secret
-    -zone-name      Name of Zone to back up.  Mutually exclusive with "zone-id"
-    -zone-id        ID of Zone to back up.  Mutually exclusive with "zone-name"
-
-Optional:
-    -scheme         "http" or "https" (default: %s) 
-    -host           Managment Server hostname with port (default: %s)
-    -path           Managment Server api path (default: %s)
-    -format         Backup format (currently only "json" is supported)
-    -output         File to write backup to (default: echo to stdout)
-    -db-host        Database host to add to output (default: %s)
-    -db-port        Database port to add to output (default: %d)
-    -db-schema      Database schema to add to output
-    -db-user        Database user to add to output
-    -db-password    Database password to add to output
-    -fetch          Comma-separated list of fetchers to execute (default: %s)
-
-`,
-		c.self,
-		definition.DefaultScheme,
-		definition.DefaultAddress,
-		definition.DefaultPath,
-		definition.DefaultDBHost,
-		definition.DefaultDBPort,
-		strings.Join(definition.DefaultFetchers(), ","))
-}
-
-func (c *Command) parseFlags(args []string) error {
+func (c Command) parseFlags(args []string) error {
 	var err error
 
 	if c.conf == nil {
@@ -167,7 +167,7 @@ func (c *Command) parseFlags(args []string) error {
 	fs.StringVar(&c.conf.apiKey, "key", "", "API Key")
 	fs.StringVar(&c.conf.apiSecret, "secret", "", "API Secret")
 	fs.StringVar(&c.conf.hostScheme, "scheme", definition.DefaultScheme, "HTTP Scheme to use (http or https)")
-	fs.StringVar(&c.conf.hostAddr, "host", definition.DefaultAddress, "CloudStack Management host addr including port")
+	fs.StringVar(&c.conf.hostAddr, "host", definition.DefaultHost, "CloudStack Management host addr including port")
 	fs.StringVar(&c.conf.hostPath, "path", definition.DefaultPath, "API path")
 	fs.StringVar(&c.conf.zoneID, "zone-id", "", "ID of Zone to clone (mutually exclusive with zone-name)")
 	fs.StringVar(&c.conf.zoneName, "zone-name", "", "Name of Zone to clone (mutually exclusive with zone-id)")

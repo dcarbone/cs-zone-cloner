@@ -7,9 +7,9 @@ import (
 )
 
 const (
-	DefaultScheme  = "http"
-	DefaultAddress = "127.0.0.1:8080"
-	DefaultPath    = "/client/api"
+	DefaultScheme = "http"
+	DefaultHost   = "127.0.0.1:8080"
+	DefaultPath   = "/client/api"
 
 	DefaultDBHost = "localhost"
 	DefaultDBPort = 3306
@@ -80,12 +80,12 @@ type (
 		Key      string `json:"key"`
 		Secret   string `json:"secret"`
 		Scheme   string `json:"scheme"`
-		Address  string `json:"address"`
+		Host     string `json:"host"`
 		Path     string `json:"path"`
 		ZoneID   string `json:"zoneID"`
 		ZoneName string `json:"zoneName"`
 
-		Database *DatabaseConfig
+		Database *DatabaseConfig `json:"database"`
 
 		Fetchers []Fetcher `json:"-"`
 	}
@@ -99,7 +99,7 @@ func FetchDefinition(conf Config, dbConfig *DatabaseConfig) (*ZoneDefinition, er
 	key := conf.Key
 	secret := conf.Secret
 	scheme := conf.Scheme
-	address := conf.Address
+	host := conf.Host
 	path := conf.Path
 	zoneName := conf.ZoneName
 	zoneID := conf.ZoneID
@@ -114,8 +114,8 @@ func FetchDefinition(conf Config, dbConfig *DatabaseConfig) (*ZoneDefinition, er
 	} else if scheme == "" {
 		scheme = DefaultScheme
 	}
-	if address == "" {
-		address = DefaultAddress
+	if host == "" {
+		host = DefaultHost
 	}
 	if path == "" {
 		path = DefaultPath
@@ -124,7 +124,7 @@ func FetchDefinition(conf Config, dbConfig *DatabaseConfig) (*ZoneDefinition, er
 		return nil, errors.New("zone name or id must be populated")
 	}
 
-	client := cloudstack.NewAsyncClient(fmt.Sprintf("%s://%s%s", scheme, address, path), key, secret, false)
+	client := cloudstack.NewAsyncClient(fmt.Sprintf("%s://%s%s", scheme, host, path), key, secret, false)
 	if zoneID == "" {
 		log.Println("Attempting to fetch zone " + zoneName)
 		zone, count, err = client.Zone.GetZoneByName(zoneName)
