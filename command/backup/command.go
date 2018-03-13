@@ -21,6 +21,11 @@ type config struct {
 
 	zoneID   string
 	zoneName string
+	allZones bool
+
+	domainID   string
+	domainName string
+	allDomains bool
 
 	format string
 	output string
@@ -62,21 +67,30 @@ func (c Command) Help() string {
 Required:
     -key            API key
     -secret         API secret
-    -zone-name      Name of Zone to back up.  Mutually exclusive with "zone-id"
-    -zone-id        ID of Zone to back up.  Mutually exclusive with "zone-name"
 
 Optional:
+	-zone-name      Name of specific Zone to back up.  Mutually exclusive with "zone-id" and "all-zones".
+    -zone-id        ID of specific Zone to back up.  Mutually exclusive with "zone-name" and "all-zones"
+	-all-zones		Back up all Zones.  Mutually exclusive with "zone-id" and "zone-name"
+
+	-domain-name	Name of specific Domain to back up. Mutually exclusive with "domain-id" and "all-domains"
+	-domain-id		ID of specific Domain to back up.  Mutually exclusive with "domain-name" and "all-domains"
+	-all-domains	Back up all Domains.  Mutually exclusive with "domain-id" and "domain-name"
+
     -scheme         "http" or "https" (default: %s) 
     -host           Managment Server hostname with port (default: %s)
     -path           Managment Server api path (default: %s)
+
     -format         Backup format (currently only "json" is supported)
     -output         File to write backup to (default: echo to stdout)
-    -db-host        Database host to add to output (default: %s)
+
+	-db-host        Database host to add to output (default: %s)
     -db-port        Database port to add to output (default: %d)
     -db-schema      Database schema to add to output
     -db-user        Database user to add to output
     -db-password    Database password to add to output
-    -fetch          Comma-separated list of fetchers to execute (default: %s)
+    
+	-fetch          Comma-separated list of fetchers to execute (default: %s)
 
 `,
 		c.self,
@@ -166,11 +180,17 @@ func (c Command) parseFlags(args []string) error {
 
 	fs.StringVar(&c.conf.apiKey, "key", "", "API Key")
 	fs.StringVar(&c.conf.apiSecret, "secret", "", "API Secret")
+
+	fs.StringVar(&c.conf.zoneID, "zone-id", "", "ID of specific Zone to clone (mutually exclusive with zone-name)")
+	fs.StringVar(&c.conf.zoneName, "zone-name", "", "Name of Zone to clone (mutually exclusive with zone-id)")
+
+	fs.StringVar(&c.conf.domainID, "domain-id", "", "ID of specific Domain to clone (mutually exclusive with domain-name")
+	fs.StringVar(&c.conf.domainName, "domain-name", "", "Name of specific Domain to clone (mutually exclusive with domain-id")
+
 	fs.StringVar(&c.conf.hostScheme, "scheme", definition.DefaultScheme, "HTTP Scheme to use (http or https)")
 	fs.StringVar(&c.conf.hostAddr, "host", definition.DefaultHost, "CloudStack Management host addr including port")
 	fs.StringVar(&c.conf.hostPath, "path", definition.DefaultPath, "API path")
-	fs.StringVar(&c.conf.zoneID, "zone-id", "", "ID of Zone to clone (mutually exclusive with zone-name)")
-	fs.StringVar(&c.conf.zoneName, "zone-name", "", "Name of Zone to clone (mutually exclusive with zone-id)")
+
 	fs.StringVar(&c.conf.format, "format", "json", "Currently supports JSON")
 	fs.StringVar(&c.conf.output, "output", "", "File to write to")
 
@@ -209,9 +229,12 @@ func (c Command) parseFlags(args []string) error {
 		c.log.Println("[error] path cannot be empty")
 		configOK = false
 	}
-	if c.conf.zoneName == "" && c.conf.zoneID == "" {
-		c.log.Println("[error] zone-id or zone-name must be set")
+	if c.conf.zoneName != "" && c.conf.zoneID != "" {
+		c.log.Println("[error] zone-id and zone-name cannot be set at once")
 		configOK = false
+	}
+	if c.conf.domainName != "" && c.conf.domainID != "" {
+		c.log.Println("[error] domain-id and domain-name cannot be set at once")
 	}
 	c.conf.format = strings.ToLower(c.conf.format)
 	if c.conf.format != "json" {
@@ -253,10 +276,19 @@ func (c Command) parseFlags(args []string) error {
 	c.log.Println("[info]   HostScheme: " + c.conf.hostScheme)
 	c.log.Println("[info]   HostAddr: " + c.conf.hostAddr)
 	c.log.Println("[info]   HostPath: " + c.conf.hostPath)
-	if c.conf.zoneID == "" {
+	if c.conf.zoneID != "" {
+		c.log.Println("[info]   ZoneID: " + c.conf.zoneID)
+	} else if c.conf.zoneName != "" {
 		c.log.Println("[info]   ZoneName: " + c.conf.zoneName)
 	} else {
-		c.log.Println("[info]   ZoneID: " + c.conf.zoneID)
+		c.log.Println("[info] 	All Zones in region")
+	}
+	if c.conf.domainID != "" {
+		c.log.Println("[info] 	DomainID: " + c.conf.domainID)
+	} else if c.conf.domainName != "" {
+		c.log.Println("[info] 	DomainName: " + c.conf.domainName)
+	} else {
+		c.log.Println("[info]  ")
 	}
 	c.log.Println("[info]   Format: " + c.conf.format)
 	if c.conf.output != "" {

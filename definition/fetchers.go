@@ -14,6 +14,7 @@ var (
 
 func init() {
 	defaultFetchers = []Fetcher{
+		new(FetchDomains),
 		new(FetchPods),
 		new(FetchClusters),
 		new(FetchHosts),
@@ -56,6 +57,18 @@ func GetFetcher(name string) (Fetcher, bool) {
 type Fetcher interface {
 	Name() string
 	Fetch(*cloudstack.CloudStackClient, *ZoneDefinition) error
+}
+
+type FetchDomains struct{}
+
+func (*FetchDomains) Name() string {
+	return "domains"
+}
+
+func (*FetchDomains) Fetch(client *cloudstack.CloudStackClient, zd *ZoneDefinition) error {
+	log.Println("Fetching Domains...")
+	params := client.Domain.NewListDomainsParams()
+	params.SetListall(true)
 }
 
 type FetchPods struct{}
